@@ -48,16 +48,27 @@
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <link rel="preconnect" href="https://www.google-analytics.com">
 
-<!-- Google tag (gtag.js) — GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4FW3TN4S1N"></script>
+<!-- Preload the LCP hero image (responsive: mobile crop under 768px, desktop above) -->
+<link rel="preload" as="image"
+      imagesrcset="brand/imagery/road-hero-treated-mobile.webp 1080w, brand/imagery/road-hero-treated.webp 1920w"
+      imagesizes="100vw"
+      href="brand/imagery/road-hero-treated.webp"
+      fetchpriority="high">
+
+<!-- Google tag (gtag.js) — GA4, deferred until after window.load so it doesn't compete with LCP -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-4FW3TN4S1N');
+  window.addEventListener('load', function () {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-4FW3TN4S1N';
+    document.head.appendChild(s);
+  });
 </script>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/thin/style.css" />
 <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
 
 <!-- Structured data: Organization, Founder, Service offerings, WebSite -->
@@ -240,6 +251,16 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  /* Inline SVG icon sprite (replaces Phosphor CSS — 13 icons, ~4KB vs 12KB external stylesheet + blocking request) */
+  .icon {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: -0.125em;
+    fill: currentColor;
+    flex-shrink: 0;
+  }
   html { scroll-behavior: smooth; }
   body {
     font-family: var(--sans);
@@ -395,7 +416,7 @@
     color: var(--accent);
     margin-bottom: 28px;
   }
-  .hero-eyebrow i { font-size: 16px; }
+  .hero-eyebrow .icon { font-size: 16px; }
   .hero h1 {
     font-family: var(--serif);
     font-size: clamp(44px, 6vw, 76px);
@@ -536,7 +557,7 @@
     color: #fff;
   }
   .pp-cta:active { transform: translateY(1px); }
-  .pp-cta i { font-size: 18px; }
+  .pp-cta .icon { font-size: 18px; }
 
   /* ── TIME SHIFT (DONUTS) ── */
   .time-shift { background: var(--paper); }
@@ -702,7 +723,7 @@
     font-size: 24px;
     flex-shrink: 0;
   }
-  .arch-text h4 {
+  .arch-text h3 {
     font-family: var(--serif);
     font-size: 20px;
     font-weight: 400;
@@ -980,13 +1001,13 @@
     color: var(--ink);
   }
   .tier.featured .tier-includes li { color: rgba(250, 249, 247, 0.85); }
-  .tier-includes li i {
+  .tier-includes li .icon {
     color: var(--accent);
     font-size: 16px;
     flex-shrink: 0;
     margin-top: 2px;
   }
-  .tier.featured .tier-includes li i { color: var(--accent-light); }
+  .tier.featured .tier-includes li .icon { color: var(--accent-light); }
   .tier-cta {
     display: block;
     text-align: center;
@@ -1082,11 +1103,11 @@
   }
   .vs-card.us .vs-list li { border-bottom-color: rgba(255, 255, 255, 0.06); }
   .vs-list li:last-child { border-bottom: none; }
-  .vs-list li i { flex-shrink: 0; margin-top: 2px; font-size: 16px; }
+  .vs-list li .icon { flex-shrink: 0; margin-top: 2px; font-size: 16px; }
   .vs-card.them .vs-list li { color: var(--muted); }
-  .vs-card.them .vs-list li i { color: rgba(196, 68, 68, 0.55); }
+  .vs-card.them .vs-list li .icon { color: rgba(196, 68, 68, 0.55); }
   .vs-card.us .vs-list li { color: rgba(250, 249, 247, 0.85); }
-  .vs-card.us .vs-list li i { color: var(--accent-light); }
+  .vs-card.us .vs-list li .icon { color: var(--accent-light); }
 
   /* ── FAQ ── */
   .faq { background: var(--ink); color: var(--paper); padding: 110px 0; }
@@ -1297,6 +1318,25 @@
 </head>
 <body>
 
+<!-- Inline SVG icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="icon-arrow-right" viewBox="0 0 256 256"><path d="M218.83,130.83l-72,72a4,4,0,0,1-5.66-5.66L206.34,132H40a4,4,0,0,1,0-8H206.34L141.17,58.83a4,4,0,0,1,5.66-5.66l72,72A4,4,0,0,1,218.83,130.83Z"/></symbol>
+    <symbol id="icon-arrows-clockwise" viewBox="0 0 256 256"><path d="M220,48V96a4,4,0,0,1-4,4H168a4,4,0,0,1,0-8h38.34L184.89,70.54A84,84,0,0,0,66.8,69.85a4,4,0,1,1-5.6-5.72,92,92,0,0,1,129.34.76L212,86.34V48a4,4,0,0,1,8,0ZM189.2,186.15a83.44,83.44,0,0,1-58.68,23.91h-.47a83.52,83.52,0,0,1-58.94-24.6L49.66,164H88a4,4,0,0,0,0-8H40a4,4,0,0,0-4,4v48a4,4,0,0,0,8,0V169.66l21.46,21.45A91.43,91.43,0,0,0,130,218.06h.51a91.45,91.45,0,0,0,64.28-26.19,4,4,0,1,0-5.6-5.72Z"/></symbol>
+    <symbol id="icon-book-open" viewBox="0 0 256 256"><path d="M232,52H160a36,36,0,0,0-32,19.54A36,36,0,0,0,96,52H24a4,4,0,0,0-4,4V200a4,4,0,0,0,4,4H96a28,28,0,0,1,28,28,4,4,0,0,0,8,0,28,28,0,0,1,28-28h72a4,4,0,0,0,4-4V56A4,4,0,0,0,232,52ZM96,196H28V60H96a28,28,0,0,1,28,28V209.4A35.93,35.93,0,0,0,96,196Zm132,0H160a35.94,35.94,0,0,0-28,13.41V88a28,28,0,0,1,28-28h68Z"/></symbol>
+    <symbol id="icon-brain" viewBox="0 0 256 256"><path d="M244,124a52.1,52.1,0,0,0-32-48V72a44,44,0,0,0-84-18.3A44,44,0,0,0,44,72v4a52,52,0,0,0,0,96v4a44,44,0,0,0,84,18.3A44,44,0,0,0,212,176v-4A52.07,52.07,0,0,0,244,124ZM88,212a36,36,0,0,1-36-36v-1.41A52.13,52.13,0,0,0,64,176h8a4,4,0,0,0,0-8H64A44,44,0,0,1,49.33,82.5,4,4,0,0,0,52,78.73V72a36,36,0,0,1,72,0v78.75A44,44,0,0,0,88,132a4,4,0,0,0,0,8,36,36,0,0,1,0,72Zm104-44h-8a4,4,0,0,0,0,8h8a52.13,52.13,0,0,0,12-1.41V176a36,36,0,1,1-36-36,4,4,0,0,0,0-8,44,44,0,0,0-36,18.75V72a36,36,0,0,1,72,0v6.73a4,4,0,0,0,2.67,3.77A44,44,0,0,1,192,168Zm12-56a4,4,0,0,1-4,4h-4a32,32,0,0,1-32-32V80a4,4,0,0,1,8,0v4a24,24,0,0,0,24,24h4A4,4,0,0,1,204,112ZM92,84a32,32,0,0,1-32,32H56a4,4,0,0,1,0-8h4A24,24,0,0,0,84,84V80a4,4,0,0,1,8,0Z"/></symbol>
+    <symbol id="icon-chat-dots" viewBox="0 0 256 256"><path d="M136,128a8,8,0,1,1-8-8A8,8,0,0,1,136,128Zm-52-8a8,8,0,1,0,8,8A8,8,0,0,0,84,120Zm88,0a8,8,0,1,0,8,8A8,8,0,0,0,172,120Zm56-56V192a12,12,0,0,1-12,12H81.49L47.76,233.13l0,0A11.89,11.89,0,0,1,40,236a12.17,12.17,0,0,1-5.1-1.14A11.89,11.89,0,0,1,28,224V64A12,12,0,0,1,40,52H216A12,12,0,0,1,228,64Zm-8,0a4,4,0,0,0-4-4H40a4,4,0,0,0-4,4V224a4,4,0,0,0,6.56,3.08L77.38,197A4,4,0,0,1,80,196H216a4,4,0,0,0,4-4Z"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 256 256"><path d="M226.83,74.83l-128,128a4,4,0,0,1-5.66,0l-56-56a4,4,0,0,1,5.66-5.66L96,194.34,221.17,69.17a4,4,0,1,1,5.66,5.66Z"/></symbol>
+    <symbol id="icon-flow-arrow" viewBox="0 0 256 256"><path d="M242.83,77.17l-32-32a4,4,0,0,0-5.66,5.66L230.34,76H208c-46.67,0-57.84,26.81-67.69,50.46-9.46,22.69-18.4,44.16-56.55,45.48a36,36,0,1,0,0,8c43.49-1.42,54.33-27.39,63.91-50.39C157.45,106.12,166.67,84,208,84h22.34l-25.17,25.17a4,4,0,0,0,5.66,5.66l32-32A4,4,0,0,0,242.83,77.17ZM48,204a28,28,0,1,1,28-28A28,28,0,0,1,48,204Z"/></symbol>
+    <symbol id="icon-folder" viewBox="0 0 256 256"><path d="M216,76H129.66L101.17,47.52A11.9,11.9,0,0,0,92.69,44H40A12,12,0,0,0,28,56V200.62A11.4,11.4,0,0,0,39.38,212H216.89A11.12,11.12,0,0,0,228,200.89V88A12,12,0,0,0,216,76ZM36,56a4,4,0,0,1,4-4H92.69a4,4,0,0,1,2.82,1.17L118.34,76H36ZM220,200.89a3.12,3.12,0,0,1-3.11,3.11H39.38A3.39,3.39,0,0,1,36,200.62V84H216a4,4,0,0,1,4,4Z"/></symbol>
+    <symbol id="icon-gear-six" viewBox="0 0 256 256"><path d="M128,84a44,44,0,1,0,44,44A44.05,44.05,0,0,0,128,84Zm0,80a36,36,0,1,1,36-36A36,36,0,0,1,128,164Zm106-56a4,4,0,0,0-2-2.7l-30.89-17.6q-.47-.82-1-1.62L200.1,51.2a3.94,3.94,0,0,0-1.42-3,107.8,107.8,0,0,0-35.41-19.94,4,4,0,0,0-3.23.29L129,45.87h-2l-31-17.36a4,4,0,0,0-3.23-.3,108.05,108.05,0,0,0-35.39,20,4,4,0,0,0-1.41,3l-.16,34.9-1,1.62L23.9,105.3A4,4,0,0,0,22,108a102.76,102.76,0,0,0,0,40,4,4,0,0,0,1.95,2.7l30.89,17.6q.47.83,1,1.62l.12,34.87a3.94,3.94,0,0,0,1.42,3,107.8,107.8,0,0,0,35.41,19.94,4,4,0,0,0,3.23-.29L127,210.13h2l31,17.36a4,4,0,0,0,3.23.3,108.05,108.05,0,0,0,35.39-20,4,4,0,0,0,1.41-3l.16-34.9,1-1.62L232.1,150.7a4,4,0,0,0,2-2.71A102.76,102.76,0,0,0,234,108Zm-7.48,36.67L196.3,161.84a4,4,0,0,0-1.51,1.53c-.61,1.09-1.25,2.17-1.91,3.24a3.92,3.92,0,0,0-.61,2.1l-.16,34.15a99.8,99.8,0,0,1-29.7,16.77l-30.4-17a4.06,4.06,0,0,0-2-.51H130c-1.28,0-2.57,0-3.84,0a4.1,4.1,0,0,0-2.05.51l-30.45,17A100.23,100.23,0,0,1,63.89,202.9l-.12-34.12a3.93,3.93,0,0,0-.61-2.11c-.66-1-1.3-2.14-1.91-3.23a4,4,0,0,0-1.51-1.53L29.49,144.68a94.78,94.78,0,0,1,0-33.34L59.7,94.16a4,4,0,0,0,1.51-1.53c.61-1.09,1.25-2.17,1.91-3.23a4,4,0,0,0,.61-2.11l.16-34.15a99.8,99.8,0,0,1,29.7-16.77l30.4,17a4.1,4.1,0,0,0,2.05.51c1.28,0,2.57,0,3.84,0a4,4,0,0,0,2.05-.51l30.45-17A100.23,100.23,0,0,1,192.11,53.1l.12,34.12a3.93,3.93,0,0,0,.61,2.11c.66,1,1.3,2.14,1.91,3.23a4,4,0,0,0,1.51,1.53l30.25,17.23A94.78,94.78,0,0,1,226.54,144.66Z"/></symbol>
+    <symbol id="icon-plus" viewBox="0 0 256 256"><path d="M220,128a4,4,0,0,1-4,4H132v84a4,4,0,0,1-8,0V132H40a4,4,0,0,1,0-8h84V40a4,4,0,0,1,8,0v84h84A4,4,0,0,1,220,128Z"/></symbol>
+    <symbol id="icon-presentation" viewBox="0 0 256 256"><path d="M216,44H132V24a4,4,0,0,0-8,0V44H40A12,12,0,0,0,28,56V176a12,12,0,0,0,12,12H87.68l-26.8,33.5a4,4,0,1,0,6.24,5L97.92,188h60.16l30.8,38.5a4,4,0,0,0,6.24-5L168.32,188H216a12,12,0,0,0,12-12V56A12,12,0,0,0,216,44Zm4,132a4,4,0,0,1-4,4H40a4,4,0,0,1-4-4V56a4,4,0,0,1,4-4H216a4,4,0,0,1,4,4Z"/></symbol>
+    <symbol id="icon-users-three" viewBox="0 0 256 256"><path d="M237,147.44a4,4,0,0,1-5.48-1.4c-8.33-14-20.93-22-34.56-22a4,4,0,0,1-1.2-.2,36.76,36.76,0,0,1-3.8.2,4,4,0,0,1,0-8,28,28,0,1,0-27.12-35,4,4,0,0,1-7.75-2,36,36,0,1,1,54,39.48c10.81,3.85,20.51,12,27.31,23.48A4,4,0,0,1,237,147.44ZM187.46,214a4,4,0,0,1-1.46,5.46,3.93,3.93,0,0,1-2,.54,4,4,0,0,1-3.46-2,61,61,0,0,0-105.08,0,4,4,0,0,1-6.92-4,68.35,68.35,0,0,1,39.19-31,44,44,0,1,1,40.54,0A68.35,68.35,0,0,1,187.46,214ZM128,180a36,36,0,1,0-36-36A36,36,0,0,0,128,180ZM64,116A28,28,0,1,1,91.12,81a4,4,0,0,0,7.75-2A36,36,0,1,0,45.3,118.75,63.55,63.55,0,0,0,12.8,141.6a4,4,0,0,0,6.4,4.8A55.55,55.55,0,0,1,64,124a4,4,0,0,0,0-8Z"/></symbol>
+    <symbol id="icon-x" viewBox="0 0 256 256"><path d="M202.83,197.17a4,4,0,0,1-5.66,5.66L128,133.66,58.83,202.83a4,4,0,0,1-5.66-5.66L122.34,128,53.17,58.83a4,4,0,0,1,5.66-5.66L128,122.34l69.17-69.17a4,4,0,1,1,5.66,5.66L133.66,128Z"/></symbol>
+  </defs>
+</svg>
+
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
@@ -1304,6 +1344,8 @@
     <a href="#book" class="nav-cta">Book a Free Call</a>
   </div>
 </nav>
+
+<main id="main">
 
 <!-- HERO -->
 <section class="hero">
@@ -1316,20 +1358,20 @@
         <div class="hero-cta-row fade-up">
           <a href="#book" class="btn-primary">
             Book a Free Call
-            <i class="ph-thin ph-arrow-right"></i>
+            <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
           </a>
           <a href="#process" class="btn-ghost">
             See how it works
-            <i class="ph-thin ph-arrow-right"></i>
+            <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
           </a>
         </div>
         <p class="hero-note fade-up">30 min · No pitch deck · Real recommendations for your specific situation</p>
       </div>
       <div class="arch-diagram">
         <div class="arch-row fade-up">
-          <div class="arch-icon"><i class="ph-thin ph-brain"></i></div>
+          <div class="arch-icon"><svg class="icon" aria-hidden="true"><use href="#icon-brain"/></svg></div>
           <div class="arch-text">
-            <h4>Senior expertise</h4>
+            <h3>Senior expertise</h3>
             <p>Interview outputs, frameworks, decision logic, voice</p>
           </div>
         </div>
@@ -1337,15 +1379,15 @@
         <div class="arch-row mid fade-up">
           <div class="arch-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 176.38 159.08" width="28" height="25" role="img" aria-label="Storystak AI"><g><path fill="#0f0f0f" d="M176.1,92.6c-28.9-17.29-57.99-32.75-84.88-48.3-1.91-1.08-2.87-1.89-4.65-.87C49.81,64.42,21.24,80.72.85,92.34c-1.28,1.5-.72,4.03-.54,5.9l86.55,48.79c.9.51,2,.51,2.9,0l86.38-49.14c.33-1.81.32-3.57-.04-5.29ZM88.33,137.38c-.18.1-.4.1-.58,0-2.26-1.31-4.53-2.61-6.79-3.92-4.69-2.71-9.39-5.42-14.08-8.13-8.31-4.8-16.68-9.5-24.94-14.4-7.22-4.28-14.58-8.37-21.85-12.57-1.58-.91-3.16-1.82-4.73-2.73-.08-.04-.14-.11-.18-.18-.14-.24-.06-.56.18-.7l72.27-41.72c.16-.09.34-.09.5,0,16.11,9.06,32.33,17.95,48.38,27.13,7.6,4.35,15.15,8.8,22.74,13.18l2.16,1.25c.09.05.16.12.21.21.16.28.07.63-.21.79"/><path fill="#c45d2c" d="M149.99,124.36l-60.6,34.43c-.68.38-1.5.38-2.18,0l-60.58-34.13-8.74-5.16L1.65,110.36c-.72-.4-1.17-1.16-1.18-1.99l-.16-10.14,86.55,48.79c.9.51,2,.51,2.9,0l86.38-49.14c.19,2.61.19,5.22.01,7.84-.08,1.18.31,3.39-1.12,4.21"/><path fill="#0f0f0f" d="M176.06,54.92l-86.38,49.14c-.9.51-2,.51-2.9,0L.24,55.27c-.33-1.73-.32-3.45.02-5.17.06-.31.25-.58.52-.73C21.17,37.75,49.74,21.45,86.5.47c1.78-1.02,2.74-.21,4.65.87,26.93,15.23,55.08,31.14,84.45,47.72.22.12.38.33.43.58.36,1.72.37,3.48.04,5.29ZM42.47,68.36c.16.09.36.09.52,0L115.25,26.64c.24-.14.32-.45.18-.7-.04-.08-.11-.14-.18-.18l-27.2-15.69c-.16-.09-.34-.09-.5,0L15.28,51.78c-.24.14-.32.45-.18.7.04.08.11.14.18.18l27.19,15.7ZM98.12,47.16c-.28.16-.37.52-.21.79.05.09.12.16.21.21l35.18,20.31c.18.1.4.1.58,0l27.45-15.84c.28-.16.37-.52.21-.79-.05-.09-.12-.16-.21-.21l-35.19-20.31c-.18-.1-.4-.1-.58,0l-27.44,15.84ZM88.28,52.95c-.18-.1-.4-.1-.58,0l-35.05,20.24c-.28.16-.37.52-.21.79.05.09.12.16.21.21l35.03,20.22c.18.1.4.1.58,0l35.05-20.23c.28-.16.37-.52.21-.79-.05-.09-.12-.16-.21-.21l-35.03-20.23Z"/><path fill="#c45d2c" d="M149.92,81.39l-60.6,34.43c-.68.38-1.5.38-2.18,0l-60.58-34.13-8.74-5.16L1.58,67.4c-.72-.4-1.17-1.16-1.18-1.99l-.16-10.14,86.55,48.79c.9.51,2,.51,2.9,0l86.38-49.14c.19,2.61.19,5.22.01,7.84-.08,1.18.31,3.39-1.12,4.21-3.55,2.05-8.53,4.83-14.92,8.35"/></g></svg></div>
           <div class="arch-text">
-            <h4>Storystak AI system</h4>
+            <h3>Storystak AI system</h3>
             <p>Custom workspaces, knowledge files, prompts, workflow templates</p>
           </div>
         </div>
         <div class="arch-arrow"></div>
         <div class="arch-row fade-up">
-          <div class="arch-icon"><i class="ph-thin ph-users-three"></i></div>
+          <div class="arch-icon"><svg class="icon" aria-hidden="true"><use href="#icon-users-three"/></svg></div>
           <div class="arch-text">
-            <h4>Whole team</h4>
+            <h3>Whole team</h3>
             <p>Consistent quality at 4x speed, regardless of seniority</p>
           </div>
         </div>
@@ -1381,13 +1423,17 @@
 <!-- POST-PILOT (FULL-BLEED ROAD HERO) -->
 <section class="post-pilot">
   <div class="post-pilot-media">
-    <img
-      src="brand/imagery/road-hero-treated.webp"
-      width="1920"
-      height="1080"
-      decoding="async"
-      fetchpriority="high"
-      alt="Aerial view of a single car on a road through a dense autumn forest, the road continuing past the frame, a metaphor for the operational system that makes AI tools actually deliver.">
+    <picture>
+      <source media="(max-width: 768px)" srcset="brand/imagery/road-hero-treated-mobile.webp" type="image/webp">
+      <source srcset="brand/imagery/road-hero-treated.webp" type="image/webp">
+      <img
+        src="brand/imagery/road-hero-treated.webp"
+        width="1920"
+        height="1080"
+        decoding="async"
+        fetchpriority="high"
+        alt="Aerial view of a single car on a road through a dense autumn forest, the road continuing past the frame, a metaphor for the operational system that makes AI tools actually deliver.">
+    </picture>
     <div class="post-pilot-overlay">
       <div class="container">
         <div class="overlay-inner">
@@ -1396,7 +1442,7 @@
           <p class="pp-body fade-up">74% of companies are stuck in the same place. Tools they bought. Pilots that fizzled. A team that quietly went back to doing it the hard way. The tools weren't the problem. Nobody built a system around them. That's what we build.</p>
           <a href="#book" class="pp-cta fade-up">
             Book a Free Call
-            <i class="ph-thin ph-arrow-right"></i>
+            <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
           </a>
         </div>
       </div>
@@ -1564,32 +1610,32 @@
     </div>
     <div class="deliv-grid">
       <div class="deliv-card fade-up">
-        <div class="deliv-icon"><i class="ph-thin ph-gear-six"></i></div>
+        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-gear-six"/></svg></div>
         <h3>Custom AI workspaces</h3>
         <p>Built with your voice, processes, and decision criteria. Not generic. Infrastructure designed around how your team actually works.</p>
       </div>
       <div class="deliv-card fade-up" style="transition-delay:0.05s">
-        <div class="deliv-icon"><i class="ph-thin ph-folder"></i></div>
+        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-folder"/></svg></div>
         <h3>Knowledge files</h3>
         <p>Your SOPs, brand standards, product details, institutional knowledge. Loaded and ready. The context that turns generic output into yours.</p>
       </div>
       <div class="deliv-card fade-up" style="transition-delay:0.1s">
-        <div class="deliv-icon"><i class="ph-thin ph-chat-dots"></i></div>
+        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-chat-dots"/></svg></div>
         <h3>25&ndash;30 reusable prompts</h3>
         <p>A library organized by function. Pick the right prompt, get consistent output. No prompt engineering. No starting from scratch.</p>
       </div>
       <div class="deliv-card fade-up" style="transition-delay:0.15s">
-        <div class="deliv-icon"><i class="ph-thin ph-flow-arrow"></i></div>
+        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-flow-arrow"/></svg></div>
         <h3>Workflow templates</h3>
         <p>Standardized templates for your highest-volume recurring work. The process is built in. Nobody reinvents it each time.</p>
       </div>
       <div class="deliv-card fade-up" style="transition-delay:0.2s">
-        <div class="deliv-icon"><i class="ph-thin ph-book-open"></i></div>
+        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-book-open"/></svg></div>
         <h3>AI Playbook</h3>
         <p>Your operating manual for every system. How to use it, extend it, and onboard new people into it without waiting for anyone to explain it.</p>
       </div>
       <div class="deliv-card fade-up" style="transition-delay:0.25s">
-        <div class="deliv-icon"><i class="ph-thin ph-presentation"></i></div>
+        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-presentation"/></svg></div>
         <h3>Training &amp; recordings</h3>
         <p>Live sessions plus recorded walkthroughs of every system. New hires onboard themselves. You never re-train from scratch.</p>
       </div>
@@ -1631,10 +1677,10 @@
         <div class="tier-price">$0</div>
         <div class="tier-desc">30 minutes. We map your situation, you see the approach. Real advice on the call. A personalized follow-up arrives after. No pitch until you ask for one.</div>
         <ul class="tier-includes">
-          <li><i class="ph-thin ph-check"></i>30 minutes with Zach</li>
-          <li><i class="ph-thin ph-check"></i>Honest advice on your specific situation</li>
-          <li><i class="ph-thin ph-check"></i>Personalized follow-up with action items</li>
-          <li><i class="ph-thin ph-check"></i>Scoped proposal if it makes sense</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>30 minutes with Zach</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Honest advice on your specific situation</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Personalized follow-up with action items</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Scoped proposal if it makes sense</li>
         </ul>
         <a href="#book" class="tier-cta">Book a Free Call</a>
       </div>
@@ -1644,11 +1690,11 @@
         <div class="tier-price">$7,500</div>
         <div class="tier-desc">One team. Four weeks. A focused system build for your single highest-leverage department.</div>
         <ul class="tier-includes">
-          <li><i class="ph-thin ph-check"></i>AI workflow audit, one department</li>
-          <li><i class="ph-thin ph-check"></i>4&ndash;5 custom AI workspaces</li>
-          <li><i class="ph-thin ph-check"></i>Prompt library for your core workflows</li>
-          <li><i class="ph-thin ph-check"></i>Team training + recorded walkthroughs</li>
-          <li><i class="ph-thin ph-check"></i>30-day optimization pass</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>AI workflow audit, one department</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>4&ndash;5 custom AI workspaces</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Prompt library for your core workflows</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Team training + recorded walkthroughs</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>30-day optimization pass</li>
         </ul>
         <a href="#book" class="tier-cta">Start a Conversation</a>
       </div>
@@ -1658,19 +1704,19 @@
         <div class="tier-price">$20,000</div>
         <div class="tier-desc">Entire company. Six weeks. A complete system that scales across all teams. Cross-department continuity individual builds can't replicate.</div>
         <ul class="tier-includes">
-          <li><i class="ph-thin ph-check"></i>Full audit across all departments</li>
-          <li><i class="ph-thin ph-check"></i>8&ndash;10 workspaces that work together</li>
-          <li><i class="ph-thin ph-check"></i>25&ndash;30 prompt library across functions</li>
-          <li><i class="ph-thin ph-check"></i>Training for the full team</li>
-          <li><i class="ph-thin ph-check"></i>AI Playbook + Before/After Impact Report</li>
-          <li><i class="ph-thin ph-check"></i>Fully deployed in 6 weeks</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Full audit across all departments</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>8&ndash;10 workspaces that work together</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>25&ndash;30 prompt library across functions</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Training for the full team</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>AI Playbook + Before/After Impact Report</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Fully deployed in 6 weeks</li>
         </ul>
         <a href="#book" class="tier-cta">Start a Conversation</a>
       </div>
     </div>
     <div class="retainer fade-up">
       <div class="retainer-left">
-        <div class="retainer-icon"><i class="ph-thin ph-arrows-clockwise"></i></div>
+        <div class="retainer-icon"><svg class="icon" aria-hidden="true"><use href="#icon-arrows-clockwise"/></svg></div>
         <div>
           <div class="retainer-title">Monthly Retainer <em style="font-weight:400;color:var(--muted);font-style:italic">optional</em></div>
           <div class="retainer-desc">Ongoing optimization, new module builds, quarterly system updates. AI moves fast. The retainer keeps your system current.</div>
@@ -1693,23 +1739,23 @@
       <div class="vs-card them fade-up">
         <h3>Typical AI consulting</h3>
         <ul class="vs-list">
-          <li><i class="ph-thin ph-x"></i>Prompt workshops your team forgets</li>
-          <li><i class="ph-thin ph-x"></i>Strategy decks with no implementation</li>
-          <li><i class="ph-thin ph-x"></i>Generic "how to use ChatGPT" training</li>
-          <li><i class="ph-thin ph-x"></i>Custom code that requires engineers to maintain</li>
-          <li><i class="ph-thin ph-x"></i>Vague "productivity gains" promises</li>
-          <li><i class="ph-thin ph-x"></i>Nothing left behind when they leave</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Prompt workshops your team forgets</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Strategy decks with no implementation</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Generic "how to use ChatGPT" training</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Custom code that requires engineers to maintain</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Vague "productivity gains" promises</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Nothing left behind when they leave</li>
         </ul>
       </div>
       <div class="vs-card us fade-up" style="transition-delay:0.1s">
         <h3>Storystak AI</h3>
         <ul class="vs-list">
-          <li><i class="ph-thin ph-check"></i>Working AI systems your team uses daily</li>
-          <li><i class="ph-thin ph-check"></i>Your senior team's expertise encoded into the infrastructure</li>
-          <li><i class="ph-thin ph-check"></i>Prompt libraries tuned to your actual workflows</li>
-          <li><i class="ph-thin ph-check"></i>No engineers. Runs on tools you already use</li>
-          <li><i class="ph-thin ph-check"></i>Specific financial case: $138K&ndash;$414K annual impact</li>
-          <li><i class="ph-thin ph-check"></i>Team is self-sufficient after 6 weeks</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Working AI systems your team uses daily</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Your senior team's expertise encoded into the infrastructure</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Prompt libraries tuned to your actual workflows</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>No engineers. Runs on tools you already use</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Specific financial case: $138K&ndash;$414K annual impact</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Team is self-sufficient after 6 weeks</li>
         </ul>
       </div>
     </div>
@@ -1726,7 +1772,7 @@
       <div class="faq-item">
         <button class="faq-q">
           <span>We've already tried AI. It didn't stick. Why would this be different?</span>
-          <span class="faq-toggle"><i class="ph-thin ph-plus"></i></span>
+          <span class="faq-toggle"><svg class="icon" aria-hidden="true"><use href="#icon-plus"/></svg></span>
         </button>
         <div class="faq-a">
           <p>You're not alone. 74% of companies are stuck in the same place, and 95% of AI pilots fail to deliver ROI. The reason is almost always the same: the tools were fine, but no system was built around how your team actually works. Storystak AI isn't a tool, a training program, or a strategy deck. It's a 6-week build of the operational layer that makes the tools you already have actually get used.</p>
@@ -1736,7 +1782,7 @@
       <div class="faq-item">
         <button class="faq-q">
           <span>What if my team already uses AI tools?</span>
-          <span class="faq-toggle"><i class="ph-thin ph-plus"></i></span>
+          <span class="faq-toggle"><svg class="icon" aria-hidden="true"><use href="#icon-plus"/></svg></span>
         </button>
         <div class="faq-a">
           <p>That's actually ideal. We're not adding software. We're encoding your thinking into prompts and workflows that run on tools your team already knows. The system we build becomes your operating procedure across whatever AI tools you use.</p>
@@ -1746,7 +1792,7 @@
       <div class="faq-item">
         <button class="faq-q">
           <span>How do we get started?</span>
-          <span class="faq-toggle"><i class="ph-thin ph-plus"></i></span>
+          <span class="faq-toggle"><svg class="icon" aria-hidden="true"><use href="#icon-plus"/></svg></span>
         </button>
         <div class="faq-a">
           <p>Book a free call with us. We'll spend 30 minutes understanding how your senior people work, what problems you're trying to solve, and which team would benefit most. Then we'll walk through exactly what the engagement looks like and answer any questions.</p>
@@ -1756,7 +1802,7 @@
       <div class="faq-item">
         <button class="faq-q">
           <span>Is this off-the-shelf software?</span>
-          <span class="faq-toggle"><i class="ph-thin ph-plus"></i></span>
+          <span class="faq-toggle"><svg class="icon" aria-hidden="true"><use href="#icon-plus"/></svg></span>
         </button>
         <div class="faq-a">
           <p>No. Everything is custom-built for your team. We interview your senior people, extract their decision logic and frameworks, and engineer that into your system. Off-the-shelf tools can't do that. The system is yours and lives in Claude or whatever AI platform your team uses.</p>
@@ -1766,7 +1812,7 @@
       <div class="faq-item">
         <button class="faq-q">
           <span>What does the departmental option cover?</span>
-          <span class="faq-toggle"><i class="ph-thin ph-plus"></i></span>
+          <span class="faq-toggle"><svg class="icon" aria-hidden="true"><use href="#icon-plus"/></svg></span>
         </button>
         <div class="faq-a">
           <p>You pick one team: Marketing, Sales, or Operations. We do a full Deep Dive with your senior people on that team, build the complete prompt library and workflows for their role, and run training. You get everything except the cross-departmental integration and optimization layer.</p>
@@ -1776,7 +1822,7 @@
       <div class="faq-item">
         <button class="faq-q">
           <span>Do you work with any industry?</span>
-          <span class="faq-toggle"><i class="ph-thin ph-plus"></i></span>
+          <span class="faq-toggle"><svg class="icon" aria-hidden="true"><use href="#icon-plus"/></svg></span>
         </button>
         <div class="faq-a">
           <p>Yes. The methodology is industry-agnostic. We're extracting and encoding expertise, which works anywhere people do knowledge work.</p>
@@ -1800,13 +1846,15 @@
       <div class="final-ctas fade-up">
         <a href="#book" class="btn-primary">
           Book a Free Call
-          <i class="ph-thin ph-arrow-right"></i>
+          <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
         </a>
       </div>
       <p class="final-sub fade-up">For teams of 10&ndash;100 people &middot; Typically booked within a week</p>
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer>
