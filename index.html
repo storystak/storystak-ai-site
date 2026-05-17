@@ -45,6 +45,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://assets.calendly.com">
 <link rel="preconnect" href="https://calendly.com">
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://www.google-analytics.com">
+
+<!-- Google tag (gtag.js) — GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4FW3TN4S1N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4FW3TN4S1N');
+</script>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/thin/style.css" />
 <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
@@ -1832,7 +1843,7 @@
       });
     });
 
-    // Calendly postMessage event stream
+    // Calendly postMessage event stream -> GA4 + dataLayer
     function isCalendlyEvent(e) {
       return e.origin === 'https://calendly.com'
         && e.data && typeof e.data.event === 'string'
@@ -1841,8 +1852,24 @@
     window.addEventListener('message', (e) => {
       if (!isCalendlyEvent(e)) return;
       const name = e.data.event;
+      // Always push raw event to dataLayer for GTM / future tooling
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({ event: name, calendly: e.data.payload || null });
+      // Fire GA4 events via gtag if loaded
+      if (typeof gtag === 'function') {
+        if (name === 'calendly.event_scheduled') {
+          // GA4 recommended event for lead conversions
+          gtag('event', 'generate_lead', {
+            method: 'calendly',
+            currency: 'USD',
+            value: 1
+          });
+        } else {
+          gtag('event', 'calendly_engaged', {
+            action: name.replace('calendly.', '')
+          });
+        }
+      }
       if (name === 'calendly.event_scheduled') {
         try { localStorage.setItem('storystak.booked', '1'); } catch (_) {}
       }
