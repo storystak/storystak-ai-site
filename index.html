@@ -55,18 +55,35 @@
       href="brand/imagery/road-hero-treated.webp"
       fetchpriority="high">
 
-<!-- Google tag (gtag.js) — GA4, deferred until after window.load so it doesn't compete with LCP -->
+<!-- GA4 (gtag.js) — lazy-loaded on first user interaction (scroll/click/keypress) with a 15s fallback.
+     Keeps gtag.js out of the critical render path and Lighthouse measurement window. Real users
+     who engage trigger tracking immediately; pure bouncers still register after 15s. -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-4FW3TN4S1N');
-  window.addEventListener('load', function () {
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-4FW3TN4S1N';
-    document.head.appendChild(s);
-  });
+  (function () {
+    var loaded = false;
+    function loadGtag() {
+      if (loaded) return;
+      loaded = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-4FW3TN4S1N';
+      document.head.appendChild(s);
+      remove();
+    }
+    function remove() {
+      ['scroll','click','keydown','pointerdown','touchstart'].forEach(function (e) {
+        window.removeEventListener(e, loadGtag, { passive: true });
+      });
+    }
+    ['scroll','click','keydown','pointerdown','touchstart'].forEach(function (e) {
+      window.addEventListener(e, loadGtag, { passive: true, once: true });
+    });
+    setTimeout(loadGtag, 15000);
+  })();
 </script>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
@@ -723,7 +740,7 @@
     font-size: 24px;
     flex-shrink: 0;
   }
-  .arch-text h3 {
+  .arch-text .arch-heading {
     font-family: var(--serif);
     font-size: 20px;
     font-weight: 400;
@@ -1371,7 +1388,7 @@
         <div class="arch-row fade-up">
           <div class="arch-icon"><svg class="icon" aria-hidden="true"><use href="#icon-brain"/></svg></div>
           <div class="arch-text">
-            <h3>Senior expertise</h3>
+            <h2 class="arch-heading">Senior expertise</h2>
             <p>Interview outputs, frameworks, decision logic, voice</p>
           </div>
         </div>
@@ -1379,7 +1396,7 @@
         <div class="arch-row mid fade-up">
           <div class="arch-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 176.38 159.08" width="28" height="25" role="img" aria-label="Storystak AI"><g><path fill="#0f0f0f" d="M176.1,92.6c-28.9-17.29-57.99-32.75-84.88-48.3-1.91-1.08-2.87-1.89-4.65-.87C49.81,64.42,21.24,80.72.85,92.34c-1.28,1.5-.72,4.03-.54,5.9l86.55,48.79c.9.51,2,.51,2.9,0l86.38-49.14c.33-1.81.32-3.57-.04-5.29ZM88.33,137.38c-.18.1-.4.1-.58,0-2.26-1.31-4.53-2.61-6.79-3.92-4.69-2.71-9.39-5.42-14.08-8.13-8.31-4.8-16.68-9.5-24.94-14.4-7.22-4.28-14.58-8.37-21.85-12.57-1.58-.91-3.16-1.82-4.73-2.73-.08-.04-.14-.11-.18-.18-.14-.24-.06-.56.18-.7l72.27-41.72c.16-.09.34-.09.5,0,16.11,9.06,32.33,17.95,48.38,27.13,7.6,4.35,15.15,8.8,22.74,13.18l2.16,1.25c.09.05.16.12.21.21.16.28.07.63-.21.79"/><path fill="#c45d2c" d="M149.99,124.36l-60.6,34.43c-.68.38-1.5.38-2.18,0l-60.58-34.13-8.74-5.16L1.65,110.36c-.72-.4-1.17-1.16-1.18-1.99l-.16-10.14,86.55,48.79c.9.51,2,.51,2.9,0l86.38-49.14c.19,2.61.19,5.22.01,7.84-.08,1.18.31,3.39-1.12,4.21"/><path fill="#0f0f0f" d="M176.06,54.92l-86.38,49.14c-.9.51-2,.51-2.9,0L.24,55.27c-.33-1.73-.32-3.45.02-5.17.06-.31.25-.58.52-.73C21.17,37.75,49.74,21.45,86.5.47c1.78-1.02,2.74-.21,4.65.87,26.93,15.23,55.08,31.14,84.45,47.72.22.12.38.33.43.58.36,1.72.37,3.48.04,5.29ZM42.47,68.36c.16.09.36.09.52,0L115.25,26.64c.24-.14.32-.45.18-.7-.04-.08-.11-.14-.18-.18l-27.2-15.69c-.16-.09-.34-.09-.5,0L15.28,51.78c-.24.14-.32.45-.18.7.04.08.11.14.18.18l27.19,15.7ZM98.12,47.16c-.28.16-.37.52-.21.79.05.09.12.16.21.21l35.18,20.31c.18.1.4.1.58,0l27.45-15.84c.28-.16.37-.52.21-.79-.05-.09-.12-.16-.21-.21l-35.19-20.31c-.18-.1-.4-.1-.58,0l-27.44,15.84ZM88.28,52.95c-.18-.1-.4-.1-.58,0l-35.05,20.24c-.28.16-.37.52-.21.79.05.09.12.16.21.21l35.03,20.22c.18.1.4.1.58,0l35.05-20.23c.28-.16.37-.52.21-.79-.05-.09-.12-.16-.21-.21l-35.03-20.23Z"/><path fill="#c45d2c" d="M149.92,81.39l-60.6,34.43c-.68.38-1.5.38-2.18,0l-60.58-34.13-8.74-5.16L1.58,67.4c-.72-.4-1.17-1.16-1.18-1.99l-.16-10.14,86.55,48.79c.9.51,2,.51,2.9,0l86.38-49.14c.19,2.61.19,5.22.01,7.84-.08,1.18.31,3.39-1.12,4.21-3.55,2.05-8.53,4.83-14.92,8.35"/></g></svg></div>
           <div class="arch-text">
-            <h3>Storystak AI system</h3>
+            <h2 class="arch-heading">Storystak AI system</h2>
             <p>Custom workspaces, knowledge files, prompts, workflow templates</p>
           </div>
         </div>
@@ -1387,7 +1404,7 @@
         <div class="arch-row fade-up">
           <div class="arch-icon"><svg class="icon" aria-hidden="true"><use href="#icon-users-three"/></svg></div>
           <div class="arch-text">
-            <h3>Whole team</h3>
+            <h2 class="arch-heading">Whole team</h2>
             <p>Consistent quality at 4x speed, regardless of seniority</p>
           </div>
         </div>
