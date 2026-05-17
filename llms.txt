@@ -1,0 +1,56 @@
+# Storystak AI
+
+> Storystak AI is a B2B consulting service that builds custom AI systems for companies of 10–100 employees. We encode senior team expertise (frameworks, voice, decision-making) into AI infrastructure so junior team members can produce senior-level output without adding headcount.
+
+## What we do
+
+We build the operational layer that sits between the AI tools a company already has (Claude, ChatGPT, etc.) and the team that uses them. Most companies that have tried AI report that pilots didn't stick or output sounded generic — the issue is almost always missing infrastructure, not missing tools. BCG calls this the 70% (people, processes, organizational readiness); the tools and models are only 30% of the equation.
+
+A typical Storystak engagement runs 6 weeks and produces:
+
+- Custom AI workspaces configured with the client's voice, processes, and decision criteria
+- Knowledge files containing SOPs, brand standards, product details, and institutional knowledge
+- A reusable prompt library (25–30 prompts) organized by function
+- Workflow templates for high-volume recurring work
+- An AI Playbook documenting how to use, extend, and onboard people into the system
+- Live training sessions plus recorded walkthroughs for future hires
+
+## Outcomes clients see
+
+- 9 hours reclaimed per person per week (BCG research on AI super-users vs. laggards)
+- 51 working days per person per year previously lost to technology friction
+- 4x team output without adding headcount
+- $138K–$414K in annual value recovered from a single engagement (typical range for a 10-person team)
+- 7–14x return on a single engagement in year one
+
+## Pricing
+
+- **Free Discovery Call** — $0, 30 minutes with the founder, honest advice on the client's specific situation
+- **Departmental Engagement** — $7,500, one team (Marketing, Sales, or Operations), 4 weeks, complete system for that department
+- **Full Engagement** — $20,000, all departments, 6 weeks, cross-departmental integration
+- **Monthly Retainer (optional)** — $1,500/month, ongoing optimization and new module builds
+
+## How we differ from typical AI consulting
+
+We build working systems, not workshops or strategy decks. The day we leave, the team is already using the systems we installed. Specifically:
+
+- We are operators, not advisors
+- We ship working infrastructure, not slide decks
+- We do not sell software or build custom code requiring engineers to maintain
+- We install systems on tools the team already uses (Claude Team, ChatGPT, etc.)
+- We are not a generalist AI agency; we specialize in encoding expertise
+
+## Founder
+
+Zach Worley, Founder of Storystak AI. 16 years in marketing and creative systems before AI existed.
+
+## How to engage
+
+Free 30-minute discovery call: https://calendly.com/zach-storystak/30min
+
+No pitch deck. No generic report. Real recommendations for the specific situation, whether they move forward with us or not.
+
+## Site
+
+- Home: https://storystak.ai
+- GitHub: https://github.com/storystak/storystak-ai-site

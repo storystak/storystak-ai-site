@@ -1,10 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Storystak AI: Your whole team, thinking like your best person</title>
 <meta name="description" content="We encode your senior team's frameworks, voice, and decision-making into custom AI systems. Junior team produces senior-level output. 4x your capacity without hiring. 6-week build.">
+<link rel="canonical" href="https://storystak.ai/">
+
+<!-- Robots: explicit index/follow, allow large image preview in AI Overviews + rich results -->
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="Zach Worley">
+
+<!-- Theme + app names -->
+<meta name="theme-color" content="#c45d2c">
+<meta name="color-scheme" content="light">
+<meta name="application-name" content="Storystak AI">
+<meta name="apple-mobile-web-app-title" content="Storystak AI">
+
+<!-- Favicon (SVG works on all modern browsers; Safari 16+, Chrome, Firefox, Edge) -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<!-- Open Graph (Facebook, LinkedIn, Slack, Discord, iMessage) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Storystak AI">
+<meta property="og:url" content="https://storystak.ai/">
+<meta property="og:title" content="Storystak AI: Your whole team, thinking like your best person">
+<meta property="og:description" content="We encode your senior team's frameworks, voice, and decision-making into custom AI systems. Junior team produces senior-level output. 4x your capacity without hiring. 6-week build.">
+<meta property="og:image" content="https://storystak.ai/og-image.jpg">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
+<meta property="og:image:alt" content="Aerial view of a single car on a road through a dense autumn forest, the road continuing past the frame.">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://storystak.ai/">
+<meta name="twitter:title" content="Storystak AI: Your whole team, thinking like your best person">
+<meta name="twitter:description" content="We encode your senior team's frameworks, voice, and decision-making into custom AI systems. Junior team produces senior-level output. 4x your capacity without hiring. 6-week build.">
+<meta name="twitter:image" content="https://storystak.ai/og-image.jpg">
+<meta name="twitter:image:alt" content="Aerial view of a single car on a road through a dense autumn forest.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,6 +48,167 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/thin/style.css" />
 <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
+
+<!-- Structured data: Organization, Founder, Service offerings, WebSite -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://storystak.ai/#org",
+      "name": "Storystak AI",
+      "url": "https://storystak.ai/",
+      "logo": "https://storystak.ai/favicon.svg",
+      "image": "https://storystak.ai/og-image.jpg",
+      "description": "Storystak AI builds custom AI systems for B2B teams of 10–100 people. We encode senior team expertise into AI infrastructure so junior team members produce senior-level output without adding headcount.",
+      "founder": { "@id": "https://storystak.ai/#zach" },
+      "areaServed": "Worldwide",
+      "knowsAbout": [
+        "AI implementation for SMB",
+        "Custom AI systems",
+        "Prompt library engineering",
+        "AI workflow automation",
+        "AI for marketing teams",
+        "AI for sales teams",
+        "AI for operations teams",
+        "Encoding institutional knowledge into AI"
+      ],
+      "sameAs": ["https://github.com/storystak/storystak-ai-site"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://storystak.ai/#zach",
+      "name": "Zach Worley",
+      "jobTitle": "Founder",
+      "worksFor": { "@id": "https://storystak.ai/#org" },
+      "description": "Founder of Storystak AI. 16 years building marketing and creative systems before AI existed."
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://storystak.ai/#service",
+      "name": "Storystak AI Consulting",
+      "url": "https://storystak.ai/",
+      "image": "https://storystak.ai/og-image.jpg",
+      "description": "Six-week engagement that installs custom AI infrastructure built around how a specific team works. Includes AI workspaces, knowledge files, a 25–30 prompt library, workflow templates, an AI Playbook, and team training.",
+      "provider": { "@id": "https://storystak.ai/#org" },
+      "areaServed": "Worldwide",
+      "priceRange": "$0–$20,000",
+      "serviceType": "AI implementation consulting",
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "B2B teams of 10–100 people"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Engagements",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Free Discovery Call",
+            "description": "30 minutes with the founder. Honest advice on the specific situation. Personalized follow-up with action items. Scoped proposal if it makes sense.",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Departmental Engagement",
+            "description": "One team. Four weeks. Focused system build for a single highest-leverage department (Marketing, Sales, or Operations). Includes AI workflow audit, 4–5 custom AI workspaces, prompt library, team training, and 30-day optimization pass.",
+            "price": "7500",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Full Engagement",
+            "description": "Entire company. Six weeks. Complete system that scales across all teams with cross-departmental continuity. Includes full audit, 8–10 workspaces, 25–30 prompt library, training for the full team, AI Playbook, and Before/After Impact Report.",
+            "price": "20000",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Monthly Retainer",
+            "description": "Optional. Ongoing optimization, new module builds, quarterly system updates.",
+            "price": "1500",
+            "priceCurrency": "USD",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "1500",
+              "priceCurrency": "USD",
+              "unitText": "MONTH"
+            },
+            "availability": "https://schema.org/InStock"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://storystak.ai/#website",
+      "url": "https://storystak.ai/",
+      "name": "Storystak AI",
+      "publisher": { "@id": "https://storystak.ai/#org" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://storystak.ai/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "We've already tried AI. It didn't stick. Why would this be different?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You're not alone. 74% of companies are stuck in the same place, and 95% of AI pilots fail to deliver ROI. The reason is almost always the same: the tools were fine, but no system was built around how your team actually works. Storystak AI isn't a tool, a training program, or a strategy deck. It's a 6-week build of the operational layer that makes the tools you already have actually get used."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if my team already uses AI tools?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "That's actually ideal. We're not adding software. We're encoding your thinking into prompts and workflows that run on tools your team already knows. The system we build becomes your operating procedure across whatever AI tools you use."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do we get started?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Book a free call with us. We'll spend 30 minutes understanding how your senior people work, what problems you're trying to solve, and which team would benefit most. Then we'll walk through exactly what the engagement looks like and answer any questions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this off-the-shelf software?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Everything is custom-built for your team. We interview your senior people, extract their decision logic and frameworks, and engineer that into your system. Off-the-shelf tools can't do that. The system is yours and lives in Claude or whatever AI platform your team uses."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does the departmental option cover?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You pick one team: Marketing, Sales, or Operations. We do a full Deep Dive with your senior people on that team, build the complete prompt library and workflows for their role, and run training. You get everything except the cross-departmental integration and optimization layer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work with any industry?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The methodology is industry-agnostic. We're extracting and encoding expertise, which works anywhere people do knowledge work."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 <style>
   :root {
