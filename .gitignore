@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node (in case we add anything later)
+node_modules/
+npm-debug.log*
+.env
+.env.local
+
+# Logs
+*.log
