@@ -43,8 +43,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://assets.calendly.com">
-<link rel="preconnect" href="https://calendly.com">
+<link rel="preconnect" href="https://app.cal.com">
+<link rel="preconnect" href="https://cal.com">
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <link rel="preconnect" href="https://www.google-analytics.com">
 
@@ -86,7 +86,6 @@
   })();
 </script>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
 
 <!-- Structured data: Organization, Founder, Service offerings, WebSite -->
 <script type="application/ld+json">
@@ -1262,15 +1261,6 @@
   }
   .footer-mark svg { height: 100%; width: auto; display: block; margin: 0 auto; }
 
-  /* ── CALENDLY POPUP CHROME OVERRIDE ── */
-  .calendly-overlay .calendly-popup {
-    background: transparent !important;
-    box-shadow: none !important;
-  }
-  .calendly-overlay .calendly-popup-content {
-    background: transparent !important;
-  }
-
   /* ── ANIMATIONS ── */
   .fade-up {
     opacity: 0;
@@ -1881,81 +1871,90 @@
   </div>
 </footer>
 
-<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <script>
-  // Calendly popup on any anchor pointing at #book.
-  // Falls through to the #book scroll fallback if Calendly is blocked or hasn't loaded.
-  // Passes page-level UTMs through so attribution flows into the booking record.
-  // Listens for calendly.* postMessage events and pushes them to dataLayer (GA4/GTM friendly).
+  // Cal.com modal embed on any anchor pointing at #book.
+  // embed.js is lazy-loaded on first hover/click/keypress, keeping it out of
+  // the critical render path. Falls through to the #book scroll fallback if
+  // Cal.com is blocked or hasn't loaded.
+  // UTMs are passed via query params on the calLink. The bookingSuccessful
+  // event fires a GA4 generate_lead conversion and pushes to dataLayer.
   (function () {
-    const CALENDLY_URL = 'https://calendly.com/zach-storystak/30min';
-    const PAGE_SETTINGS = {
-      backgroundColor: 'fcf7f5',          // Snow
-      textColor: '210f07',                // Coffee Bean
-      primaryColor: 'c45d2c',             // Bronze Spice
-      hideLandingPageDetails: true,
-      hideGdprBanner: true,
+    const CAL_LINK = 'storystak/30min';
+    const CONFIG = {
+      theme: 'light',
+      hideEventTypeDetails: true,
+      layout: 'month_view',
+      styles: { branding: { brandColor: '#c45d2c' } },
     };
 
-    function getUtm() {
+    function getUtmQuery() {
       const p = new URLSearchParams(window.location.search);
-      const map = {
-        utm_source: 'utmSource',
-        utm_medium: 'utmMedium',
-        utm_campaign: 'utmCampaign',
-        utm_content: 'utmContent',
-        utm_term: 'utmTerm',
-      };
-      const utm = {};
-      for (const src in map) {
-        const v = p.get(src);
-        if (v) utm[map[src]] = v;
-      }
-      return utm;
+      const keys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+      const out = new URLSearchParams();
+      keys.forEach(k => { if (p.has(k)) out.set(k, p.get(k)); });
+      return out.toString();
+    }
+
+    function calLinkWithUtm() {
+      const utm = getUtmQuery();
+      return utm ? CAL_LINK + '?' + utm : CAL_LINK;
+    }
+
+    let calLoaded = false;
+    function ensureCal() {
+      if (calLoaded) return;
+      calLoaded = true;
+      // Cal.com canonical embed snippet — installs window.Cal queue + loads embed.js once
+      (function (C, A, L) {
+        let p = function (a, ar) { a.q.push(ar); };
+        let d = C.document;
+        C.Cal = C.Cal || function () {
+          let cal = C.Cal; let ar = arguments;
+          if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement('script')).src = A; cal.loaded = true; }
+          if (ar[0] === L) {
+            const api = function () { p(api, arguments); };
+            const namespace = ar[1]; api.q = api.q || [];
+            if (typeof namespace === 'string') { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ['initNamespace', namespace]); }
+            else p(cal, ar);
+            return;
+          }
+          p(cal, ar);
+        };
+      })(window, 'https://app.cal.com/embed/embed.js', 'init');
+
+      Cal('init', { origin: 'https://cal.com' });
+      Cal('ui', CONFIG);
+
+      // Booking conversion -> GA4 + dataLayer
+      Cal('on', {
+        action: 'bookingSuccessful',
+        callback: function (e) {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: 'cal.bookingSuccessful', cal: e.detail || null });
+          if (typeof gtag === 'function') {
+            gtag('event', 'generate_lead', { method: 'cal.com', currency: 'USD', value: 1 });
+          }
+          try { localStorage.setItem('storystak.booked', '1'); } catch (_) {}
+        }
+      });
+      // Lighter engagement signal
+      Cal('on', {
+        action: 'eventTypeViewed',
+        callback: function () {
+          if (typeof gtag === 'function') gtag('event', 'cal_engaged', { action: 'event_type_viewed' });
+        }
+      });
     }
 
     document.querySelectorAll('a[href="#book"]').forEach(a => {
-      a.addEventListener('click', (e) => {
-        if (typeof Calendly === 'undefined') return;
+      a.addEventListener('pointerenter', ensureCal, { once: true, passive: true });
+      a.addEventListener('focus', ensureCal, { once: true });
+      a.addEventListener('click', function (e) {
+        ensureCal();
+        if (typeof Cal !== 'function') return; // fall through to native scroll
         e.preventDefault();
-        Calendly.initPopupWidget({
-          url: CALENDLY_URL,
-          pageSettings: PAGE_SETTINGS,
-          utm: getUtm(),
-        });
+        Cal('modal', { calLink: calLinkWithUtm(), config: CONFIG });
       });
-    });
-
-    // Calendly postMessage event stream -> GA4 + dataLayer
-    function isCalendlyEvent(e) {
-      return e.origin === 'https://calendly.com'
-        && e.data && typeof e.data.event === 'string'
-        && e.data.event.indexOf('calendly.') === 0;
-    }
-    window.addEventListener('message', (e) => {
-      if (!isCalendlyEvent(e)) return;
-      const name = e.data.event;
-      // Always push raw event to dataLayer for GTM / future tooling
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ event: name, calendly: e.data.payload || null });
-      // Fire GA4 events via gtag if loaded
-      if (typeof gtag === 'function') {
-        if (name === 'calendly.event_scheduled') {
-          // GA4 recommended event for lead conversions
-          gtag('event', 'generate_lead', {
-            method: 'calendly',
-            currency: 'USD',
-            value: 1
-          });
-        } else {
-          gtag('event', 'calendly_engaged', {
-            action: name.replace('calendly.', '')
-          });
-        }
-      }
-      if (name === 'calendly.event_scheduled') {
-        try { localStorage.setItem('storystak.booked', '1'); } catch (_) {}
-      }
     });
   })();
 
