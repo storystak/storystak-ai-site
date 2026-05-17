@@ -1288,18 +1288,31 @@
     .hero { padding: 120px 0 64px; }
     .container { padding: 0 20px; }
     .nav-inner { padding: 0 20px; }
-    .post-pilot { padding: 0; }
+    .post-pilot {
+      padding: 0;
+      /* Pull up over the stats-bar's 48px bottom padding so the image
+         fills that space instead of leaving a dark ink band above it. */
+      margin-top: -48px;
+      position: relative;
+      z-index: 1;
+    }
     .post-pilot-media img {
       height: auto;
-      aspect-ratio: 4 / 5;
-      object-position: center 60%;
+      /* Box is square so cover crops out the ~134px black bars baked into
+         the top and bottom of road-hero-treated-mobile.webp. */
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: center;
     }
     .post-pilot-overlay {
       position: static;
       transform: none;
-      padding: 36px 0 56px;
+      /* No top padding: image bottom edge meets the eyebrow text directly,
+         eliminating the coffee-bean band below the image. */
+      padding: 0 0 56px;
       background: var(--coffee-bean);
     }
+    .pp-eyebrow { padding-top: 24px; }
     .pp-eyebrow { margin-bottom: 18px; }
     .pp-head { margin-bottom: 22px; }
     .pp-body { margin-bottom: 24px; }
@@ -1420,7 +1433,7 @@
         <div class="lbl">Team output without adding headcount</div>
       </div>
       <div class="stat fade-up" style="transition-delay:0.24s">
-        <div class="num">$138K&ndash;$414K</div>
+        <div class="num">$138K+</div>
         <div class="lbl">Annual value recovered from a $20K engagement</div>
       </div>
     </div>
