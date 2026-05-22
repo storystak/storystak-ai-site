@@ -1889,8 +1889,8 @@
   // embed.js is lazy-loaded on first hover/click/keypress, keeping it out of
   // the critical render path. Falls through to the #book scroll fallback if
   // Cal.com is blocked or hasn't loaded.
-  // UTMs are passed via query params on the calLink. The bookingSuccessful
-  // event fires a GA4 generate_lead conversion and pushes to dataLayer.
+  // UTMs are passed via query params on the calLink. cal_engaged fires on CTA
+  // click; bookingSuccessful fires a GA4 cal_booking conversion and pushes to dataLayer.
   (function () {
     const CAL_LINK = 'storystak/30min';
     const CONFIG = {
@@ -1945,16 +1945,9 @@
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({ event: 'cal.bookingSuccessful', cal: e.detail || null });
           if (typeof gtag === 'function') {
-            gtag('event', 'generate_lead', { method: 'cal.com', currency: 'USD', value: 1 });
+            gtag('event', 'cal_booking', { method: 'cal.com', currency: 'USD', value: 1 });
           }
           try { localStorage.setItem('storystak.booked', '1'); } catch (_) {}
-        }
-      });
-      // Lighter engagement signal
-      Cal('on', {
-        action: 'eventTypeViewed',
-        callback: function () {
-          if (typeof gtag === 'function') gtag('event', 'cal_engaged', { action: 'event_type_viewed' });
         }
       });
     }
@@ -1966,6 +1959,9 @@
         ensureCal();
         if (typeof Cal !== 'function') return; // fall through to native scroll
         e.preventDefault();
+        // Fire engagement signal on click — one cal_engaged per CTA click,
+        // independent of the async embed load (eventTypeViewed could race).
+        if (typeof gtag === 'function') gtag('event', 'cal_engaged', { method: 'cal.com' });
         Cal('modal', { calLink: calLinkWithUtm(), config: CONFIG });
       });
     });
