@@ -982,18 +982,22 @@
   }
   .trust-item .icon { color: var(--accent); font-size: 18px; }
 
-  /* compact detail blocks (4 columns x 2 rows) */
+  /* compact detail blocks: 4 on top, 3 on bottom, both rows centered */
   .vault-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 14px;
   }
   .vault-block {
+    flex: 0 1 calc(25% - 11px);
     padding: 18px 20px;
     border: 1px solid var(--border);
     border-radius: 10px;
-    background: #fff;
+    background: var(--snow);
+    transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
   }
+  .vault-block:hover { border-color: var(--accent); transform: translateY(-2px); }
   .vault-block h4 {
     font-family: var(--sans);
     font-size: 14px;
@@ -1410,11 +1414,11 @@
     .hero-grid .arch-diagram { max-width: 560px; margin: 0 auto; }
     .vault-feature { grid-template-columns: 1fr; gap: 44px; }
     .vault-stack { max-width: 460px; }
-    .vault-grid { grid-template-columns: 1fr 1fr; }
+    .vault-block { flex-basis: calc(50% - 7px); }
   }
   @media (max-width: 768px) {
     section { padding: 72px 0; }
-    .vault-grid { grid-template-columns: 1fr 1fr; }
+    .vault-block { flex-basis: calc(50% - 7px); }
     .hero { padding: 120px 0 64px; }
     .container { padding: 0 20px; }
     .nav-inner { padding: 0 20px; }
