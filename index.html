@@ -962,7 +962,7 @@
   .trust-strip {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: center;
+    justify-content: safe center;
     gap: 0 22px;
     padding: 18px 24px;
     border: 1px solid var(--border);
@@ -1839,12 +1839,12 @@
 
     <div class="vault-trust">
       <div class="trust-strip fade-up">
+        <span class="trust-item"><svg class="icon" aria-hidden="true"><use href="#icon-lock-key"/></svg>TLS 1.3 encrypted</span>
+        <span class="trust-item"><svg class="icon" aria-hidden="true"><use href="#icon-shield-check"/></svg>SOC 2 Type II hosting</span>
         <span class="trust-item"><svg class="icon" aria-hidden="true"><use href="#icon-lock-simple"/></svg>Private</span>
         <span class="trust-item"><svg class="icon" aria-hidden="true"><use href="#icon-eye"/></svg>Read-only</span>
         <span class="trust-item"><svg class="icon" aria-hidden="true"><use href="#icon-seal-check"/></svg>Human-approved</span>
         <span class="trust-item"><svg class="icon" aria-hidden="true"><use href="#icon-clock-counter-clockwise"/></svg>Audited</span>
-        <span class="trust-item"><svg class="icon" aria-hidden="true"><use href="#icon-lock-key"/></svg>TLS 1.3 encrypted</span>
-        <span class="trust-item"><svg class="icon" aria-hidden="true"><use href="#icon-shield-check"/></svg>SOC 2 Type II hosting</span>
       </div>
       <div class="vault-grid fade-up">
         <div class="vault-block">
