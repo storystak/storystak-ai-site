@@ -207,7 +207,7 @@
           "name": "What if my team already uses AI tools?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "That's actually ideal. We're not adding software. We're encoding your thinking into prompts and workflows that run on tools your team already knows. The system we build becomes your operating procedure across whatever AI tools you use."
+            "text": "That's actually ideal. There's nothing new for your team to learn. We build and run the infrastructure behind the scenes — your Vault, prompts, and workflows — and it all reads into the AI tools your team already knows. The system we build becomes your operating procedure across whatever AI tools you use."
           }
         },
         {
@@ -884,13 +884,142 @@
     line-height: 1.6;
   }
 
+  /* ── THE VAULT ── */
+  .vault { background: #faf9f7; }
+  .vault-head {
+    max-width: 800px;
+    margin: 0 auto 64px;
+    text-align: center;
+  }
+  .vault-head h2 { margin-left: auto; margin-right: auto; }
+  .vault-head .section-sub { margin: 0 auto; }
+
+  .vault-feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    margin-bottom: 72px;
+  }
+  .vault-kicker {
+    font-family: var(--serif);
+    font-size: clamp(26px, 3vw, 34px);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .vault-kicker em { font-style: italic; color: var(--accent); }
+  .vault-feature-copy p {
+    font-family: var(--sans);
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 500px;
+  }
+
+  /* layered stack visual: three planes (Storage / Access / Governance) */
+  .vault-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  .vault-plane {
+    position: relative;
+    padding: 20px 26px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 12px 26px -20px rgba(33, 15, 7, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .vault-plane.mid {
+    background: linear-gradient(135deg, #fff8f5 0%, #fffbf9 100%);
+    border-color: rgba(196, 93, 44, 0.22);
+  }
+  .vault-plane-label {
+    font-family: var(--serif);
+    font-size: 21px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  .vault-plane-note { font-size: 13px; color: var(--muted); text-align: right; }
+  .vault-stack-link {
+    width: 1px;
+    height: 16px;
+    background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+    margin: 0 auto;
+  }
+
+  /* trust layer — full container width to align with the feature row above */
+  .vault-trust { margin: 0 auto; }
+  .trust-strip {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: safe center;
+    gap: 0 22px;
+    padding: 18px 24px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #fff;
+    margin-bottom: 28px;
+    overflow-x: auto;
+  }
+  .trust-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--coffee-bean);
+    white-space: nowrap;
+  }
+  .trust-item .icon { color: var(--accent); font-size: 18px; }
+
+  /* compact detail blocks: 4 on top, 3 on bottom, both rows centered */
+  .vault-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+  }
+  .vault-block {
+    flex: 0 1 calc(25% - 11px);
+    padding: 18px 20px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #fff;
+    transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
+  }
+  .vault-block:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .vault-block h4 {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--coffee-bean);
+    line-height: 1.35;
+    margin-bottom: 7px;
+  }
+  .vault-block p {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
   /* ── FOUNDER STORY ── */
-  .founder { background: var(--paper); padding: 120px 0; }
+  .founder { background: var(--coffee-bean); color: var(--paper); padding: 120px 0; }
   .founder-inner {
     margin: 0 auto;
     text-align: center;
   }
-  .founder .section-label { color: var(--muted); margin-bottom: 24px; }
+  .founder .section-label { color: var(--accent); margin-bottom: 24px; }
   .founder h2 {
     font-family: var(--serif);
     font-size: clamp(32px, 4vw, 48px);
@@ -898,13 +1027,13 @@
     font-weight: 400;
     letter-spacing: -0.025em;
     margin-bottom: 40px;
-    color: var(--coffee-bean);
+    color: var(--paper);
   }
   .founder-body { text-align: left; max-width: 640px; margin: 0 auto; }
   .founder-body p {
     font-size: 17px;
     line-height: 1.7;
-    color: var(--coffee-bean);
+    color: rgba(250, 249, 247, 0.8);
     margin-bottom: 22px;
   }
   .founder-sig {
@@ -916,7 +1045,7 @@
   }
   .signature {
     display: inline-block;
-    color: var(--coffee-bean);
+    color: var(--paper);
     width: 200px;
     line-height: 0;
   }
@@ -928,7 +1057,7 @@
   }
   .founder-title {
     font-size: 14px;
-    color: var(--muted);
+    color: rgba(250, 249, 247, 0.55);
     letter-spacing: 0.01em;
     margin-top: -32px;
   }
@@ -1220,7 +1349,7 @@
   }
   .final-cta h2 em { font-style: italic; color: var(--accent); }
   .final-cta p {
-    font-size: 18px;
+    font-size: 16px;
     color: var(--muted);
     margin-bottom: 40px;
     max-width: 560px;
@@ -1238,10 +1367,9 @@
   .final-cta .btn-primary { font-size: 17px; padding: 18px 36px; }
   .final-sub {
     margin-top: 22px;
-    font-size: 11px;
+    font-size: 13px;
     color: var(--muted);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    letter-spacing: 0.01em;
   }
 
   /* ── FOOTER ── */
@@ -1283,9 +1411,13 @@
     .tiers-grid { grid-template-columns: 1fr; }
     .hero-grid { grid-template-columns: 1fr; gap: 48px; }
     .hero-grid .arch-diagram { max-width: 560px; margin: 0 auto; }
+    .vault-feature { grid-template-columns: 1fr; gap: 44px; }
+    .vault-stack { max-width: 460px; order: -1; }
+    .vault-block { flex-basis: calc(50% - 7px); }
   }
   @media (max-width: 768px) {
     section { padding: 72px 0; }
+    .vault-block { flex-basis: calc(50% - 7px); }
     .hero { padding: 120px 0 64px; }
     .container { padding: 0 20px; }
     .nav-inner { padding: 0 20px; }
@@ -1346,13 +1478,21 @@
     <symbol id="icon-arrows-clockwise" viewBox="0 0 256 256"><path d="M220,48V96a4,4,0,0,1-4,4H168a4,4,0,0,1,0-8h38.34L184.89,70.54A84,84,0,0,0,66.8,69.85a4,4,0,1,1-5.6-5.72,92,92,0,0,1,129.34.76L212,86.34V48a4,4,0,0,1,8,0ZM189.2,186.15a83.44,83.44,0,0,1-58.68,23.91h-.47a83.52,83.52,0,0,1-58.94-24.6L49.66,164H88a4,4,0,0,0,0-8H40a4,4,0,0,0-4,4v48a4,4,0,0,0,8,0V169.66l21.46,21.45A91.43,91.43,0,0,0,130,218.06h.51a91.45,91.45,0,0,0,64.28-26.19,4,4,0,1,0-5.6-5.72Z"/></symbol>
     <symbol id="icon-book-open" viewBox="0 0 256 256"><path d="M232,52H160a36,36,0,0,0-32,19.54A36,36,0,0,0,96,52H24a4,4,0,0,0-4,4V200a4,4,0,0,0,4,4H96a28,28,0,0,1,28,28,4,4,0,0,0,8,0,28,28,0,0,1,28-28h72a4,4,0,0,0,4-4V56A4,4,0,0,0,232,52ZM96,196H28V60H96a28,28,0,0,1,28,28V209.4A35.93,35.93,0,0,0,96,196Zm132,0H160a35.94,35.94,0,0,0-28,13.41V88a28,28,0,0,1,28-28h68Z"/></symbol>
     <symbol id="icon-brain" viewBox="0 0 256 256"><path d="M244,124a52.1,52.1,0,0,0-32-48V72a44,44,0,0,0-84-18.3A44,44,0,0,0,44,72v4a52,52,0,0,0,0,96v4a44,44,0,0,0,84,18.3A44,44,0,0,0,212,176v-4A52.07,52.07,0,0,0,244,124ZM88,212a36,36,0,0,1-36-36v-1.41A52.13,52.13,0,0,0,64,176h8a4,4,0,0,0,0-8H64A44,44,0,0,1,49.33,82.5,4,4,0,0,0,52,78.73V72a36,36,0,0,1,72,0v78.75A44,44,0,0,0,88,132a4,4,0,0,0,0,8,36,36,0,0,1,0,72Zm104-44h-8a4,4,0,0,0,0,8h8a52.13,52.13,0,0,0,12-1.41V176a36,36,0,1,1-36-36,4,4,0,0,0,0-8,44,44,0,0,0-36,18.75V72a36,36,0,0,1,72,0v6.73a4,4,0,0,0,2.67,3.77A44,44,0,0,1,192,168Zm12-56a4,4,0,0,1-4,4h-4a32,32,0,0,1-32-32V80a4,4,0,0,1,8,0v4a24,24,0,0,0,24,24h4A4,4,0,0,1,204,112ZM92,84a32,32,0,0,1-32,32H56a4,4,0,0,1,0-8h4A24,24,0,0,0,84,84V80a4,4,0,0,1,8,0Z"/></symbol>
+    <symbol id="icon-caret-down" viewBox="0 0 256 256"><path d="M210.83,98.83l-80,80a4,4,0,0,1-5.66,0l-80-80a4,4,0,0,1,5.66-5.66L128,170.34l77.17-77.17a4,4,0,1,1,5.66,5.66Z"/></symbol>
     <symbol id="icon-chat-dots" viewBox="0 0 256 256"><path d="M136,128a8,8,0,1,1-8-8A8,8,0,0,1,136,128Zm-52-8a8,8,0,1,0,8,8A8,8,0,0,0,84,120Zm88,0a8,8,0,1,0,8,8A8,8,0,0,0,172,120Zm56-56V192a12,12,0,0,1-12,12H81.49L47.76,233.13l0,0A11.89,11.89,0,0,1,40,236a12.17,12.17,0,0,1-5.1-1.14A11.89,11.89,0,0,1,28,224V64A12,12,0,0,1,40,52H216A12,12,0,0,1,228,64Zm-8,0a4,4,0,0,0-4-4H40a4,4,0,0,0-4,4V224a4,4,0,0,0,6.56,3.08L77.38,197A4,4,0,0,1,80,196H216a4,4,0,0,0,4-4Z"/></symbol>
     <symbol id="icon-check" viewBox="0 0 256 256"><path d="M226.83,74.83l-128,128a4,4,0,0,1-5.66,0l-56-56a4,4,0,0,1,5.66-5.66L96,194.34,221.17,69.17a4,4,0,1,1,5.66,5.66Z"/></symbol>
+    <symbol id="icon-clock-counter-clockwise" viewBox="0 0 256 256"><path d="M132,80v45.74l38.06,22.83a4,4,0,0,1-4.12,6.86l-40-24A4,4,0,0,1,124,128V80a4,4,0,0,1,8,0Zm-4-44A91.42,91.42,0,0,0,62.93,63C53.05,73,44.66,82.47,36,92.86V64a4,4,0,0,0-8,0v40a4,4,0,0,0,4,4H72a4,4,0,0,0,0-8H40.47C49.61,89,58.3,79,68.6,68.6a84,84,0,1,1,1.75,120.49,4,4,0,1,0-5.5,5.82A92,92,0,1,0,128,36Z"/></symbol>
+    <symbol id="icon-eye" viewBox="0 0 256 256"><path d="M243.66,126.38c-.34-.76-8.52-18.89-26.83-37.2C199.87,72.22,170.7,52,128,52S56.13,72.22,39.17,89.18c-18.31,18.31-26.49,36.44-26.83,37.2a4.08,4.08,0,0,0,0,3.25c.34.77,8.52,18.89,26.83,37.2,17,17,46.14,37.17,88.83,37.17s71.87-20.21,88.83-37.17c18.31-18.31,26.49-36.43,26.83-37.2A4.08,4.08,0,0,0,243.66,126.38Zm-32.7,35c-23.07,23-51,34.62-83,34.62s-59.89-11.65-83-34.62A135.71,135.71,0,0,1,20.44,128,135.69,135.69,0,0,1,45,94.62C68.11,71.65,96,60,128,60s59.89,11.65,83,34.62A135.79,135.79,0,0,1,235.56,128,135.71,135.71,0,0,1,211,161.38ZM128,84a44,44,0,1,0,44,44A44.05,44.05,0,0,0,128,84Zm0,80a36,36,0,1,1,36-36A36,36,0,0,1,128,164Z"/></symbol>
     <symbol id="icon-flow-arrow" viewBox="0 0 256 256"><path d="M242.83,77.17l-32-32a4,4,0,0,0-5.66,5.66L230.34,76H208c-46.67,0-57.84,26.81-67.69,50.46-9.46,22.69-18.4,44.16-56.55,45.48a36,36,0,1,0,0,8c43.49-1.42,54.33-27.39,63.91-50.39C157.45,106.12,166.67,84,208,84h22.34l-25.17,25.17a4,4,0,0,0,5.66,5.66l32-32A4,4,0,0,0,242.83,77.17ZM48,204a28,28,0,1,1,28-28A28,28,0,0,1,48,204Z"/></symbol>
     <symbol id="icon-folder" viewBox="0 0 256 256"><path d="M216,76H129.66L101.17,47.52A11.9,11.9,0,0,0,92.69,44H40A12,12,0,0,0,28,56V200.62A11.4,11.4,0,0,0,39.38,212H216.89A11.12,11.12,0,0,0,228,200.89V88A12,12,0,0,0,216,76ZM36,56a4,4,0,0,1,4-4H92.69a4,4,0,0,1,2.82,1.17L118.34,76H36ZM220,200.89a3.12,3.12,0,0,1-3.11,3.11H39.38A3.39,3.39,0,0,1,36,200.62V84H216a4,4,0,0,1,4,4Z"/></symbol>
     <symbol id="icon-gear-six" viewBox="0 0 256 256"><path d="M128,84a44,44,0,1,0,44,44A44.05,44.05,0,0,0,128,84Zm0,80a36,36,0,1,1,36-36A36,36,0,0,1,128,164Zm106-56a4,4,0,0,0-2-2.7l-30.89-17.6q-.47-.82-1-1.62L200.1,51.2a3.94,3.94,0,0,0-1.42-3,107.8,107.8,0,0,0-35.41-19.94,4,4,0,0,0-3.23.29L129,45.87h-2l-31-17.36a4,4,0,0,0-3.23-.3,108.05,108.05,0,0,0-35.39,20,4,4,0,0,0-1.41,3l-.16,34.9-1,1.62L23.9,105.3A4,4,0,0,0,22,108a102.76,102.76,0,0,0,0,40,4,4,0,0,0,1.95,2.7l30.89,17.6q.47.83,1,1.62l.12,34.87a3.94,3.94,0,0,0,1.42,3,107.8,107.8,0,0,0,35.41,19.94,4,4,0,0,0,3.23-.29L127,210.13h2l31,17.36a4,4,0,0,0,3.23.3,108.05,108.05,0,0,0,35.39-20,4,4,0,0,0,1.41-3l.16-34.9,1-1.62L232.1,150.7a4,4,0,0,0,2-2.71A102.76,102.76,0,0,0,234,108Zm-7.48,36.67L196.3,161.84a4,4,0,0,0-1.51,1.53c-.61,1.09-1.25,2.17-1.91,3.24a3.92,3.92,0,0,0-.61,2.1l-.16,34.15a99.8,99.8,0,0,1-29.7,16.77l-30.4-17a4.06,4.06,0,0,0-2-.51H130c-1.28,0-2.57,0-3.84,0a4.1,4.1,0,0,0-2.05.51l-30.45,17A100.23,100.23,0,0,1,63.89,202.9l-.12-34.12a3.93,3.93,0,0,0-.61-2.11c-.66-1-1.3-2.14-1.91-3.23a4,4,0,0,0-1.51-1.53L29.49,144.68a94.78,94.78,0,0,1,0-33.34L59.7,94.16a4,4,0,0,0,1.51-1.53c.61-1.09,1.25-2.17,1.91-3.23a4,4,0,0,0,.61-2.11l.16-34.15a99.8,99.8,0,0,1,29.7-16.77l30.4,17a4.1,4.1,0,0,0,2.05.51c1.28,0,2.57,0,3.84,0a4,4,0,0,0,2.05-.51l30.45-17A100.23,100.23,0,0,1,192.11,53.1l.12,34.12a3.93,3.93,0,0,0,.61,2.11c.66,1,1.3,2.14,1.91,3.23a4,4,0,0,0,1.51,1.53l30.25,17.23A94.78,94.78,0,0,1,226.54,144.66Z"/></symbol>
+    <symbol id="icon-lock-key" viewBox="0 0 256 256"><path d="M208,84H172V56a44,44,0,0,0-88,0V84H48A12,12,0,0,0,36,96V208a12,12,0,0,0,12,12H208a12,12,0,0,0,12-12V96A12,12,0,0,0,208,84ZM92,56a36,36,0,0,1,72,0V84H92ZM212,208a4,4,0,0,1-4,4H48a4,4,0,0,1-4-4V96a4,4,0,0,1,4-4H208a4,4,0,0,1,4,4Zm-84-92a24,24,0,0,0-4,47.66V184a4,4,0,0,0,8,0V163.66A24,24,0,0,0,128,116Zm0,40a16,16,0,1,1,16-16A16,16,0,0,1,128,156Z"/></symbol>
+    <symbol id="icon-lock-simple" viewBox="0 0 256 256"><path d="M208,84H172V56a44,44,0,0,0-88,0V84H48A12,12,0,0,0,36,96V208a12,12,0,0,0,12,12H208a12,12,0,0,0,12-12V96A12,12,0,0,0,208,84ZM92,56a36,36,0,0,1,72,0V84H92ZM212,208a4,4,0,0,1-4,4H48a4,4,0,0,1-4-4V96a4,4,0,0,1,4-4H208a4,4,0,0,1,4,4Z"/></symbol>
     <symbol id="icon-plus" viewBox="0 0 256 256"><path d="M220,128a4,4,0,0,1-4,4H132v84a4,4,0,0,1-8,0V132H40a4,4,0,0,1,0-8h84V40a4,4,0,0,1,8,0v84h84A4,4,0,0,1,220,128Z"/></symbol>
     <symbol id="icon-presentation" viewBox="0 0 256 256"><path d="M216,44H132V24a4,4,0,0,0-8,0V44H40A12,12,0,0,0,28,56V176a12,12,0,0,0,12,12H87.68l-26.8,33.5a4,4,0,1,0,6.24,5L97.92,188h60.16l30.8,38.5a4,4,0,0,0,6.24-5L168.32,188H216a12,12,0,0,0,12-12V56A12,12,0,0,0,216,44Zm4,132a4,4,0,0,1-4,4H40a4,4,0,0,1-4-4V56a4,4,0,0,1,4-4H216a4,4,0,0,1,4,4Z"/></symbol>
+    <symbol id="icon-seal-check" viewBox="0 0 256 256"><path d="M223,105.58c-4-4.2-8.2-8.54-10-12.8-1.65-4-1.73-9.53-1.82-15.41-.14-9-.29-19.19-6.83-25.74s-16.74-6.69-25.74-6.83c-5.88-.09-11.43-.17-15.41-1.82-4.26-1.76-8.6-5.93-12.8-9.95-6.68-6.41-13.59-13-22.42-13s-15.74,6.62-22.42,13c-4.2,4-8.54,8.2-12.8,10-4,1.65-9.53,1.73-15.41,1.82-9,.14-19.19.29-25.74,6.83S44.94,68.37,44.8,77.37c-.09,5.88-.17,11.43-1.82,15.41-1.76,4.26-5.93,8.6-9.95,12.8-6.41,6.68-13,13.59-13,22.42s6.62,15.74,13,22.42c4,4.2,8.2,8.54,10,12.8,1.65,4,1.73,9.53,1.82,15.41.14,9,.29,19.19,6.83,25.74s16.74,6.69,25.74,6.83c5.88.09,11.43.17,15.41,1.82,4.26,1.76,8.6,5.93,12.8,9.95,6.68,6.41,13.59,13,22.42,13s15.74-6.62,22.42-13c4.2-4,8.54-8.2,12.8-10,4-1.65,9.53-1.73,15.41-1.82,9-.14,19.19-.29,25.74-6.83s6.69-16.74,6.83-25.74c.09-5.88.17-11.43,1.82-15.41,1.76-4.26,5.93-8.6,9.95-12.8,6.41-6.68,13-13.59,13-22.42S229.38,112.26,223,105.58Zm-5.78,39.3c-4.54,4.73-9.24,9.63-11.57,15.28-2.23,5.39-2.33,12-2.43,18.35-.12,8.2-.24,16-4.49,20.2s-12,4.37-20.2,4.49c-6.37.1-13,.2-18.35,2.43-5.65,2.33-10.55,7-15.28,11.57C139.09,222.75,133.62,228,128,228s-11.09-5.25-16.88-10.8c-4.73-4.54-9.63-9.24-15.28-11.57-5.39-2.23-12-2.33-18.35-2.43-8.2-.12-15.95-.24-20.2-4.49s-4.37-12-4.49-20.2c-.1-6.37-.2-13-2.43-18.35-2.33-5.65-7-10.55-11.57-15.28C33.25,139.09,28,133.62,28,128s5.25-11.09,10.8-16.88c4.54-4.73,9.24-9.63,11.57-15.28,2.23-5.39,2.33-12,2.43-18.35.12-8.2.24-15.95,4.49-20.2s12-4.37,20.2-4.49c6.37-.1,13-.2,18.35-2.43,5.65-2.33,10.55-7,15.28-11.57C116.91,33.25,122.38,28,128,28s11.09,5.25,16.88,10.8c4.73,4.54,9.63,9.24,15.28,11.57,5.39,2.23,12,2.33,18.35,2.43,8.2.12,16,.24,20.2,4.49s4.37,12,4.49,20.2c.1,6.37.2,13,2.43,18.35,2.33,5.65,7,10.55,11.57,15.28,5.55,5.79,10.8,11.26,10.8,16.88S222.75,139.09,217.2,144.88Zm-46.37-43.71a4,4,0,0,1,0,5.66l-56,56a4,4,0,0,1-5.66,0l-24-24a4,4,0,0,1,5.66-5.66L112,154.34l53.17-53.17A4,4,0,0,1,170.83,101.17Z"/></symbol>
+    <symbol id="icon-shield-check" viewBox="0 0 256 256"><path d="M208,44H48A12,12,0,0,0,36,56v56c0,51.16,24.73,82.12,45.47,99.1,22.4,18.32,44.55,24.5,45.48,24.76a4,4,0,0,0,2.1,0c.93-.26,23.08-6.44,45.48-24.76,20.74-17,45.47-47.94,45.47-99.1V56A12,12,0,0,0,208,44Zm4,68c0,38.44-14.23,69.63-42.29,92.71A132.45,132.45,0,0,1,128,227.82a132.23,132.23,0,0,1-41.71-23.11C58.23,181.63,44,150.44,44,112V56a4,4,0,0,1,4-4H208a4,4,0,0,1,4,4Zm-41.17-10.83a4,4,0,0,1,0,5.66l-56,56a4,4,0,0,1-5.66,0l-24-24a4,4,0,0,1,5.66-5.66L112,154.34l53.17-53.17A4,4,0,0,1,170.83,101.17Z"/></symbol>
+    <symbol id="icon-stack-simple" viewBox="0 0 256 256"><path d="M14,107.47l112,64a4,4,0,0,0,4,0l112-64a4,4,0,0,0,0-6.94l-112-64a4,4,0,0,0-4,0l-112,64a4,4,0,0,0,0,6.94ZM128,44.61,231.94,104,128,163.39,24.06,104ZM243.47,142a4,4,0,0,1-1.49,5.45l-112,64a4,4,0,0,1-4,0l-112-64a4,4,0,0,1,4-6.94l110,62.86,110-62.86A4,4,0,0,1,243.47,142Z"/></symbol>
     <symbol id="icon-users-three" viewBox="0 0 256 256"><path d="M237,147.44a4,4,0,0,1-5.48-1.4c-8.33-14-20.93-22-34.56-22a4,4,0,0,1-1.2-.2,36.76,36.76,0,0,1-3.8.2,4,4,0,0,1,0-8,28,28,0,1,0-27.12-35,4,4,0,0,1-7.75-2,36,36,0,1,1,54,39.48c10.81,3.85,20.51,12,27.31,23.48A4,4,0,0,1,237,147.44ZM187.46,214a4,4,0,0,1-1.46,5.46,3.93,3.93,0,0,1-2,.54,4,4,0,0,1-3.46-2,61,61,0,0,0-105.08,0,4,4,0,0,1-6.92-4,68.35,68.35,0,0,1,39.19-31,44,44,0,1,1,40.54,0A68.35,68.35,0,0,1,187.46,214ZM128,180a36,36,0,1,0-36-36A36,36,0,0,0,128,180ZM64,116A28,28,0,1,1,91.12,81a4,4,0,0,0,7.75-2A36,36,0,1,0,45.3,118.75,63.55,63.55,0,0,0,12.8,141.6a4,4,0,0,0,6.4,4.8A55.55,55.55,0,0,1,64,124a4,4,0,0,0,0-8Z"/></symbol>
     <symbol id="icon-x" viewBox="0 0 256 256"><path d="M202.83,197.17a4,4,0,0,1-5.66,5.66L128,133.66,58.83,202.83a4,4,0,0,1-5.66-5.66L122.34,128,53.17,58.83a4,4,0,0,1,5.66-5.66L128,122.34l69.17-69.17a4,4,0,1,1,5.66,5.66L133.66,128Z"/></symbol>
   </defs>
@@ -1374,7 +1514,7 @@
     <div class="hero-grid">
       <div class="hero-inner">
         <div class="hero-eyebrow fade-up">AI Systems Built For Your Team</div>
-        <h1 class="fade-up">4x your team's output.<br>No new hires.<br><em>No new tools.</em></h1>
+        <h1 class="fade-up">4x your team's output.<br>No new hires.<br><em>No new tools to learn.</em></h1>
         <p class="hero-sub fade-up">We encode your senior team's frameworks, voice, and decision-making into custom AI systems. Junior team produces senior-level output. Senior team shifts from execution to strategy. 4x your capacity without hiring.</p>
         <div class="hero-cta-row fade-up">
           <a href="#book" class="btn-primary">
@@ -1664,6 +1804,81 @@
   </div>
 </section>
 
+<!-- THE VAULT -->
+<section class="vault">
+  <div class="container">
+    <div class="vault-head">
+      <div class="section-label fade-up">The Vault MCP</div>
+      <h2 class="section-head fade-up" style="margin-left:auto;margin-right:auto">One Governed Source of Truth</h2>
+      <p class="section-sub fade-up">Most companies point AI at a folder of docs and hope. We build a governed system: your AI reads from one controlled source. Your numbers can't contradict each other, nothing changes without a human approving it, and every change leaves an audit trail.</p>
+    </div>
+
+    <div class="vault-feature">
+      <div class="vault-feature-copy fade-up">
+        <h3 class="vault-kicker">It travels with you.</h3>
+        <p>The Vault isn't another tool to log into. It's your company's knowledge, served live, that the AI tools you already use can read: Claude, ChatGPT, whatever your team is on. Connect once, and your context travels with you, on any device. You don't go to it; it comes to you, inside the AI you already use.</p>
+      </div>
+      <div class="vault-stack fade-up" style="transition-delay:0.1s" aria-hidden="true">
+        <div class="vault-plane">
+          <span class="vault-plane-label">Storage</span>
+          <span class="vault-plane-note">Your private repos</span>
+        </div>
+        <div class="vault-stack-link"></div>
+        <div class="vault-plane mid">
+          <span class="vault-plane-label">Access</span>
+          <span class="vault-plane-note">Live, in the AI you use</span>
+        </div>
+        <div class="vault-stack-link"></div>
+        <div class="vault-plane">
+          <span class="vault-plane-label">Governance</span>
+          <span class="vault-plane-note">Reviewed &amp; audited</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vault-trust">
+      <div class="trust-strip fade-up">
+        <span class="trust-item"><svg class="icon" aria-hidden="true"><use href="#icon-lock-key"/></svg>TLS 1.3 encrypted</span>
+        <span class="trust-item"><svg class="icon" aria-hidden="true"><use href="#icon-shield-check"/></svg>SOC 2 Type II hosting</span>
+        <span class="trust-item"><svg class="icon" aria-hidden="true"><use href="#icon-lock-simple"/></svg>Private</span>
+        <span class="trust-item"><svg class="icon" aria-hidden="true"><use href="#icon-eye"/></svg>Read-only</span>
+        <span class="trust-item"><svg class="icon" aria-hidden="true"><use href="#icon-seal-check"/></svg>Human-approved</span>
+        <span class="trust-item"><svg class="icon" aria-hidden="true"><use href="#icon-clock-counter-clockwise"/></svg>Audited</span>
+      </div>
+      <div class="vault-grid fade-up">
+        <div class="vault-block">
+          <h4>No public surface</h4>
+          <p>Your content lives in your own private GitHub repositories. It isn't available to anyone outside your organization at all.</p>
+        </div>
+        <div class="vault-block">
+          <h4>Read-only AI</h4>
+          <p>The AI can read and suggest, but it can never change anything. It proposes; a human disposes.</p>
+        </div>
+        <div class="vault-block">
+          <h4>Human-approved changes</h4>
+          <p>Every change is a reviewed pull request. Nothing updates until a person approves the exact before-and-after.</p>
+        </div>
+        <div class="vault-block">
+          <h4>Full audit trail</h4>
+          <p>Every change is logged: who, why, what, and when, permanently, in version control.</p>
+        </div>
+        <div class="vault-block">
+          <h4>Encrypted in transit (TLS 1.3)</h4>
+          <p>Every connection to the Vault is encrypted with TLS 1.3, HTTPS-only.</p>
+        </div>
+        <div class="vault-block">
+          <h4>SOC 2 Type II hosting</h4>
+          <p>It runs on a SOC 2 Type II-compliant platform; we can provide the host's report to your IT team under NDA.</p>
+        </div>
+        <div class="vault-block">
+          <h4>Take it with you</h4>
+          <p>It's your content, in your own version control, in open formats. No lock-in. You can audit it or take it with you anytime.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FOUNDER STORY -->
 <section class="founder">
   <div class="container">
@@ -1740,7 +1955,7 @@
         <div class="retainer-icon"><svg class="icon" aria-hidden="true"><use href="#icon-arrows-clockwise"/></svg></div>
         <div>
           <div class="retainer-title">Monthly Retainer <em style="font-weight:400;color:var(--muted);font-style:italic">optional</em></div>
-          <div class="retainer-desc">Ongoing optimization, new module builds, quarterly system updates. AI moves fast. The retainer keeps your system current.</div>
+          <div class="retainer-desc">We operate the governance layer &mdash; keeping the Vault current and reviewing every change &mdash; plus ongoing optimization, new module builds, and quarterly system updates. AI moves fast. The retainer keeps your system current.</div>
         </div>
       </div>
       <div class="retainer-price">$1,500/mo</div>
@@ -1765,6 +1980,7 @@
           <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Generic "how to use ChatGPT" training</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Custom code that requires engineers to maintain</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Vague "productivity gains" promises</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Docs in a folder you point AI at, hoping it stays current</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Nothing left behind when they leave</li>
         </ul>
       </div>
@@ -1774,7 +1990,8 @@
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Working AI systems your team uses daily</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Your senior team's expertise encoded into the infrastructure</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Prompt libraries tuned to your actual workflows</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>No engineers. Runs on tools you already use</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>No new tools for your team to learn. We build and run the infrastructure</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>A governed, audited source of truth your AI reads from</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Specific financial case: $138K&ndash;$414K annual impact</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Team is self-sufficient after 6 weeks</li>
         </ul>
@@ -1806,7 +2023,7 @@
           <span class="faq-toggle"><svg class="icon" aria-hidden="true"><use href="#icon-plus"/></svg></span>
         </button>
         <div class="faq-a">
-          <p>That's actually ideal. We're not adding software. We're encoding your thinking into prompts and workflows that run on tools your team already knows. The system we build becomes your operating procedure across whatever AI tools you use.</p>
+          <p>That's actually ideal. There's nothing new for your team to learn. We build and run the infrastructure behind the scenes &mdash; your Vault, prompts, and workflows &mdash; and it all reads into the AI tools your team already knows. The system we build becomes your operating procedure across whatever AI tools you use.</p>
         </div>
       </div>
 
