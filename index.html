@@ -911,13 +911,14 @@
   }
   .vault-kicker em { font-style: italic; color: var(--accent); }
   .vault-feature-copy p {
-    font-size: 16px;
+    font-family: var(--sans);
+    font-size: 17px;
     color: var(--muted);
     line-height: 1.7;
     max-width: 500px;
   }
 
-  /* layered stack visual — three planes (Storage / Access / Governance) */
+  /* layered stack visual: three planes (Storage / Access / Governance) */
   .vault-stack {
     display: flex;
     flex-direction: column;
@@ -960,14 +961,15 @@
   .vault-trust { max-width: 880px; margin: 0 auto; }
   .trust-strip {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
-    gap: 12px 26px;
-    padding: 22px 28px;
+    gap: 0 22px;
+    padding: 18px 24px;
     border: 1px solid var(--border);
     border-radius: 12px;
     background: #fff;
-    margin-bottom: 16px;
+    margin-bottom: 28px;
+    overflow-x: auto;
   }
   .trust-item {
     display: inline-flex;
@@ -979,18 +981,9 @@
     white-space: nowrap;
   }
   .trust-item .icon { color: var(--accent); font-size: 18px; }
-  .trust-line {
-    text-align: center;
-    font-size: 14px;
-    color: var(--muted);
-    max-width: 640px;
-    margin: 0 auto 44px;
-    line-height: 1.65;
-  }
 
-  /* progressive-disclosure accordions (native details/summary, no JS) */
-  .vault-accordions { max-width: 760px; margin: 0 auto; }
-  .vault-accordions-label {
+  /* compact detail blocks (4 columns x 2 rows) */
+  .vault-detail-label {
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.08em;
@@ -999,47 +992,30 @@
     text-align: center;
     margin-bottom: 22px;
   }
-  .vault-detail { border-bottom: 1px solid var(--border); }
-  .vault-detail:first-of-type { border-top: 1px solid var(--border); }
-  .vault-detail summary {
-    list-style: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 18px 4px;
-    font-size: 16px;
+  .vault-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .vault-block {
+    padding: 18px 20px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #fff;
+  }
+  .vault-block h4 {
+    font-family: var(--sans);
+    font-size: 14px;
     font-weight: 600;
     color: var(--coffee-bean);
-    line-height: 1.4;
-    border-radius: 8px;
-    transition: background 0.2s var(--ease);
+    line-height: 1.35;
+    margin-bottom: 7px;
   }
-  .vault-detail summary::-webkit-details-marker { display: none; }
-  .vault-detail summary:hover { background: var(--powder-petal); }
-  .vault-summary-icon {
-    flex-shrink: 0;
-    color: var(--accent);
-    font-size: 18px;
-    transition: transform 0.3s var(--ease);
-  }
-  .vault-detail[open] summary .vault-summary-icon { transform: rotate(180deg); }
-  .vault-detail-body {
-    font-size: 15px;
+  .vault-block p {
+    font-family: var(--sans);
+    font-size: 13px;
     color: var(--muted);
-    line-height: 1.7;
-    padding: 0 44px 20px 4px;
-    max-width: 660px;
-  }
-  .vault-detail[open] .vault-detail-body { animation: vaultReveal 0.32s var(--ease); }
-  @keyframes vaultReveal {
-    from { opacity: 0; transform: translateY(-5px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .vault-summary-icon { transition: none; }
-    .vault-detail[open] .vault-detail-body { animation: none; }
+    line-height: 1.55;
   }
 
   /* ── FOUNDER STORY ── */
@@ -1443,9 +1419,11 @@
     .hero-grid .arch-diagram { max-width: 560px; margin: 0 auto; }
     .vault-feature { grid-template-columns: 1fr; gap: 44px; }
     .vault-stack { max-width: 460px; }
+    .vault-grid { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 768px) {
     section { padding: 72px 0; }
+    .vault-grid { grid-template-columns: 1fr 1fr; }
     .hero { padding: 120px 0 64px; }
     .container { padding: 0 20px; }
     .nav-inner { padding: 0 20px; }
@@ -1836,15 +1814,15 @@
 <section class="vault">
   <div class="container">
     <div class="vault-head">
-      <div class="section-label fade-up">The Vault</div>
-      <h2 class="section-head fade-up" style="margin-left:auto;margin-right:auto">One governed source of <em>truth</em> your whole team's AI reads from.</h2>
-      <p class="section-sub fade-up">Most companies point AI at a folder of docs and hope. We build a governed system: your AI reads from one controlled source &mdash; your numbers can't contradict each other, nothing changes without a human approving it, and every change leaves an audit trail.</p>
+      <div class="section-label fade-up">The Vault MCP</div>
+      <h2 class="section-head fade-up" style="margin-left:auto;margin-right:auto">One Governed Source of <em>Truth</em></h2>
+      <p class="section-sub fade-up">Most companies point AI at a folder of docs and hope. We build a governed system: your AI reads from one controlled source. Your numbers can't contradict each other, nothing changes without a human approving it, and every change leaves an audit trail.</p>
     </div>
 
     <div class="vault-feature">
       <div class="vault-feature-copy fade-up">
         <h3 class="vault-kicker">It <em>travels</em> with you.</h3>
-        <p>The Vault isn't another tool to log into. It's your company's knowledge, served live, that the AI tools you already use can read &mdash; Claude, ChatGPT, whatever your team is on. Connect once, and your context travels with you, on any device. You don't go to it; it comes to you, inside the AI you already use.</p>
+        <p>The Vault isn't another tool to log into. It's your company's knowledge, served live, that the AI tools you already use can read: Claude, ChatGPT, whatever your team is on. Connect once, and your context travels with you, on any device. You don't go to it; it comes to you, inside the AI you already use.</p>
       </div>
       <div class="vault-stack fade-up" style="transition-delay:0.1s" aria-hidden="true">
         <div class="vault-plane">
@@ -1873,38 +1851,36 @@
         <span class="trust-item"><svg class="icon" aria-hidden="true"><use href="#icon-lock-key"/></svg>TLS 1.3 encrypted</span>
         <span class="trust-item"><svg class="icon" aria-hidden="true"><use href="#icon-shield-check"/></svg>SOC 2 Type II hosting</span>
       </div>
-      <p class="trust-line fade-up">Encrypted, private, read-only, and audited &mdash; your knowledge has no public surface, and even your own team's AI can only read it.</p>
-
-      <div class="vault-accordions fade-up">
-        <div class="vault-accordions-label">For your IT or security team &mdash; expand any item</div>
-        <details class="vault-detail">
-          <summary>No public surface <svg class="icon vault-summary-icon" aria-hidden="true"><use href="#icon-caret-down"/></svg></summary>
-          <div class="vault-detail-body">Your content lives in your own private GitHub repositories, reached only through your company's internal Google Workspace login. It isn't available to anyone outside your organization at all.</div>
-        </details>
-        <details class="vault-detail">
-          <summary>Read-only AI <svg class="icon vault-summary-icon" aria-hidden="true"><use href="#icon-caret-down"/></svg></summary>
-          <div class="vault-detail-body">The AI can read and suggest, but it can never change anything. It proposes; a human disposes.</div>
-        </details>
-        <details class="vault-detail">
-          <summary>Human-approved changes <svg class="icon vault-summary-icon" aria-hidden="true"><use href="#icon-caret-down"/></svg></summary>
-          <div class="vault-detail-body">Every change is a reviewed pull request. Nothing updates until a person approves the exact before-and-after.</div>
-        </details>
-        <details class="vault-detail">
-          <summary>Full audit trail <svg class="icon vault-summary-icon" aria-hidden="true"><use href="#icon-caret-down"/></svg></summary>
-          <div class="vault-detail-body">Every change is logged &mdash; who, why, what, and when &mdash; permanently, in version control.</div>
-        </details>
-        <details class="vault-detail">
-          <summary>Encrypted in transit (TLS 1.3) <svg class="icon vault-summary-icon" aria-hidden="true"><use href="#icon-caret-down"/></svg></summary>
-          <div class="vault-detail-body">Every connection to the Vault is encrypted with TLS 1.3, HTTPS-only.</div>
-        </details>
-        <details class="vault-detail">
-          <summary>SOC 2 Type II hosting <svg class="icon vault-summary-icon" aria-hidden="true"><use href="#icon-caret-down"/></svg></summary>
-          <div class="vault-detail-body">It runs on a SOC 2 Type II-compliant platform; we can provide the host's report to your IT team under NDA.</div>
-        </details>
-        <details class="vault-detail">
-          <summary>Take it with you <svg class="icon vault-summary-icon" aria-hidden="true"><use href="#icon-caret-down"/></svg></summary>
-          <div class="vault-detail-body">It's your content, in your own version control, in open formats. No lock-in &mdash; you can audit it or take it with you anytime.</div>
-        </details>
+      <div class="vault-detail-label fade-up">For your IT or security team</div>
+      <div class="vault-grid fade-up">
+        <div class="vault-block">
+          <h4>No public surface</h4>
+          <p>Your content lives in your own private GitHub repositories, reached only through your company's internal Google Workspace login. It isn't available to anyone outside your organization at all.</p>
+        </div>
+        <div class="vault-block">
+          <h4>Read-only AI</h4>
+          <p>The AI can read and suggest, but it can never change anything. It proposes; a human disposes.</p>
+        </div>
+        <div class="vault-block">
+          <h4>Human-approved changes</h4>
+          <p>Every change is a reviewed pull request. Nothing updates until a person approves the exact before-and-after.</p>
+        </div>
+        <div class="vault-block">
+          <h4>Full audit trail</h4>
+          <p>Every change is logged: who, why, what, and when, permanently, in version control.</p>
+        </div>
+        <div class="vault-block">
+          <h4>Encrypted in transit (TLS 1.3)</h4>
+          <p>Every connection to the Vault is encrypted with TLS 1.3, HTTPS-only.</p>
+        </div>
+        <div class="vault-block">
+          <h4>SOC 2 Type II hosting</h4>
+          <p>It runs on a SOC 2 Type II-compliant platform; we can provide the host's report to your IT team under NDA.</p>
+        </div>
+        <div class="vault-block">
+          <h4>Take it with you</h4>
+          <p>It's your content, in your own version control, in open formats. No lock-in. You can audit it or take it with you anytime.</p>
+        </div>
       </div>
     </div>
   </div>
