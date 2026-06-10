@@ -15,6 +15,17 @@ A typical Storystak engagement runs 6 weeks and produces:
 - An AI Playbook documenting how to use, extend, and onboard people into the system
 - Live training sessions plus recorded walkthroughs for future hires
 
+## The Vault — one governed source of truth
+
+Every system we build reads from the Vault: the client's knowledge (voice, positioning, approved claims and stats, SOPs) served live over MCP into the AI tools the team already uses (Claude, ChatGPT, Copilot). Key properties:
+
+- Content lives in the client's own private GitHub repositories, in open formats — no lock-in; the client can audit it or take it with them anytime
+- Encrypted in transit (TLS 1.3) and gated by the client's own company login; there is no public surface
+- The AI is read-only: it can read and propose corrections, never edit
+- Every change is a reviewed, human-approved pull request with a permanent audit trail
+- Anyone on the team can flag a correction from inside their AI; an approver lands it in one click, so the Vault grows with use instead of going stale
+- Hosted on a SOC 2 Type II-compliant platform
+
 ## Outcomes clients see
 
 - 9 hours reclaimed per person per week (BCG research on AI super-users vs. laggards)
