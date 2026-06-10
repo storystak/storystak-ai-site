@@ -128,7 +128,7 @@
       "name": "Storystak AI Consulting",
       "url": "https://storystak.ai/",
       "image": "https://storystak.ai/og-image.jpg",
-      "description": "Six-week engagement that installs custom AI infrastructure built around how a specific team works. Includes AI workspaces, knowledge files, a 25–30 prompt library, workflow templates, an AI Playbook, and team training.",
+      "description": "Six-week engagement that installs custom AI infrastructure built around how a specific team works. Includes AI workspaces, knowledge files, a governed prompt and workflow library that grows with use, an AI Playbook, and team training.",
       "provider": { "@id": "https://storystak.ai/#org" },
       "areaServed": "Worldwide",
       "priceRange": "$0–$20,000",
@@ -152,7 +152,7 @@
           {
             "@type": "Offer",
             "name": "Departmental Engagement",
-            "description": "One team. Four weeks. Focused system build for a single highest-leverage department (Marketing, Sales, or Operations). Includes AI workflow audit, 4–5 custom AI workspaces, prompt library, team training, and 30-day optimization pass.",
+            "description": "One team. Four weeks. Focused system build for a single highest-leverage department (Marketing, Sales, or Operations). Includes AI workflow audit, 4–5 custom AI workspaces, a prompt library for the team's core workflows, team training, and 30-day optimization pass.",
             "price": "7500",
             "priceCurrency": "USD",
             "availability": "https://schema.org/InStock"
@@ -160,7 +160,7 @@
           {
             "@type": "Offer",
             "name": "Full Engagement",
-            "description": "Entire company. Six weeks. Complete system that scales across all teams with cross-departmental continuity. Includes full audit, 8–10 workspaces, 25–30 prompt library, training for the full team, AI Playbook, and Before/After Impact Report.",
+            "description": "Entire company. Six weeks. Complete system that scales across all teams with cross-departmental continuity. Includes full audit, 8–10 workspaces, a governed prompt and workflow library that grows with use, training for the full team, AI Playbook, and Before/After Impact Report.",
             "price": "20000",
             "priceCurrency": "USD",
             "availability": "https://schema.org/InStock"
@@ -228,10 +228,18 @@
         },
         {
           "@type": "Question",
+          "name": "What does the AI actually have access to? Is our data safe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your content lives in your own private repositories and is reached only over an encrypted (TLS 1.3) connection gated to your company's own internal login — there's no public surface to it. The AI can read and suggest, but never change anything: every change is a reviewed, human-approved pull request with a permanent audit trail. It's your content, in your version control, so you can audit it or take it with you anytime. And it runs on a SOC 2 Type II-compliant hosting platform — we can provide the host's report to your IT team under NDA."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "What does the departmental option cover?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "You pick one team: Marketing, Sales, or Operations. We do a full Deep Dive with your senior people on that team, build the complete prompt library and workflows for their role, and run training. You get everything except the cross-departmental integration and optimization layer."
+            "text": "You pick one team: Marketing, Sales, or Operations. We do a full Deep Dive with your senior people on that team, build the prompt library and workflows for their role, and run training. You get everything except the cross-departmental integration and optimization layer."
           }
         },
         {
@@ -893,6 +901,14 @@
   }
   .vault-head h2 { margin-left: auto; margin-right: auto; }
   .vault-head .section-sub { margin: 0 auto; }
+  .vault-bridge {
+    font-family: var(--serif);
+    font-size: clamp(19px, 2.2vw, 23px);
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+  }
+  .vault-bridge em { font-style: italic; color: var(--accent); }
 
   .vault-feature {
     display: grid;
@@ -910,6 +926,20 @@
     margin-bottom: 16px;
   }
   .vault-kicker em { font-style: italic; color: var(--accent); }
+  .vault-pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    margin-bottom: 72px;
+  }
+  .vault-pillar .vault-kicker { font-size: clamp(22px, 2.4vw, 27px); }
+  .vault-pillar p {
+    font-family: var(--sans);
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 500px;
+  }
   .vault-feature-copy p {
     font-family: var(--sans);
     font-size: 16px;
@@ -982,7 +1012,7 @@
   }
   .trust-item .icon { color: var(--accent); font-size: 18px; }
 
-  /* compact detail blocks: 4 on top, 3 on bottom, both rows centered */
+  /* compact detail blocks: two centered rows of 4 */
   .vault-grid {
     display: flex;
     flex-wrap: wrap;
@@ -1413,6 +1443,7 @@
     .hero-grid .arch-diagram { max-width: 560px; margin: 0 auto; }
     .vault-feature { grid-template-columns: 1fr; gap: 44px; }
     .vault-stack { max-width: 460px; order: -1; }
+    .vault-pillars { grid-template-columns: 1fr; gap: 44px; }
     .vault-block { flex-basis: calc(50% - 7px); }
   }
   @media (max-width: 768px) {
@@ -1514,8 +1545,8 @@
     <div class="hero-grid">
       <div class="hero-inner">
         <div class="hero-eyebrow fade-up">AI Systems Built For Your Team</div>
-        <h1 class="fade-up">4x your team's output.<br>No new hires.<br><em>No new tools to learn.</em></h1>
-        <p class="hero-sub fade-up">We encode your senior team's frameworks, voice, and decision-making into custom AI systems. Junior team produces senior-level output. Senior team shifts from execution to strategy. 4x your capacity without hiring.</p>
+        <h1 class="fade-up">4x your team's output.<br>No new hires.<br><em>No new tools for your team to learn.</em></h1>
+        <p class="hero-sub fade-up">We encode your senior team's frameworks, voice, and decision-making into custom AI systems &mdash; we build and run the infrastructure; your people keep using the AI they already use. Junior team produces senior-level output. Senior team shifts from execution to strategy. 4x your capacity without hiring.</p>
         <div class="hero-cta-row fade-up">
           <a href="#book" class="btn-primary">
             Book a Free Call
@@ -1782,8 +1813,8 @@
       </div>
       <div class="deliv-card fade-up" style="transition-delay:0.1s">
         <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-chat-dots"/></svg></div>
-        <h3>25&ndash;30 reusable prompts</h3>
-        <p>A library organized by function. Pick the right prompt, get consistent output. No prompt engineering. No starting from scratch.</p>
+        <h3>Governed prompt library</h3>
+        <p>Organized by function and served from your Vault. Pick the right prompt, get consistent output. It grows as your team uses it instead of going stale.</p>
       </div>
       <div class="deliv-card fade-up" style="transition-delay:0.15s">
         <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-flow-arrow"/></svg></div>
@@ -1808,6 +1839,7 @@
 <section class="vault">
   <div class="container">
     <div class="vault-head">
+      <p class="vault-bridge fade-up">The 4x isn't magic &mdash; <em>it's infrastructure.</em> Here's what we build and run for you.</p>
       <div class="section-label fade-up">The Vault MCP</div>
       <h2 class="section-head fade-up" style="margin-left:auto;margin-right:auto">One Governed Source of Truth</h2>
       <p class="section-sub fade-up">Most companies point AI at a folder of docs and hope. We build a governed system: your AI reads from one controlled source. Your numbers can't contradict each other, nothing changes without a human approving it, and every change leaves an audit trail.</p>
@@ -1816,7 +1848,7 @@
     <div class="vault-feature">
       <div class="vault-feature-copy fade-up">
         <h3 class="vault-kicker">It travels with you.</h3>
-        <p>The Vault isn't another tool to log into. It's your company's knowledge, served live, that the AI tools you already use can read: Claude, ChatGPT, whatever your team is on. Connect once, and your context travels with you, on any device. You don't go to it; it comes to you, inside the AI you already use.</p>
+        <p>The Vault isn't another tool to log into. It's your company's knowledge, served live, that the AI tools your team already uses can read: Claude, ChatGPT, Copilot. Connect once, and your context travels with you across your tools and devices. You don't go to it; it comes to you, inside the AI you already use.</p>
       </div>
       <div class="vault-stack fade-up" style="transition-delay:0.1s" aria-hidden="true">
         <div class="vault-plane">
@@ -1836,6 +1868,17 @@
       </div>
     </div>
 
+    <div class="vault-pillars">
+      <div class="vault-pillar fade-up">
+        <h3 class="vault-kicker">It's always current.</h3>
+        <p>Anyone on your team can flag a correction from inside the AI they're already using &mdash; it's a sentence, not a ticket. An approver reviews the exact before-and-after and lands it in one click. Update once, and everyone's AI sees it. The Vault gets better the more your team uses it, instead of going stale like every doc folder eventually does.</p>
+      </div>
+      <div class="vault-pillar fade-up" style="transition-delay:0.1s">
+        <h3 class="vault-kicker">It sounds like you, everywhere.</h3>
+        <p>Every tool reads the same voice, positioning, and approved claims, so output is on-brand no matter who on the team is asking or which AI they're in. The veteran and the new hire produce equally on-brand work.</p>
+      </div>
+    </div>
+
     <div class="vault-trust">
       <div class="trust-strip fade-up">
         <span class="trust-item"><svg class="icon" aria-hidden="true"><use href="#icon-lock-key"/></svg>TLS 1.3 encrypted</span>
@@ -1849,6 +1892,10 @@
         <div class="vault-block">
           <h4>No public surface</h4>
           <p>Your content lives in your own private GitHub repositories. It isn't available to anyone outside your organization at all.</p>
+        </div>
+        <div class="vault-block">
+          <h4>Your login, only your people</h4>
+          <p>Access is gated by your company's own workspace sign-in. No separate passwords, no shared keys &mdash; no one outside your organization can connect.</p>
         </div>
         <div class="vault-block">
           <h4>Read-only AI</h4>
@@ -1942,7 +1989,7 @@
         <ul class="tier-includes">
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Full audit across all departments</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>8&ndash;10 workspaces that work together</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>25&ndash;30 prompt library across functions</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Governed prompt library across all functions</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Training for the full team</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>AI Playbook + Before/After Impact Report</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Fully deployed in 6 weeks</li>
@@ -2049,11 +2096,21 @@
 
       <div class="faq-item">
         <button class="faq-q">
+          <span>What does the AI actually have access to? Is our data safe?</span>
+          <span class="faq-toggle"><svg class="icon" aria-hidden="true"><use href="#icon-plus"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <p>Your content lives in your own private repositories and is reached only over an encrypted (TLS 1.3) connection gated to your company's own internal login &mdash; there's no public surface to it. The AI can read and suggest, but never change anything: every change is a reviewed, human-approved pull request with a permanent audit trail. It's your content, in your version control, so you can audit it or take it with you anytime. And it runs on a SOC 2 Type II-compliant hosting platform &mdash; we can provide the host's report to your IT team under NDA.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
           <span>What does the departmental option cover?</span>
           <span class="faq-toggle"><svg class="icon" aria-hidden="true"><use href="#icon-plus"/></svg></span>
         </button>
         <div class="faq-a">
-          <p>You pick one team: Marketing, Sales, or Operations. We do a full Deep Dive with your senior people on that team, build the complete prompt library and workflows for their role, and run training. You get everything except the cross-departmental integration and optimization layer.</p>
+          <p>You pick one team: Marketing, Sales, or Operations. We do a full Deep Dive with your senior people on that team, build the prompt library and workflows for their role, and run training. You get everything except the cross-departmental integration and optimization layer.</p>
         </div>
       </div>
 
