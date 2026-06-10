@@ -10,7 +10,7 @@ A typical Storystak engagement runs 6 weeks and produces:
 
 - Custom AI workspaces configured with the client's voice, processes, and decision criteria
 - Knowledge files containing SOPs, brand standards, product details, and institutional knowledge
-- A reusable prompt library (25–30 prompts) organized by function
+- A governed prompt library organized by function, served from the client's Vault, that grows with use
 - Workflow templates for high-volume recurring work
 - An AI Playbook documenting how to use, extend, and onboard people into the system
 - Live training sessions plus recorded walkthroughs for future hires
@@ -36,7 +36,7 @@ We build working systems, not workshops or strategy decks. The day we leave, the
 
 - We are operators, not advisors
 - We ship working infrastructure, not slide decks
-- We do not sell software or build custom code requiring engineers to maintain
+- We do not hand the client custom code to maintain — we build and run the infrastructure; nothing for their team to operate
 - We install systems on tools the team already uses (Claude Team, ChatGPT, etc.)
 - We are not a generalist AI agency; we specialize in encoding expertise
 
