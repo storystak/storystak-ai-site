@@ -894,98 +894,83 @@
 
   /* ── THE VAULT ── */
   .vault { background: #faf9f7; }
-  .vault-head {
-    max-width: 800px;
-    margin: 0 auto 64px;
-    text-align: center;
-  }
-  .vault-head h2 { margin-left: auto; margin-right: auto; }
-  .vault-head .section-sub { margin: 0 auto; }
   .vault-bridge {
     font-family: var(--serif);
     font-size: clamp(19px, 2.2vw, 23px);
     line-height: 1.4;
     letter-spacing: -0.01em;
-    margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 40px;
   }
   .vault-bridge em { font-style: italic; color: var(--accent); }
 
-  .vault-feature {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: center;
-    margin-bottom: 72px;
-  }
-  .vault-kicker {
-    font-family: var(--serif);
-    font-size: clamp(26px, 3vw, 34px);
-    font-weight: 400;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    margin-bottom: 16px;
-  }
-  .vault-kicker em { font-style: italic; color: var(--accent); }
-  .vault-pillars {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    margin-bottom: 72px;
-  }
-  .vault-pillar .vault-kicker { font-size: clamp(22px, 2.4vw, 27px); }
-  .vault-pillar p {
-    font-family: var(--sans);
-    font-size: 16px;
-    color: var(--muted);
-    line-height: 1.7;
-    max-width: 500px;
-  }
-  .vault-feature-copy p {
-    font-family: var(--sans);
-    font-size: 16px;
-    color: var(--muted);
-    line-height: 1.7;
-    max-width: 500px;
-  }
-
-  /* layered stack visual: three planes (Storage / Access / Governance) */
-  .vault-stack {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    max-width: 420px;
-    margin: 0 auto;
-  }
-  .vault-plane {
+  /* dark panel: eyebrow + left-aligned head + intro + three chip-titled cards */
+  .vault-panel {
     position: relative;
-    padding: 20px 26px;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    background: #fff;
-    box-shadow: 0 12px 26px -20px rgba(33, 15, 7, 0.55);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
+    overflow: hidden;
+    background: var(--coffee-bean);
+    color: var(--paper);
+    border-radius: 24px;
+    padding: clamp(44px, 6.5vw, 88px);
+    margin-bottom: 64px;
   }
-  .vault-plane.mid {
-    background: linear-gradient(135deg, #fff8f5 0%, #fffbf9 100%);
-    border-color: rgba(196, 93, 44, 0.22);
-  }
-  .vault-plane-label {
+  .vault-panel .section-label { color: var(--accent-light); }
+  .vault-panel-head {
     font-family: var(--serif);
-    font-size: 21px;
+    font-size: clamp(34px, 4vw, 52px);
+    font-weight: 400;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    max-width: 620px;
+    margin-bottom: 24px;
+  }
+  .vault-panel-head em { font-style: italic; color: var(--accent-light); }
+  .vault-panel-sub {
+    font-size: 17px;
+    color: rgba(250, 249, 247, 0.72);
+    line-height: 1.7;
+    max-width: 660px;
+    margin-bottom: 56px;
+  }
+  .vault-panel-cards {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .vault-panel-card {
+    border: 1px solid rgba(250, 249, 247, 0.16);
+    border-radius: 14px;
+    padding: 22px;
+  }
+  .vault-panel-card h3 {
+    font-family: var(--serif);
+    font-size: clamp(20px, 1.8vw, 24px);
     font-weight: 400;
     letter-spacing: -0.01em;
     line-height: 1.2;
+    color: var(--accent-light);
+    text-align: center;
+    border: 1px solid rgba(250, 249, 247, 0.16);
+    border-radius: 10px;
+    padding: 18px 14px;
+    margin-bottom: 20px;
   }
-  .vault-plane-note { font-size: 13px; color: var(--muted); text-align: right; }
-  .vault-stack-link {
-    width: 1px;
-    height: 16px;
-    background: linear-gradient(to bottom, transparent, var(--accent), transparent);
-    margin: 0 auto;
+  .vault-panel-card p {
+    font-size: 15px;
+    color: rgba(250, 249, 247, 0.66);
+    line-height: 1.65;
   }
+  .vault-panel-mark {
+    position: absolute;
+    right: -36px;
+    bottom: -48px;
+    width: 300px;
+    height: auto;
+    opacity: 0.05;
+    pointer-events: none;
+  }
+  .vault-panel-mark path { fill: var(--paper); }
 
   /* trust layer — full container width to align with the feature row above */
   .vault-trust { margin: 0 auto; }
@@ -1441,9 +1426,7 @@
     .tiers-grid { grid-template-columns: 1fr; }
     .hero-grid { grid-template-columns: 1fr; gap: 48px; }
     .hero-grid .arch-diagram { max-width: 560px; margin: 0 auto; }
-    .vault-feature { grid-template-columns: 1fr; gap: 44px; }
-    .vault-stack { max-width: 460px; order: -1; }
-    .vault-pillars { grid-template-columns: 1fr; gap: 44px; }
+    .vault-panel-cards { grid-template-columns: 1fr; }
     .vault-block { flex-basis: calc(50% - 7px); }
   }
   @media (max-width: 768px) {
@@ -1838,45 +1821,27 @@
 <!-- THE VAULT -->
 <section class="vault">
   <div class="container">
-    <div class="vault-head">
-      <p class="vault-bridge fade-up">The 4x isn't magic &mdash; <em>it's infrastructure.</em> Here's what we build and run for you.</p>
-      <div class="section-label fade-up">The Vault MCP</div>
-      <h2 class="section-head fade-up" style="margin-left:auto;margin-right:auto">One Governed Source of Truth</h2>
-      <p class="section-sub fade-up">Most companies point AI at a folder of docs and hope. We build a governed system: your AI reads from one controlled source. Your numbers can't contradict each other, nothing changes without a human approving it, and every change leaves an audit trail.</p>
-    </div>
+    <p class="vault-bridge fade-up">The 4x isn't magic &mdash; <em>it's infrastructure.</em> Here's what we build and run for you.</p>
 
-    <div class="vault-feature">
-      <div class="vault-feature-copy fade-up">
-        <h3 class="vault-kicker">It travels with you.</h3>
-        <p>The Vault isn't another tool to log into. It's your company's knowledge, served live, that the AI tools your team already uses can read: Claude, ChatGPT, Copilot. Connect once, and your context travels with you across your tools and devices. You don't go to it; it comes to you, inside the AI you already use.</p>
-      </div>
-      <div class="vault-stack fade-up" style="transition-delay:0.1s" aria-hidden="true">
-        <div class="vault-plane">
-          <span class="vault-plane-label">Storage</span>
-          <span class="vault-plane-note">Your private repos</span>
+    <div class="vault-panel fade-up">
+      <div class="section-label">The Vault MCP</div>
+      <h2 class="vault-panel-head">One Governed Source of <em>Truth</em></h2>
+      <p class="vault-panel-sub">Most companies point AI at a folder of docs and hope. We build a governed system: your AI reads from one controlled source. Your numbers can't contradict each other, nothing changes without a human approving it, and every change leaves an audit trail.</p>
+      <div class="vault-panel-cards">
+        <div class="vault-panel-card">
+          <h3>It travels with you.</h3>
+          <p>The Vault isn't another tool to log into. It's your company's knowledge, served live, that the AI tools your team already uses can read: Claude, ChatGPT, Copilot. Connect once, and your context travels with you across your tools and devices. You don't go to it; it comes to you, inside the AI you already use.</p>
         </div>
-        <div class="vault-stack-link"></div>
-        <div class="vault-plane mid">
-          <span class="vault-plane-label">Access</span>
-          <span class="vault-plane-note">Live, in the AI you use</span>
+        <div class="vault-panel-card">
+          <h3>It's always current.</h3>
+          <p>Anyone on your team can flag a correction from inside the AI they're already using &mdash; it's a sentence, not a ticket. An approver reviews the exact before-and-after and lands it in one click. Update once, and everyone's AI sees it. The Vault gets better the more your team uses it, instead of going stale like every doc folder eventually does.</p>
         </div>
-        <div class="vault-stack-link"></div>
-        <div class="vault-plane">
-          <span class="vault-plane-label">Governance</span>
-          <span class="vault-plane-note">Reviewed &amp; audited</span>
+        <div class="vault-panel-card">
+          <h3>It sounds like you, everywhere.</h3>
+          <p>Every tool reads the same voice, positioning, and approved claims, so output is on-brand no matter who on the team is asking or which AI they're in. The veteran and the new hire produce equally on-brand work.</p>
         </div>
       </div>
-    </div>
-
-    <div class="vault-pillars">
-      <div class="vault-pillar fade-up">
-        <h3 class="vault-kicker">It's always current.</h3>
-        <p>Anyone on your team can flag a correction from inside the AI they're already using &mdash; it's a sentence, not a ticket. An approver reviews the exact before-and-after and lands it in one click. Update once, and everyone's AI sees it. The Vault gets better the more your team uses it, instead of going stale like every doc folder eventually does.</p>
-      </div>
-      <div class="vault-pillar fade-up" style="transition-delay:0.1s">
-        <h3 class="vault-kicker">It sounds like you, everywhere.</h3>
-        <p>Every tool reads the same voice, positioning, and approved claims, so output is on-brand no matter who on the team is asking or which AI they're in. The veteran and the new hire produce equally on-brand work.</p>
-      </div>
+      <svg class="vault-panel-mark" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 176.38 159.08"><path d="M176.1,92.6c-28.9-17.29-57.99-32.75-84.88-48.3-1.91-1.08-2.87-1.89-4.65-.87C49.81,64.42,21.24,80.72.85,92.34c-1.28,1.5-.72,4.03-.54,5.9l86.55,48.79c.9.51,2,.51,2.9,0l86.38-49.14c.33-1.81.32-3.57-.04-5.29ZM88.33,137.38c-.18.1-.4.1-.58,0-2.26-1.31-4.53-2.61-6.79-3.92-4.69-2.71-9.39-5.42-14.08-8.13-8.31-4.8-16.68-9.5-24.94-14.4-7.22-4.28-14.58-8.37-21.85-12.57-1.58-.91-3.16-1.82-4.73-2.73-.08-.04-.14-.11-.18-.18-.14-.24-.06-.56.18-.7l72.27-41.72c.16-.09.34-.09.5,0,16.11,9.06,32.33,17.95,48.38,27.13,7.6,4.35,15.15,8.8,22.74,13.18l2.16,1.25c.09.05.16.12.21.21.16.28.07.63-.21.79"/><path d="M149.99,124.36l-60.6,34.43c-.68.38-1.5.38-2.18,0l-60.58-34.13-8.74-5.16L1.65,110.36c-.72-.4-1.17-1.16-1.18-1.99l-.16-10.14,86.55,48.79c.9.51,2,.51,2.9,0l86.38-49.14c.19,2.61.19,5.22.01,7.84-.08,1.18.31,3.39-1.12,4.21"/><path d="M176.06,54.92l-86.38,49.14c-.9.51-2,.51-2.9,0L.24,55.27c-.33-1.73-.32-3.45.02-5.17.06-.31.25-.58.52-.73C21.17,37.75,49.74,21.45,86.5.47c1.78-1.02,2.74-.21,4.65.87,26.93,15.23,55.08,31.14,84.45,47.72.22.12.38.33.43.58.36,1.72.37,3.48.04,5.29ZM42.47,68.36c.16.09.36.09.52,0L115.25,26.64c.24-.14.32-.45.18-.7-.04-.08-.11-.14-.18-.18l-27.2-15.69c-.16-.09-.34-.09-.5,0L15.28,51.78c-.24.14-.32.45-.18.7.04.08.11.14.18.18l27.19,15.7ZM98.12,47.16c-.28.16-.37.52-.21.79.05.09.12.16.21.21l35.18,20.31c.18.1.4.1.58,0l27.45-15.84c.28-.16.37-.52.21-.79-.05-.09-.12-.16-.21-.21l-35.19-20.31c-.18-.1-.4-.1-.58,0l-27.44,15.84ZM88.28,52.95c-.18-.1-.4-.1-.58,0l-35.05,20.24c-.28.16-.37.52-.21.79.05.09.12.16.21.21l35.03,20.22c.18.1.4.1.58,0l35.05-20.23c.28-.16.37-.52.21-.79-.05-.09-.12-.16-.21-.21l-35.03-20.23Z"/><path d="M149.92,81.39l-60.6,34.43c-.68.38-1.5.38-2.18,0l-60.58-34.13-8.74-5.16L1.58,67.4c-.72-.4-1.17-1.16-1.18-1.99l-.16-10.14,86.55,48.79c.9.51,2,.51,2.9,0l86.38-49.14c.19,2.61.19,5.22.01,7.84-.08,1.18.31,3.39-1.12,4.21-3.55,2.05-8.53,4.83-14.92,8.35"/></svg>
     </div>
 
     <div class="vault-trust">
