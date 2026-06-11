@@ -131,55 +131,10 @@
       "description": "Six-week engagement that installs custom AI infrastructure built around how a specific team works. Includes AI workspaces, knowledge files, a governed prompt and workflow library that grows with use, an AI Playbook, and team training.",
       "provider": { "@id": "https://storystak.ai/#org" },
       "areaServed": "Worldwide",
-      "priceRange": "$0–$20,000",
       "serviceType": "AI implementation consulting",
       "audience": {
         "@type": "BusinessAudience",
         "audienceType": "B2B teams of 10–100 people"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Engagements",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "name": "Free Discovery Call",
-            "description": "30 minutes with the founder. Honest advice on the specific situation. Personalized follow-up with action items. Scoped proposal if it makes sense.",
-            "price": "0",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock"
-          },
-          {
-            "@type": "Offer",
-            "name": "Departmental Engagement",
-            "description": "One team. Four weeks. Focused system build for a single highest-leverage department (Marketing, Sales, or Operations). Includes AI workflow audit, 4–5 custom AI workspaces, a prompt library for the team's core workflows, team training, and 30-day optimization pass.",
-            "price": "7500",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock"
-          },
-          {
-            "@type": "Offer",
-            "name": "Full Engagement",
-            "description": "Entire company. Six weeks. Complete system that scales across all teams with cross-departmental continuity. Includes full audit, 8–10 workspaces, a governed prompt and workflow library that grows with use, training for the full team, AI Playbook, and Before/After Impact Report.",
-            "price": "20000",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock"
-          },
-          {
-            "@type": "Offer",
-            "name": "Monthly Retainer",
-            "description": "Optional. Ongoing optimization, new module builds, quarterly system updates.",
-            "price": "1500",
-            "priceCurrency": "USD",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "price": "1500",
-              "priceCurrency": "USD",
-              "unitText": "MONTH"
-            },
-            "availability": "https://schema.org/InStock"
-          }
-        ]
       }
     },
     {
@@ -240,14 +195,6 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Your content lives in your own private repositories and is reached only over an encrypted (TLS 1.3) connection gated to your company's own internal login — there's no public surface to it. The AI can read and suggest, but never change anything: every change is a reviewed, human-approved pull request with a permanent audit trail. It's your content, in your version control, so you can audit it or take it with you anytime. And it runs on a SOC 2 Type II-compliant hosting platform — we can provide the host's report to your IT team under NDA."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What does the departmental option cover?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "You pick one team: Marketing, Sales, or Operations. We do a full Deep Dive with your senior people on that team, build the prompt library and workflows for their role, and run training. You get everything except the cross-departmental integration and optimization layer."
           }
         },
         {
@@ -923,154 +870,6 @@
     margin-top: -32px;
   }
 
-  /* ── PRICING / TIERS ── */
-  .pricing { background: var(--warm); }
-  .pricing-head { max-width: 760px; margin-bottom: 56px; }
-  .tiers-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-bottom: 20px;
-  }
-  .tier {
-    padding: 36px 32px;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    background: #fff;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-  }
-  .tier.entry { border-color: var(--accent); }
-  .tier.featured {
-    background: var(--ink);
-    border: 2px solid var(--accent);
-    color: var(--paper);
-  }
-  .tier-badge {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 4px 10px;
-    border-radius: 3px;
-    margin-bottom: 20px;
-    align-self: flex-start;
-  }
-  .tier.entry .tier-badge { background: var(--accent-bg); color: var(--accent); }
-  .tier:not(.entry):not(.featured) .tier-badge { background: var(--warm); color: var(--muted); }
-  .tier.featured .tier-badge { background: rgba(196, 93, 44, 0.2); color: var(--accent-light); }
-  .tier-name {
-    font-family: var(--serif);
-    font-size: 26px;
-    font-weight: 400;
-    line-height: 1.3;
-    letter-spacing: -0.01em;
-    margin-bottom: 6px;
-  }
-  .tier.featured .tier-name { color: var(--paper); }
-  .tier-price {
-    font-size: 34px;
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    margin-bottom: 8px;
-    color: var(--ink);
-    font-feature-settings: "tnum";
-  }
-  .tier.featured .tier-price { color: var(--accent-light); }
-  .tier.entry .tier-price { color: var(--accent); }
-  .tier-desc {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.55;
-    margin-bottom: 24px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid var(--border);
-  }
-  .tier.featured .tier-desc {
-    color: rgba(250, 249, 247, 0.55);
-    border-bottom-color: rgba(255, 255, 255, 0.1);
-  }
-  .tier-includes {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    flex-grow: 1;
-  }
-  .tier-includes li {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 14px;
-    line-height: 1.5;
-    color: var(--ink);
-  }
-  .tier.featured .tier-includes li { color: rgba(250, 249, 247, 0.85); }
-  .tier-includes li .icon {
-    color: var(--accent);
-    font-size: 16px;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-  .tier.featured .tier-includes li .icon { color: var(--accent-light); }
-  .tier-cta {
-    display: block;
-    text-align: center;
-    margin-top: 28px;
-    padding: 13px 24px;
-    border-radius: 6px;
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.25s var(--ease);
-  }
-  .tier.entry .tier-cta { background: var(--accent); color: #fff; }
-  .tier.entry .tier-cta:hover { background: var(--accent-light); transform: translateY(-1px); }
-  .tier:not(.entry):not(.featured) .tier-cta {
-    background: var(--warm);
-    color: var(--ink);
-    border: 1px solid var(--border);
-  }
-  .tier:not(.entry):not(.featured) .tier-cta:hover { background: var(--border); }
-  .tier.featured .tier-cta { background: var(--accent); color: #fff; }
-  .tier.featured .tier-cta:hover { background: var(--accent-light); transform: translateY(-1px); }
-  .retainer {
-    padding: 24px 32px;
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
-  .retainer-left { display: flex; align-items: center; gap: 16px; }
-  .retainer-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 10px;
-    background: var(--accent-bg);
-    color: var(--accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    flex-shrink: 0;
-  }
-  .retainer-title { font-size: 17px; font-weight: 600; margin-bottom: 2px; }
-  .retainer-desc { font-size: 14px; color: var(--muted); line-height: 1.5; }
-  .retainer-price {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--accent);
-    letter-spacing: -0.02em;
-    white-space: nowrap;
-    font-feature-settings: "tnum";
-  }
-
   /* ── VS COMPARISON ── */
   .vs { background: var(--paper); }
   .vs-head { max-width: 760px; margin-bottom: 56px; }
@@ -1461,7 +1260,6 @@
     .timeline { grid-template-columns: 1fr 1fr; gap: 40px 24px; }
     .timeline::before { display: none; }
     .deliv-grid { grid-template-columns: 1fr 1fr; }
-    .tiers-grid { grid-template-columns: 1fr; }
     .hero-grid { grid-template-columns: 1fr; gap: 48px; }
     .vault-panel-cards { grid-template-columns: 1fr; }
     .vault-block { flex-basis: calc(50% - 7px); }
@@ -1508,8 +1306,6 @@
     .timeline { grid-template-columns: 1fr; gap: 32px; }
     .deliv-grid { grid-template-columns: 1fr; }
     .vs-grid { grid-template-columns: 1fr; }
-    .retainer { flex-direction: column; align-items: flex-start; gap: 16px; }
-    .retainer-icon { display: none; }
     .founder { padding: 80px 0; }
     .final-cta { padding: 88px 0; }
     .final-ctas { flex-direction: column; gap: 12px; }
@@ -1648,7 +1444,7 @@
       </div>
       <div class="stat fade-up" style="transition-delay:0.24s">
         <div class="num">$138K+</div>
-        <div class="lbl">Annual value recovered from a $20K engagement</div>
+        <div class="lbl">Annual value recovered from a single engagement</div>
       </div>
     </div>
   </div>
@@ -1886,73 +1682,6 @@
   </div>
 </section>
 
-<!-- PRICING -->
-<section class="pricing" id="pricing">
-  <div class="container">
-    <div class="pricing-head">
-      <div class="section-label fade-up">Simple pricing</div>
-      <h2 class="section-head fade-up">Start where the pain is. Scale when you're ready.</h2>
-      <p class="section-sub fade-up">Every engagement starts with a free call. Tell us what you need. We'll tell you exactly what we'd build.</p>
-    </div>
-    <div class="tiers-grid">
-      <div class="tier entry fade-up">
-        <div class="tier-badge">Start here</div>
-        <div class="tier-name">Free Discovery Call</div>
-        <div class="tier-price">$0</div>
-        <div class="tier-desc">30 minutes. We map your situation, you see the approach. Real advice on the call. A personalized follow-up arrives after. No pitch until you ask for one.</div>
-        <ul class="tier-includes">
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>30 minutes with Zach</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Honest advice on your specific situation</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Personalized follow-up with action items</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Scoped proposal if it makes sense</li>
-        </ul>
-        <a href="#book" class="tier-cta">Book a Free Call</a>
-      </div>
-      <div class="tier fade-up" style="transition-delay:0.1s">
-        <div class="tier-badge">Single department</div>
-        <div class="tier-name">Departmental</div>
-        <div class="tier-price">$7,500</div>
-        <div class="tier-desc">One team. Four weeks. A focused system build for your single highest-leverage department.</div>
-        <ul class="tier-includes">
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Your governed Vault, served live to your team's AI tools</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>AI workflow audit, one department</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>4&ndash;5 custom AI workspaces that read from your Vault</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Prompt library for your core workflows</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Team training + recorded walkthroughs</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>30-day optimization pass</li>
-        </ul>
-        <a href="#book" class="tier-cta">Start a Conversation</a>
-      </div>
-      <div class="tier featured fade-up" style="transition-delay:0.2s">
-        <div class="tier-badge">Most complete</div>
-        <div class="tier-name">Full Engagement</div>
-        <div class="tier-price">$20,000</div>
-        <div class="tier-desc">Entire company. Six weeks. A complete system that scales across all teams. Cross-department continuity individual builds can't replicate.</div>
-        <ul class="tier-includes">
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Your governed Vault, served live across every department</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Full audit across all departments</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>8&ndash;10 workspaces that work together, all reading from one Vault</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Governed prompt library across all functions</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Training for the full team</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>AI Playbook + Before/After Impact Report</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Fully deployed in 6 weeks</li>
-        </ul>
-        <a href="#book" class="tier-cta">Start a Conversation</a>
-      </div>
-    </div>
-    <div class="retainer fade-up">
-      <div class="retainer-left">
-        <div class="retainer-icon"><svg class="icon" aria-hidden="true"><use href="#icon-arrows-clockwise"/></svg></div>
-        <div>
-          <div class="retainer-title">Monthly Retainer <em style="font-weight:400;color:var(--muted);font-style:italic">optional</em></div>
-          <div class="retainer-desc">We operate the governance layer &mdash; keeping the Vault current and reviewing every change &mdash; plus ongoing optimization, new module builds, and quarterly system updates. AI moves fast. The retainer keeps your system current.</div>
-        </div>
-      </div>
-      <div class="retainer-price">$1,500/mo</div>
-    </div>
-  </div>
-</section>
-
 <!-- VS COMPARISON -->
 <section class="vs">
   <div class="container">
@@ -2054,16 +1783,6 @@
         </button>
         <div class="faq-a">
           <p>Your content lives in your own private repositories and is reached only over an encrypted (TLS 1.3) connection gated to your company's own internal login &mdash; there's no public surface to it. The AI can read and suggest, but never change anything: every change is a reviewed, human-approved pull request with a permanent audit trail. It's your content, in your version control, so you can audit it or take it with you anytime. And it runs on a SOC 2 Type II-compliant hosting platform &mdash; we can provide the host's report to your IT team under NDA.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">
-          <span>What does the departmental option cover?</span>
-          <span class="faq-toggle"><svg class="icon" aria-hidden="true"><use href="#icon-plus"/></svg></span>
-        </button>
-        <div class="faq-a">
-          <p>You pick one team: Marketing, Sales, or Operations. We do a full Deep Dive with your senior people on that team, build the prompt library and workflows for their role, and run training. You get everything except the cross-departmental integration and optimization layer.</p>
         </div>
       </div>
 
