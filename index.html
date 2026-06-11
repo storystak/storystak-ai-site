@@ -591,39 +591,6 @@
   .pp-cta:active { transform: translateY(1px); }
   .pp-cta .icon { font-size: 18px; }
 
-  /* ── TIME SHIFT (DONUTS) ── */
-  .time-shift { background: var(--paper); }
-  .time-shift-head {
-    max-width: 760px;
-    margin: 0 auto 56px;
-    text-align: center;
-  }
-  .time-shift-head h2 { margin-left: auto; margin-right: auto; }
-  .time-shift-head .section-sub { margin-left: auto; margin-right: auto; }
-  .donuts {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    max-width: 880px;
-    margin: 0 auto;
-  }
-  .donut-block { text-align: center; }
-  .donut-block .donut-label {
-    font-family: var(--serif);
-    font-size: 20px;
-    margin-bottom: 24px;
-    color: var(--ink);
-  }
-  .donut-svg { max-width: 240px; margin: 0 auto 20px; display: block; }
-  .donut-legend {
-    display: flex;
-    justify-content: center;
-    gap: 28px;
-    font-size: 13px;
-    color: var(--muted);
-  }
-  .legend-item { display: flex; align-items: center; gap: 8px; }
-  .dot { width: 10px; height: 10px; border-radius: 50%; }
 
   /* ── PROCESS TIMELINE ── */
   .process { background: var(--ink); color: var(--paper); padding: 110px 0; }
@@ -1537,7 +1504,6 @@
     .stat { padding: 0 16px; border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.07); padding-bottom: 24px; }
     .stat:nth-last-child(-n+2) { border-bottom: none; padding-bottom: 0; }
     .stats-bar { padding: 48px 0; }
-    .donuts { grid-template-columns: 1fr; gap: 48px; }
     .outcomes-grid { grid-template-columns: 1fr; }
     .timeline { grid-template-columns: 1fr; gap: 32px; }
     .deliv-grid { grid-template-columns: 1fr; }
@@ -1784,41 +1750,6 @@
         <div class="vault-block">
           <h4>Take it with you</h4>
           <p>It's your content, in your own version control, in open formats. No lock-in. You can audit it or take it with you anytime.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TIME SHIFT (DONUTS) -->
-<section class="time-shift">
-  <div class="container">
-    <div class="time-shift-head">
-      <div class="section-label fade-up">The real bottleneck</div>
-      <h2 class="section-head fade-up">The real bottleneck isn't headcount.</h2>
-      <p class="section-sub fade-up">Your senior team is stuck reviewing, approving, fixing. The system shifts them out of execution and into building the company.</p>
-    </div>
-    <div class="donuts">
-      <div class="donut-block fade-up">
-        <div class="donut-label">Your senior team today</div>
-        <svg class="donut-svg" viewBox="0 0 200 200" aria-label="60% execution, 40% strategy">
-          <circle cx="100" cy="100" r="80" fill="none" stroke="#0f0f0f" stroke-width="32" stroke-dasharray="301.59 502.65" stroke-dashoffset="0"></circle>
-          <circle cx="100" cy="100" r="80" fill="none" stroke="#c45d2c" stroke-width="32" stroke-dasharray="201.06 502.65" stroke-dashoffset="-301.59"></circle>
-        </svg>
-        <div class="donut-legend">
-          <div class="legend-item"><span class="dot" style="background:#0f0f0f"></span>Execution 60%</div>
-          <div class="legend-item"><span class="dot" style="background:#c45d2c"></span>Strategy 40%</div>
-        </div>
-      </div>
-      <div class="donut-block fade-up" style="transition-delay:0.1s">
-        <div class="donut-label">After 6 weeks</div>
-        <svg class="donut-svg" viewBox="0 0 200 200" aria-label="30% execution, 70% strategy">
-          <circle cx="100" cy="100" r="80" fill="none" stroke="#0f0f0f" stroke-width="32" stroke-dasharray="150.80 502.65" stroke-dashoffset="0"></circle>
-          <circle cx="100" cy="100" r="80" fill="none" stroke="#c45d2c" stroke-width="32" stroke-dasharray="351.85 502.65" stroke-dashoffset="-150.80"></circle>
-        </svg>
-        <div class="donut-legend">
-          <div class="legend-item"><span class="dot" style="background:#0f0f0f"></span>Execution 30%</div>
-          <div class="legend-item"><span class="dot" style="background:#c45d2c"></span>Strategy 70%</div>
         </div>
       </div>
     </div>
@@ -2445,64 +2376,6 @@
     });
   }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
-
-
-  // Donut arc draw-in (Option A: arc fills clockwise, second donut staggered)
-  (function () {
-    const donuts = document.querySelectorAll('.donut-svg');
-    if (!donuts.length) return;
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const CIRC = 502.65;
-    const DURATION = 1200;
-    const STAGGER = 200;
-
-    // Cache final values into data-final-dash, then reset to 0 so the animation can play.
-    // If JS fails before this runs, the SVGs render in their correct final state from the inline attributes.
-    donuts.forEach(svg => {
-      svg.querySelectorAll('circle').forEach(c => {
-        const dash = c.getAttribute('stroke-dasharray') || '';
-        const final = parseFloat(dash.split(/\s+/)[0]) || 0;
-        c.dataset.finalDash = final;
-        if (!reduced) c.setAttribute('stroke-dasharray', '0 ' + CIRC);
-      });
-    });
-
-    if (reduced) return;
-
-    const easeOutExpo = t => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
-
-    function animate(svg, delay) {
-      const [ink, bronze] = svg.querySelectorAll('circle');
-      if (!ink || !bronze) return;
-      const inkFinal = parseFloat(ink.dataset.finalDash);
-      const bronzeFinal = parseFloat(bronze.dataset.finalDash);
-      const total = inkFinal + bronzeFinal;
-      const start = performance.now() + delay;
-      function frame(now) {
-        if (now < start) { requestAnimationFrame(frame); return; }
-        const t = Math.min(1, (now - start) / DURATION);
-        const drawn = easeOutExpo(t) * total;
-        const inkLen = Math.min(drawn, inkFinal);
-        const bronzeLen = Math.max(0, drawn - inkFinal);
-        ink.setAttribute('stroke-dasharray', inkLen + ' ' + CIRC);
-        bronze.setAttribute('stroke-dasharray', bronzeLen + ' ' + CIRC);
-        if (t < 1) requestAnimationFrame(frame);
-      }
-      requestAnimationFrame(frame);
-    }
-
-    const donutList = Array.from(donuts);
-    const donutObs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          const idx = donutList.indexOf(e.target);
-          animate(e.target, idx * STAGGER);
-          donutObs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.3, rootMargin: '0px 0px -40px 0px' });
-    donutList.forEach(svg => donutObs.observe(svg));
-  })();
 </script>
 
 </body>
