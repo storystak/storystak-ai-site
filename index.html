@@ -433,7 +433,7 @@
   }
   .stats-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 0;
   }
   .stat {
@@ -1300,7 +1300,7 @@
     .pp-body { margin-bottom: 24px; }
     .stats-grid { grid-template-columns: 1fr 1fr; gap: 32px 0; }
     .stat { padding: 0 16px; border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.07); padding-bottom: 24px; }
-    .stat:nth-last-child(-n+2) { border-bottom: none; padding-bottom: 0; }
+    .stat:nth-last-child(-n+1) { border-bottom: none; padding-bottom: 0; }
     .stats-bar { padding: 48px 0; }
     .outcomes-grid { grid-template-columns: 1fr; }
     .timeline { grid-template-columns: 1fr; gap: 32px; }
@@ -1441,10 +1441,6 @@
       <div class="stat fade-up" style="transition-delay:0.16s">
         <div class="num">4x</div>
         <div class="lbl">Team output without adding headcount</div>
-      </div>
-      <div class="stat fade-up" style="transition-delay:0.24s">
-        <div class="num">$138K+</div>
-        <div class="lbl">Annual value recovered from a single engagement</div>
       </div>
     </div>
   </div>
@@ -1711,7 +1707,6 @@
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Prompt libraries tuned to your actual workflows</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>No new tools for your team to learn. We build and run the infrastructure</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>A governed Vault: enforced, audited, self-maintaining</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Specific financial case: $138K&ndash;$414K annual impact</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Team is self-sufficient after 6 weeks</li>
         </ul>
       </div>
