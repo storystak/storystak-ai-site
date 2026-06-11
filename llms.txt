@@ -34,13 +34,6 @@ Every system we build reads from the Vault: the client's knowledge (voice, posit
 - $138K–$414K in annual value recovered from a single engagement (typical range for a 10-person team)
 - 7–14x return on a single engagement in year one
 
-## Pricing
-
-- **Free Discovery Call** — $0, 30 minutes with the founder, honest advice on the client's specific situation
-- **Departmental Engagement** — $7,500, one team (Marketing, Sales, or Operations), 4 weeks, complete system for that department
-- **Full Engagement** — $20,000, all departments, 6 weeks, cross-departmental integration
-- **Monthly Retainer (optional)** — $1,500/month, ongoing optimization and new module builds
-
 ## How we differ from typical AI consulting
 
 We build working systems, not workshops or strategy decks. The day we leave, the team is already using the systems we installed. Specifically:
