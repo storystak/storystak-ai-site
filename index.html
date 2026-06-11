@@ -85,7 +85,7 @@
     setTimeout(loadGtag, 15000);
   })();
 </script>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <!-- Structured data: Organization, Founder, Service offerings, WebSite -->
 <script type="application/ld+json">
@@ -428,7 +428,7 @@
     align-items: center;
   }
   .hero-grid .hero-inner { max-width: 100%; }
-  .hero-grid .arch-diagram { max-width: 100%; margin: 0; width: 100%; }
+  .hero-grid .hero-demo { min-width: 0; }
   .hero-eyebrow {
     display: inline-flex;
     align-items: center;
@@ -712,56 +712,6 @@
     font-size: 14.5px;
     color: var(--muted);
     line-height: 1.65;
-  }
-
-  .arch-diagram {
-    max-width: 600px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-  }
-  .arch-row {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px 28px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  .arch-row.mid {
-    background: linear-gradient(135deg, #fff8f5 0%, #fffbf9 100%);
-    border-color: rgba(196, 93, 44, 0.2);
-  }
-  .arch-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    background: var(--accent-bg);
-    color: var(--accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    flex-shrink: 0;
-  }
-  .arch-text .arch-heading {
-    font-family: var(--serif);
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 1.3;
-    margin-bottom: 4px;
-    letter-spacing: -0.01em;
-  }
-  .arch-text p { font-size: 14px; color: var(--muted); line-height: 1.55; }
-  .arch-arrow {
-    width: 1px;
-    height: 28px;
-    background: linear-gradient(to bottom, transparent, var(--accent), transparent);
-    margin: 0 auto;
-    position: relative;
   }
 
   /* ── ROI ── */
@@ -1406,6 +1356,197 @@
   }
   .footer-mark svg { height: 100%; width: auto; display: block; margin: 0 auto; }
 
+  /* ── VAULT MCP SESSION (hero demo embed; all selectors vmcp-prefixed) ── */
+  .vmcp-session {
+    --vmcp-card: #1a130d;
+    --vmcp-soft: rgba(247, 227, 218, 0.06);
+    --vmcp-ink: #f3eae3;
+    --vmcp-muted: #a8988c;
+    --vmcp-dim: #756657;
+    --vmcp-bronze: #c45d2c;
+    --vmcp-bronze-bright: #e08a57;
+    --vmcp-mono: 'IBM Plex Mono', 'SF Mono', Menlo, monospace;
+
+    max-width: 620px;
+    margin: 0 auto;
+    background: var(--vmcp-card);
+    border-radius: 22px;
+    padding: 26px 30px 24px;
+    box-shadow: 0 30px 70px -30px rgba(33, 15, 7, 0.45);
+    display: flex;
+    flex-direction: column;
+    height: 560px;
+    box-sizing: border-box;
+    font-family: var(--sans);
+    line-height: 1.65;
+  }
+  .vmcp-session *, .vmcp-session *::before, .vmcp-session *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  .vmcp-caption {
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 14px;
+    letter-spacing: 0.01em;
+  }
+
+  .vmcp-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding-bottom: 22px;
+  }
+  .vmcp-claude-mark { width: 18px; height: 18px; flex-shrink: 0; }
+  .vmcp-title { font-size: 14.5px; font-weight: 600; color: var(--vmcp-ink); }
+  .vmcp-title span { font-weight: 400; color: var(--vmcp-dim); }
+
+  .vmcp-feed {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+  .vmcp-feed::-webkit-scrollbar { display: none; }
+
+  .vmcp-feed .vmcp-msg:not(.vmcp-shown) { display: none; }
+  .vmcp-msg.vmcp-shown { animation: vmcp-fade-up 0.6s var(--ease); }
+  .vmcp-user.vmcp-shown, .vmcp-status.vmcp-shown, .vmcp-reply.vmcp-shown { display: block; }
+  .vmcp-tool.vmcp-shown, .vmcp-file.vmcp-shown { display: flex; }
+  @keyframes vmcp-fade-up {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: none; }
+  }
+  .vmcp-feed.vmcp-leaving .vmcp-msg.vmcp-shown {
+    opacity: 0;
+    transform: translateY(-14px);
+    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+  }
+
+  .vmcp-user {
+    align-self: flex-end;
+    max-width: 88%;
+    background: var(--vmcp-soft);
+    border-radius: 16px;
+    padding: 16px 20px;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--vmcp-muted);
+  }
+
+  .vmcp-tool {
+    align-self: flex-start;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--vmcp-dim);
+  }
+  .vmcp-tool .vmcp-label { color: var(--vmcp-dim); }
+  .vmcp-tool.vmcp-working .vmcp-label {
+    background: linear-gradient(100deg, var(--vmcp-dim) 35%, var(--vmcp-ink) 50%, var(--vmcp-dim) 65%);
+    background-size: 250% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: vmcp-shimmer 1.5s linear infinite;
+  }
+  @keyframes vmcp-shimmer {
+    0% { background-position: 120% 0; }
+    100% { background-position: -120% 0; }
+  }
+  .vmcp-chev { font-size: 13px; color: var(--vmcp-dim); }
+  .vmcp-check {
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--vmcp-bronze-bright);
+    text-transform: none;
+    opacity: 0;
+    transition: opacity 0.5s var(--ease);
+  }
+  .vmcp-check.vmcp-on { opacity: 1; }
+
+  .vmcp-status {
+    align-self: flex-start;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--vmcp-muted);
+    max-width: 95%;
+  }
+  .vmcp-num { color: var(--vmcp-ink); font-weight: 500; }
+
+  .vmcp-reply {
+    align-self: flex-start;
+    font-size: 16.5px;
+    line-height: 1.6;
+    color: var(--vmcp-ink);
+    max-width: 95%;
+  }
+
+  .vmcp-file {
+    align-self: flex-start;
+    align-items: center;
+    gap: 14px;
+    background: var(--vmcp-soft);
+    border: 1px solid rgba(247, 227, 218, 0.1);
+    border-radius: 14px;
+    padding: 14px 18px;
+    max-width: 95%;
+  }
+  .vmcp-file-icon { width: 26px; height: 26px; color: var(--vmcp-bronze-bright); flex-shrink: 0; }
+  .vmcp-file .vmcp-icon-pdf { display: none; }
+  .vmcp-file.vmcp-is-pdf .vmcp-icon-md { display: none; }
+  .vmcp-file.vmcp-is-pdf .vmcp-icon-pdf { display: block; }
+  .vmcp-file-name {
+    font-family: var(--vmcp-mono);
+    font-size: 14px;
+    color: var(--vmcp-ink);
+    line-height: 1.4;
+  }
+  .vmcp-file-meta {
+    font-size: 13px;
+    color: var(--vmcp-muted);
+    line-height: 1.4;
+  }
+
+  .vmcp-input {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+    background: var(--vmcp-soft);
+    border-radius: 14px;
+    padding: 16px 18px;
+    font-size: 15px;
+    color: var(--vmcp-dim);
+  }
+  .vmcp-input-icon { width: 19px; height: 19px; color: var(--vmcp-dim); flex-shrink: 0; }
+  .vmcp-send {
+    margin-left: auto;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--vmcp-bronze);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .vmcp-send svg { width: 15px; height: 15px; color: #fcf7f5; }
+
+  @media (max-width: 640px) {
+    .vmcp-session { padding: 22px 20px 18px; height: 520px; border-radius: 18px; }
+    .vmcp-user, .vmcp-status, .vmcp-reply { font-size: 15px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vmcp-msg.vmcp-shown { animation: none; }
+    .vmcp-tool.vmcp-working .vmcp-label { animation: none; background: none; color: var(--vmcp-dim); }
+    .vmcp-check { transition: none; }
+  }
+
   /* ── ANIMATIONS ── */
   .fade-up {
     opacity: 0;
@@ -1426,7 +1567,6 @@
     .deliv-grid { grid-template-columns: 1fr 1fr; }
     .tiers-grid { grid-template-columns: 1fr; }
     .hero-grid { grid-template-columns: 1fr; gap: 48px; }
-    .hero-grid .arch-diagram { max-width: 560px; margin: 0 auto; }
     .vault-panel-cards { grid-template-columns: 1fr; }
     .vault-block { flex-basis: calc(50% - 7px); }
   }
@@ -1492,7 +1632,6 @@
     <symbol id="icon-arrow-right" viewBox="0 0 256 256"><path d="M218.83,130.83l-72,72a4,4,0,0,1-5.66-5.66L206.34,132H40a4,4,0,0,1,0-8H206.34L141.17,58.83a4,4,0,0,1,5.66-5.66l72,72A4,4,0,0,1,218.83,130.83Z"/></symbol>
     <symbol id="icon-arrows-clockwise" viewBox="0 0 256 256"><path d="M220,48V96a4,4,0,0,1-4,4H168a4,4,0,0,1,0-8h38.34L184.89,70.54A84,84,0,0,0,66.8,69.85a4,4,0,1,1-5.6-5.72,92,92,0,0,1,129.34.76L212,86.34V48a4,4,0,0,1,8,0ZM189.2,186.15a83.44,83.44,0,0,1-58.68,23.91h-.47a83.52,83.52,0,0,1-58.94-24.6L49.66,164H88a4,4,0,0,0,0-8H40a4,4,0,0,0-4,4v48a4,4,0,0,0,8,0V169.66l21.46,21.45A91.43,91.43,0,0,0,130,218.06h.51a91.45,91.45,0,0,0,64.28-26.19,4,4,0,1,0-5.6-5.72Z"/></symbol>
     <symbol id="icon-book-open" viewBox="0 0 256 256"><path d="M232,52H160a36,36,0,0,0-32,19.54A36,36,0,0,0,96,52H24a4,4,0,0,0-4,4V200a4,4,0,0,0,4,4H96a28,28,0,0,1,28,28,4,4,0,0,0,8,0,28,28,0,0,1,28-28h72a4,4,0,0,0,4-4V56A4,4,0,0,0,232,52ZM96,196H28V60H96a28,28,0,0,1,28,28V209.4A35.93,35.93,0,0,0,96,196Zm132,0H160a35.94,35.94,0,0,0-28,13.41V88a28,28,0,0,1,28-28h68Z"/></symbol>
-    <symbol id="icon-brain" viewBox="0 0 256 256"><path d="M244,124a52.1,52.1,0,0,0-32-48V72a44,44,0,0,0-84-18.3A44,44,0,0,0,44,72v4a52,52,0,0,0,0,96v4a44,44,0,0,0,84,18.3A44,44,0,0,0,212,176v-4A52.07,52.07,0,0,0,244,124ZM88,212a36,36,0,0,1-36-36v-1.41A52.13,52.13,0,0,0,64,176h8a4,4,0,0,0,0-8H64A44,44,0,0,1,49.33,82.5,4,4,0,0,0,52,78.73V72a36,36,0,0,1,72,0v78.75A44,44,0,0,0,88,132a4,4,0,0,0,0,8,36,36,0,0,1,0,72Zm104-44h-8a4,4,0,0,0,0,8h8a52.13,52.13,0,0,0,12-1.41V176a36,36,0,1,1-36-36,4,4,0,0,0,0-8,44,44,0,0,0-36,18.75V72a36,36,0,0,1,72,0v6.73a4,4,0,0,0,2.67,3.77A44,44,0,0,1,192,168Zm12-56a4,4,0,0,1-4,4h-4a32,32,0,0,1-32-32V80a4,4,0,0,1,8,0v4a24,24,0,0,0,24,24h4A4,4,0,0,1,204,112ZM92,84a32,32,0,0,1-32,32H56a4,4,0,0,1,0-8h4A24,24,0,0,0,84,84V80a4,4,0,0,1,8,0Z"/></symbol>
     <symbol id="icon-caret-down" viewBox="0 0 256 256"><path d="M210.83,98.83l-80,80a4,4,0,0,1-5.66,0l-80-80a4,4,0,0,1,5.66-5.66L128,170.34l77.17-77.17a4,4,0,1,1,5.66,5.66Z"/></symbol>
     <symbol id="icon-chat-dots" viewBox="0 0 256 256"><path d="M136,128a8,8,0,1,1-8-8A8,8,0,0,1,136,128Zm-52-8a8,8,0,1,0,8,8A8,8,0,0,0,84,120Zm88,0a8,8,0,1,0,8,8A8,8,0,0,0,172,120Zm56-56V192a12,12,0,0,1-12,12H81.49L47.76,233.13l0,0A11.89,11.89,0,0,1,40,236a12.17,12.17,0,0,1-5.1-1.14A11.89,11.89,0,0,1,28,224V64A12,12,0,0,1,40,52H216A12,12,0,0,1,228,64Zm-8,0a4,4,0,0,0-4-4H40a4,4,0,0,0-4,4V224a4,4,0,0,0,6.56,3.08L77.38,197A4,4,0,0,1,80,196H216a4,4,0,0,0,4-4Z"/></symbol>
     <symbol id="icon-check" viewBox="0 0 256 256"><path d="M226.83,74.83l-128,128a4,4,0,0,1-5.66,0l-56-56a4,4,0,0,1,5.66-5.66L96,194.34,221.17,69.17a4,4,0,1,1,5.66,5.66Z"/></symbol>
@@ -1508,7 +1647,6 @@
     <symbol id="icon-seal-check" viewBox="0 0 256 256"><path d="M223,105.58c-4-4.2-8.2-8.54-10-12.8-1.65-4-1.73-9.53-1.82-15.41-.14-9-.29-19.19-6.83-25.74s-16.74-6.69-25.74-6.83c-5.88-.09-11.43-.17-15.41-1.82-4.26-1.76-8.6-5.93-12.8-9.95-6.68-6.41-13.59-13-22.42-13s-15.74,6.62-22.42,13c-4.2,4-8.54,8.2-12.8,10-4,1.65-9.53,1.73-15.41,1.82-9,.14-19.19.29-25.74,6.83S44.94,68.37,44.8,77.37c-.09,5.88-.17,11.43-1.82,15.41-1.76,4.26-5.93,8.6-9.95,12.8-6.41,6.68-13,13.59-13,22.42s6.62,15.74,13,22.42c4,4.2,8.2,8.54,10,12.8,1.65,4,1.73,9.53,1.82,15.41.14,9,.29,19.19,6.83,25.74s16.74,6.69,25.74,6.83c5.88.09,11.43.17,15.41,1.82,4.26,1.76,8.6,5.93,12.8,9.95,6.68,6.41,13.59,13,22.42,13s15.74-6.62,22.42-13c4.2-4,8.54-8.2,12.8-10,4-1.65,9.53-1.73,15.41-1.82,9-.14,19.19-.29,25.74-6.83s6.69-16.74,6.83-25.74c.09-5.88.17-11.43,1.82-15.41,1.76-4.26,5.93-8.6,9.95-12.8,6.41-6.68,13-13.59,13-22.42S229.38,112.26,223,105.58Zm-5.78,39.3c-4.54,4.73-9.24,9.63-11.57,15.28-2.23,5.39-2.33,12-2.43,18.35-.12,8.2-.24,16-4.49,20.2s-12,4.37-20.2,4.49c-6.37.1-13,.2-18.35,2.43-5.65,2.33-10.55,7-15.28,11.57C139.09,222.75,133.62,228,128,228s-11.09-5.25-16.88-10.8c-4.73-4.54-9.63-9.24-15.28-11.57-5.39-2.23-12-2.33-18.35-2.43-8.2-.12-15.95-.24-20.2-4.49s-4.37-12-4.49-20.2c-.1-6.37-.2-13-2.43-18.35-2.33-5.65-7-10.55-11.57-15.28C33.25,139.09,28,133.62,28,128s5.25-11.09,10.8-16.88c4.54-4.73,9.24-9.63,11.57-15.28,2.23-5.39,2.33-12,2.43-18.35.12-8.2.24-15.95,4.49-20.2s12-4.37,20.2-4.49c6.37-.1,13-.2,18.35-2.43,5.65-2.33,10.55-7,15.28-11.57C116.91,33.25,122.38,28,128,28s11.09,5.25,16.88,10.8c4.73,4.54,9.63,9.24,15.28,11.57,5.39,2.23,12,2.33,18.35,2.43,8.2.12,16,.24,20.2,4.49s4.37,12,4.49,20.2c.1,6.37.2,13,2.43,18.35,2.33,5.65,7,10.55,11.57,15.28,5.55,5.79,10.8,11.26,10.8,16.88S222.75,139.09,217.2,144.88Zm-46.37-43.71a4,4,0,0,1,0,5.66l-56,56a4,4,0,0,1-5.66,0l-24-24a4,4,0,0,1,5.66-5.66L112,154.34l53.17-53.17A4,4,0,0,1,170.83,101.17Z"/></symbol>
     <symbol id="icon-shield-check" viewBox="0 0 256 256"><path d="M208,44H48A12,12,0,0,0,36,56v56c0,51.16,24.73,82.12,45.47,99.1,22.4,18.32,44.55,24.5,45.48,24.76a4,4,0,0,0,2.1,0c.93-.26,23.08-6.44,45.48-24.76,20.74-17,45.47-47.94,45.47-99.1V56A12,12,0,0,0,208,44Zm4,68c0,38.44-14.23,69.63-42.29,92.71A132.45,132.45,0,0,1,128,227.82a132.23,132.23,0,0,1-41.71-23.11C58.23,181.63,44,150.44,44,112V56a4,4,0,0,1,4-4H208a4,4,0,0,1,4,4Zm-41.17-10.83a4,4,0,0,1,0,5.66l-56,56a4,4,0,0,1-5.66,0l-24-24a4,4,0,0,1,5.66-5.66L112,154.34l53.17-53.17A4,4,0,0,1,170.83,101.17Z"/></symbol>
     <symbol id="icon-stack-simple" viewBox="0 0 256 256"><path d="M14,107.47l112,64a4,4,0,0,0,4,0l112-64a4,4,0,0,0,0-6.94l-112-64a4,4,0,0,0-4,0l-112,64a4,4,0,0,0,0,6.94ZM128,44.61,231.94,104,128,163.39,24.06,104ZM243.47,142a4,4,0,0,1-1.49,5.45l-112,64a4,4,0,0,1-4,0l-112-64a4,4,0,0,1,4-6.94l110,62.86,110-62.86A4,4,0,0,1,243.47,142Z"/></symbol>
-    <symbol id="icon-users-three" viewBox="0 0 256 256"><path d="M237,147.44a4,4,0,0,1-5.48-1.4c-8.33-14-20.93-22-34.56-22a4,4,0,0,1-1.2-.2,36.76,36.76,0,0,1-3.8.2,4,4,0,0,1,0-8,28,28,0,1,0-27.12-35,4,4,0,0,1-7.75-2,36,36,0,1,1,54,39.48c10.81,3.85,20.51,12,27.31,23.48A4,4,0,0,1,237,147.44ZM187.46,214a4,4,0,0,1-1.46,5.46,3.93,3.93,0,0,1-2,.54,4,4,0,0,1-3.46-2,61,61,0,0,0-105.08,0,4,4,0,0,1-6.92-4,68.35,68.35,0,0,1,39.19-31,44,44,0,1,1,40.54,0A68.35,68.35,0,0,1,187.46,214ZM128,180a36,36,0,1,0-36-36A36,36,0,0,0,128,180ZM64,116A28,28,0,1,1,91.12,81a4,4,0,0,0,7.75-2A36,36,0,1,0,45.3,118.75,63.55,63.55,0,0,0,12.8,141.6a4,4,0,0,0,6.4,4.8A55.55,55.55,0,0,1,64,124a4,4,0,0,0,0-8Z"/></symbol>
     <symbol id="icon-x" viewBox="0 0 256 256"><path d="M202.83,197.17a4,4,0,0,1-5.66,5.66L128,133.66,58.83,202.83a4,4,0,0,1-5.66-5.66L122.34,128,53.17,58.83a4,4,0,0,1,5.66-5.66L128,122.34l69.17-69.17a4,4,0,1,1,5.66,5.66L133.66,128Z"/></symbol>
   </defs>
 </svg>
@@ -1543,30 +1681,55 @@
         </div>
         <p class="hero-note fade-up">30 min · No pitch deck · Real recommendations for your specific situation</p>
       </div>
-      <div class="arch-diagram">
-        <div class="arch-row fade-up">
-          <div class="arch-icon"><svg class="icon" aria-hidden="true"><use href="#icon-brain"/></svg></div>
-          <div class="arch-text">
-            <h2 class="arch-heading">Senior expertise</h2>
-            <p>Interview outputs, frameworks, decision logic, voice</p>
+      <div class="hero-demo">
+        <!-- Animated mock Claude session showing the Vault MCP at work.
+             Cycles 3 scenarios; starts at 25% visibility; reduced-motion
+             shows a static final state. Copy claims are GROUNDED-only per
+             mcp-positioning-and-language.md — don't add security claims
+             here without checking that doc. Styles in the VAULT MCP SESSION
+             CSS section; behavior in the vmcp script at end of body. -->
+        <div class="vmcp-session" id="vmcp-stage">
+          <div class="vmcp-bar">
+            <svg class="vmcp-claude-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12.557 42.4146L25.1462 35.3778L25.357 34.7645L25.1462 34.4255H24.5308L22.4242 34.2965L15.2305 34.1028L8.9925 33.8445L2.94875 33.5218L1.42575 33.1988L0 31.3266L0.14575 30.3905L1.42575 29.5354L3.25675 29.6967L7.30725 29.9709L13.3833 30.3905L17.7905 30.6488L24.32 31.3266H25.357L25.5028 30.907L25.1462 30.6488L24.871 30.3905L18.5842 26.1459L11.7793 21.6591L8.21475 19.0767L6.2865 17.7693L5.3145 16.5429L4.89325 13.8638L6.64325 11.9431L8.9925 12.1047L9.592 12.2661L11.9738 14.0897L17.0613 18.0119L23.7043 22.8856L24.6765 23.6925L25.0653 23.418L25.114 23.2245L24.6765 22.4981L21.0632 15.994L17.207 9.37687L15.4895 6.63309L15.036 4.98702C14.874 4.30892 14.7605 3.74412 14.7605 3.05009L16.7535 0.354864L17.855 0L20.5125 0.355113L21.6305 1.32333L23.283 5.08389L25.9565 11.0073L30.1042 19.0608L31.3195 21.4495L31.9675 23.6606L32.2108 24.3384H32.632V23.9509L32.972 19.4159L33.604 13.8477L34.2197 6.68165L34.4305 4.66453L35.435 2.24349L37.4277 0.936093L38.9832 1.67844L40.2632 3.50232L40.085 4.68022L39.3235 9.60299L37.833 17.3179L36.8607 22.4824H37.4277L38.076 21.8367L40.7007 18.3668L45.1077 12.8792L47.0522 10.7005L49.3205 8.2956L50.7788 7.14982H53.5332L55.5583 10.1518L54.6512 13.2505L51.8158 16.8335L49.4663 19.8676L46.0962 24.3867L43.9897 28.0021L44.1842 28.2925L44.6867 28.2442L52.3018 26.6302L56.4173 25.8876L61.3265 25.0484L63.5465 26.0814L63.7892 27.1305L62.9142 29.2771L57.6647 30.5681L51.5078 31.7948L42.3372 33.9576L42.2238 34.0383L42.3535 34.1997L46.485 34.5869L48.2513 34.6838H52.5773L60.6297 35.2809L62.7363 36.669L64 38.3636L63.7892 39.6546L60.5488 41.3009L56.1743 40.268L45.9668 37.8472L42.4668 36.9756H41.9808V37.2662L44.8973 40.1066L50.244 44.9163L56.9357 51.1138L57.2757 52.6471L56.4173 53.8574L55.5098 53.7284L49.6283 49.3223L47.36 47.3371L42.2238 43.0279H41.8838V43.4797L43.0662 45.2067L49.3205 54.5676L49.6445 57.4404L49.191 58.3767L47.5708 58.9415L45.7882 58.6185L42.1265 53.5025L38.3515 47.7405L35.3052 42.5759L34.9328 42.7859L33.1343 62.0725L32.2918 63.0569L30.3472 63.7993L28.7272 62.5728L27.8682 60.5876L28.727 56.6657L29.764 51.5496L30.6065 47.4823L31.368 42.4308L31.8218 40.7523L31.7892 40.6393L31.4167 40.6876L27.593 45.9169L21.7763 53.7446L17.1747 58.6509L16.073 59.0867L14.161 58.102L14.3392 56.3429L15.4085 54.7775L21.776 46.7078L25.616 41.7043L28.0952 38.8156L28.079 38.3958H27.9333L11.0175 49.3385L8.00375 49.7258L6.7075 48.5155L6.8695 46.5302L7.48525 45.8845L12.5728 42.3984L12.557 42.4146Z" fill="#D97757"/>
+            </svg>
+            <span class="vmcp-title">Claude <span>· Vault MCP connected</span></span>
+          </div>
+
+          <div class="vmcp-feed" id="vmcp-feed">
+            <div class="vmcp-msg vmcp-user" id="vmcp-msg-user">Draft the hero copy for the spring landing page. Use our approved numbers and keep it in our voice.</div>
+
+            <div class="vmcp-msg vmcp-tool" id="vmcp-row-search"><span class="vmcp-label">Vault search</span><span class="vmcp-chev">›</span></div>
+
+            <div class="vmcp-msg vmcp-status" id="vmcp-msg-mid">Found your voice rules and approved proof points. One governed number: <span class="vmcp-num">12,400+ customers served</span>.</div>
+
+            <div class="vmcp-msg vmcp-tool" id="vmcp-row-brand"><span class="vmcp-label">Vault brand guide</span><span class="vmcp-chev">›</span></div>
+
+            <div class="vmcp-msg vmcp-tool" id="vmcp-row-extra"><span class="vmcp-label"></span><span class="vmcp-chev">›</span></div>
+
+            <div class="vmcp-msg vmcp-status" id="vmcp-msg-mid2"></div>
+
+            <div class="vmcp-msg vmcp-reply" id="vmcp-msg-reply">Here's your hero draft, in your voice, with your approved numbers. I also found a stale stat in the old spring brief and flagged it for review.</div>
+
+            <div class="vmcp-msg vmcp-file" id="vmcp-msg-file">
+              <svg class="vmcp-file-icon vmcp-icon-md" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M210.83,85.17l-56-56A4,4,0,0,0,152,28H56A12,12,0,0,0,44,40V216a12,12,0,0,0,12,12H200a12,12,0,0,0,12-12V88A4,4,0,0,0,210.83,85.17ZM156,41.65,198.34,84H156ZM200,220H56a4,4,0,0,1-4-4V40a4,4,0,0,1,4-4h92V88a4,4,0,0,0,4,4h52V216A4,4,0,0,1,200,220Zm-36-84a4,4,0,0,1-4,4H96a4,4,0,0,1,0-8h64A4,4,0,0,1,164,136Zm0,32a4,4,0,0,1-4,4H96a4,4,0,0,1,0-8h64A4,4,0,0,1,164,168Z"/></svg>
+              <svg class="vmcp-file-icon vmcp-icon-pdf" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M220,152a4,4,0,0,1-4,4H188v24h20a4,4,0,0,1,0,8H188v20a4,4,0,0,1-8,0V152a4,4,0,0,1,4-4h32A4,4,0,0,1,220,152ZM88,172a24,24,0,0,1-24,24H52v12a4,4,0,0,1-8,0V152a4,4,0,0,1,4-4H64A24,24,0,0,1,88,172Zm-8,0a16,16,0,0,0-16-16H52v32H64A16,16,0,0,0,80,172Zm80,8a32,32,0,0,1-32,32H112a4,4,0,0,1-4-4V152a4,4,0,0,1,4-4h16A32,32,0,0,1,160,180Zm-8,0a24,24,0,0,0-24-24H116v48h12A24,24,0,0,0,152,180ZM44,112V40A12,12,0,0,1,56,28h96a4,4,0,0,1,2.83,1.17l56,56A4,4,0,0,1,212,88v24a4,4,0,0,1-8,0V92H152a4,4,0,0,1-4-4V36H56a4,4,0,0,0-4,4v72a4,4,0,0,1-8,0ZM156,84h42.34L156,41.65Z"/></svg>
+              <div>
+                <div class="vmcp-file-name" id="vmcp-file-name">spring-hero.md</div>
+                <div class="vmcp-file-meta" id="vmcp-file-meta">in your folder · ready to publish</div>
+              </div>
+            </div>
+
+            <div class="vmcp-msg vmcp-tool" id="vmcp-row-log"><span class="vmcp-label">Vault update request</span><span class="vmcp-chev">›</span><span class="vmcp-check" id="vmcp-gov-check">approved by a human · merged</span></div>
+          </div>
+
+          <div class="vmcp-input">
+            <svg class="vmcp-input-icon" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128,28A100,100,0,1,0,228,128,100.11,100.11,0,0,0,128,28Zm0,192a92,92,0,1,1,92-92A92.1,92.1,0,0,1,128,220Zm44-92a4,4,0,0,1-4,4H132v36a4,4,0,0,1-8,0V132H88a4,4,0,0,1,0-8h36V88a4,4,0,0,1,8,0v36h36A4,4,0,0,1,172,128Z"/></svg>
+            <span>Reply…</span>
+            <span class="vmcp-send"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M202.83,114.83a4,4,0,0,1-5.66,0L132,49.66V216a4,4,0,0,1-8,0V49.66L58.83,114.83a4,4,0,0,1-5.66-5.66l72-72a4,4,0,0,1,5.66,0l72,72A4,4,0,0,1,202.83,114.83Z"/></svg></span>
           </div>
         </div>
-        <div class="arch-arrow"></div>
-        <div class="arch-row mid fade-up">
-          <div class="arch-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 176.38 159.08" width="28" height="25" role="img" aria-label="Storystak AI"><g><path fill="#0f0f0f" d="M176.1,92.6c-28.9-17.29-57.99-32.75-84.88-48.3-1.91-1.08-2.87-1.89-4.65-.87C49.81,64.42,21.24,80.72.85,92.34c-1.28,1.5-.72,4.03-.54,5.9l86.55,48.79c.9.51,2,.51,2.9,0l86.38-49.14c.33-1.81.32-3.57-.04-5.29ZM88.33,137.38c-.18.1-.4.1-.58,0-2.26-1.31-4.53-2.61-6.79-3.92-4.69-2.71-9.39-5.42-14.08-8.13-8.31-4.8-16.68-9.5-24.94-14.4-7.22-4.28-14.58-8.37-21.85-12.57-1.58-.91-3.16-1.82-4.73-2.73-.08-.04-.14-.11-.18-.18-.14-.24-.06-.56.18-.7l72.27-41.72c.16-.09.34-.09.5,0,16.11,9.06,32.33,17.95,48.38,27.13,7.6,4.35,15.15,8.8,22.74,13.18l2.16,1.25c.09.05.16.12.21.21.16.28.07.63-.21.79"/><path fill="#c45d2c" d="M149.99,124.36l-60.6,34.43c-.68.38-1.5.38-2.18,0l-60.58-34.13-8.74-5.16L1.65,110.36c-.72-.4-1.17-1.16-1.18-1.99l-.16-10.14,86.55,48.79c.9.51,2,.51,2.9,0l86.38-49.14c.19,2.61.19,5.22.01,7.84-.08,1.18.31,3.39-1.12,4.21"/><path fill="#0f0f0f" d="M176.06,54.92l-86.38,49.14c-.9.51-2,.51-2.9,0L.24,55.27c-.33-1.73-.32-3.45.02-5.17.06-.31.25-.58.52-.73C21.17,37.75,49.74,21.45,86.5.47c1.78-1.02,2.74-.21,4.65.87,26.93,15.23,55.08,31.14,84.45,47.72.22.12.38.33.43.58.36,1.72.37,3.48.04,5.29ZM42.47,68.36c.16.09.36.09.52,0L115.25,26.64c.24-.14.32-.45.18-.7-.04-.08-.11-.14-.18-.18l-27.2-15.69c-.16-.09-.34-.09-.5,0L15.28,51.78c-.24.14-.32.45-.18.7.04.08.11.14.18.18l27.19,15.7ZM98.12,47.16c-.28.16-.37.52-.21.79.05.09.12.16.21.21l35.18,20.31c.18.1.4.1.58,0l27.45-15.84c.28-.16.37-.52.21-.79-.05-.09-.12-.16-.21-.21l-35.19-20.31c-.18-.1-.4-.1-.58,0l-27.44,15.84ZM88.28,52.95c-.18-.1-.4-.1-.58,0l-35.05,20.24c-.28.16-.37.52-.21.79.05.09.12.16.21.21l35.03,20.22c.18.1.4.1.58,0l35.05-20.23c.28-.16.37-.52.21-.79-.05-.09-.12-.16-.21-.21l-35.03-20.23Z"/><path fill="#c45d2c" d="M149.92,81.39l-60.6,34.43c-.68.38-1.5.38-2.18,0l-60.58-34.13-8.74-5.16L1.58,67.4c-.72-.4-1.17-1.16-1.18-1.99l-.16-10.14,86.55,48.79c.9.51,2,.51,2.9,0l86.38-49.14c.19,2.61.19,5.22.01,7.84-.08,1.18.31,3.39-1.12,4.21-3.55,2.05-8.53,4.83-14.92,8.35"/></g></svg></div>
-          <div class="arch-text">
-            <h2 class="arch-heading">Storystak AI system</h2>
-            <p>Custom workspaces, knowledge files, prompts, workflow templates</p>
-          </div>
-        </div>
-        <div class="arch-arrow"></div>
-        <div class="arch-row fade-up">
-          <div class="arch-icon"><svg class="icon" aria-hidden="true"><use href="#icon-users-three"/></svg></div>
-          <div class="arch-text">
-            <h2 class="arch-heading">Whole team</h2>
-            <p>Consistent quality at 4x speed, regardless of seniority</p>
-          </div>
-        </div>
+        <p class="vmcp-caption">Simulated session. The tool surface is the real Storystak Vault MCP.</p>
       </div>
     </div>
   </div>
@@ -2124,6 +2287,167 @@
     &copy; 2026 Storystak AI &middot; storystak.ai
   </div>
 </footer>
+
+<script>
+  // Vault MCP hero demo: animated mock session, 3 looping scenarios.
+  // Starts when the card is 25% in view; reduced-motion gets a static
+  // final state. All DOM hooks are vmcp-prefixed ids in the hero.
+  (function () {
+    var $ = function (id) { return document.getElementById(id); };
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var msgs = ['vmcp-msg-user', 'vmcp-row-search', 'vmcp-msg-mid', 'vmcp-row-brand', 'vmcp-row-extra', 'vmcp-msg-mid2', 'vmcp-msg-reply', 'vmcp-msg-file', 'vmcp-row-log'].map($);
+    var govCheck = $('vmcp-gov-check');
+    var feed = $('vmcp-feed');
+    var fileCard = $('vmcp-msg-file');
+
+    var SCENARIOS = [
+      { // marketing
+        prompt: 'Draft the hero copy for the spring landing page. Use our approved numbers and keep it in our voice.',
+        mid: 'Found your voice rules and approved proof points. One governed number: <span class="vmcp-num">12,400+ customers served</span>.',
+        tool2: 'Vault brand guide',
+        extra: null,
+        reply: "Here's your hero draft, in your voice, with your approved numbers. I also found a stale stat in the old spring brief and flagged it for review.",
+        file: 'spring-hero.md',
+        filePdf: false,
+        fileMeta: 'in your folder · ready to publish',
+        showFlag: true
+      },
+      { // sales
+        prompt: 'Write a proposal from this call transcript. Price it with our standard tiers.',
+        mid: 'Matched their pain points to your ICP and pulled pricing from its <span class="vmcp-num">one approved source</span>.',
+        tool2: 'Vault proof points',
+        extra: {
+          tool: 'Vault brand guide',
+          status: 'Getting your fonts, colors, and logos.'
+        },
+        reply: 'Proposal drafted: their own words from the call, your approved pricing, and two case studies from their industry.',
+        file: 'meridian-proposal.pdf',
+        filePdf: true,
+        fileMeta: 'in your folder · ready to send',
+        showFlag: false
+      },
+      { // customer ops
+        prompt: 'A customer is asking if we offer refunds after 60 days. Draft a reply.',
+        mid: 'Found your refund policy and the <span class="vmcp-num">approved wording</span> for exactly this situation.',
+        tool2: 'Vault compliance rules',
+        extra: null,
+        reply: 'Reply drafted with the approved policy language. No improvised promises.',
+        file: 'refund-reply.md',
+        filePdf: false,
+        fileMeta: 'in your folder · ready to send',
+        showFlag: false
+      }
+    ];
+    var scenarioIndex = 0;
+
+    function loadScenario(s) {
+      $('vmcp-msg-user').textContent = s.prompt;
+      $('vmcp-msg-mid').innerHTML = s.mid;
+      $('vmcp-row-brand').querySelector('.vmcp-label').textContent = s.tool2;
+      $('vmcp-row-extra').querySelector('.vmcp-label').textContent = s.extra ? s.extra.tool : '';
+      $('vmcp-msg-mid2').textContent = s.extra ? s.extra.status : '';
+      $('vmcp-msg-reply').textContent = s.reply;
+      $('vmcp-file-name').textContent = s.file;
+      $('vmcp-file-meta').textContent = s.fileMeta;
+      fileCard.classList.toggle('vmcp-is-pdf', s.filePdf);
+    }
+
+    function show(id) {
+      $(id).classList.add('vmcp-shown');
+      feed.scrollTo({ top: feed.scrollHeight, behavior: 'smooth' });
+    }
+
+    function reset() {
+      msgs.forEach(function (m) { m.classList.remove('vmcp-shown', 'vmcp-working'); });
+      govCheck.classList.remove('vmcp-on');
+      feed.classList.remove('vmcp-leaving');
+      feed.scrollTop = 0;
+    }
+
+    function showFinalState() {
+      var s = SCENARIOS[0];
+      loadScenario(s);
+      msgs.forEach(function (m) {
+        if (!s.extra && (m.id === 'vmcp-row-extra' || m.id === 'vmcp-msg-mid2')) return;
+        if (!s.showFlag && m.id === 'vmcp-row-log') return;
+        m.classList.add('vmcp-shown');
+      });
+      govCheck.classList.add('vmcp-on');
+    }
+
+    function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+    async function play() {
+      var scenario = SCENARIOS[scenarioIndex];
+      reset();
+      loadScenario(scenario);
+      scenarioIndex = (scenarioIndex + 1) % SCENARIOS.length;
+      await sleep(900);
+
+      show('vmcp-msg-user');
+      await sleep(1800);
+
+      $('vmcp-row-search').classList.add('vmcp-working');
+      show('vmcp-row-search');
+      await sleep(2000);
+      $('vmcp-row-search').classList.remove('vmcp-working');
+
+      show('vmcp-msg-mid');
+      await sleep(2000);
+
+      $('vmcp-row-brand').classList.add('vmcp-working');
+      show('vmcp-row-brand');
+      await sleep(1800);
+      $('vmcp-row-brand').classList.remove('vmcp-working');
+
+      if (scenario.extra) {
+        $('vmcp-row-extra').classList.add('vmcp-working');
+        show('vmcp-row-extra');
+        await sleep(1800);
+        $('vmcp-row-extra').classList.remove('vmcp-working');
+
+        show('vmcp-msg-mid2');
+        await sleep(1800);
+      }
+
+      show('vmcp-msg-reply');
+      await sleep(1600);
+
+      show('vmcp-msg-file');
+      await sleep(1800);
+
+      if (scenario.showFlag) {
+        $('vmcp-row-log').classList.add('vmcp-working');
+        show('vmcp-row-log');
+        await sleep(2400);
+        $('vmcp-row-log').classList.remove('vmcp-working');
+        govCheck.classList.add('vmcp-on');
+      }
+      await sleep(3800);
+
+      feed.classList.add('vmcp-leaving');
+      await sleep(800);
+    }
+
+    async function loop() {
+      while (true) { await play(); }
+    }
+
+    if (reduced) {
+      showFinalState();
+    } else {
+      var stage = $('vmcp-stage');
+      var io = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
+          io.disconnect();
+          loop();
+        }
+      }, { threshold: 0.25 });
+      io.observe(stage);
+    }
+  })();
+</script>
 
 <script>
   // Cal.com modal embed on any anchor pointing at #book.
