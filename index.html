@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Storystak AI: Your whole team, thinking like your best person</title>
-<meta name="description" content="We encode your senior team's frameworks, voice, and decision-making into custom AI systems. Junior team produces senior-level output. 4x your capacity without hiring. 6-week build.">
+<meta name="description" content="We build your company a Vault: one governed source of truth the AI tools your team already uses read from. Your whole team produces senior-level, on-brand output. 4x capacity without hiring. 6-week build.">
 <link rel="canonical" href="https://storystak.ai/">
 
 <!-- Robots: explicit index/follow, allow large image preview in AI Overviews + rich results -->
@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="Storystak AI">
 <meta property="og:url" content="https://storystak.ai/">
 <meta property="og:title" content="Storystak AI: Your whole team, thinking like your best person">
-<meta property="og:description" content="We encode your senior team's frameworks, voice, and decision-making into custom AI systems. Junior team produces senior-level output. 4x your capacity without hiring. 6-week build.">
+<meta property="og:description" content="We build your company a Vault: one governed source of truth the AI tools your team already uses read from. Your whole team produces senior-level, on-brand output. 4x capacity without hiring. 6-week build.">
 <meta property="og:image" content="https://storystak.ai/og-image.jpg">
 <meta property="og:image:width" content="1920">
 <meta property="og:image:height" content="1080">
@@ -37,7 +37,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://storystak.ai/">
 <meta name="twitter:title" content="Storystak AI: Your whole team, thinking like your best person">
-<meta name="twitter:description" content="We encode your senior team's frameworks, voice, and decision-making into custom AI systems. Junior team produces senior-level output. 4x your capacity without hiring. 6-week build.">
+<meta name="twitter:description" content="We build your company a Vault: one governed source of truth the AI tools your team already uses read from. Your whole team produces senior-level, on-brand output. 4x capacity without hiring. 6-week build.">
 <meta name="twitter:image" content="https://storystak.ai/og-image.jpg">
 <meta name="twitter:image:alt" content="Aerial view of a single car on a road through a dense autumn forest.">
 
@@ -85,7 +85,7 @@
     setTimeout(loadGtag, 15000);
   })();
 </script>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <!-- Structured data: Organization, Founder, Service offerings, WebSite -->
 <script type="application/ld+json">
@@ -194,6 +194,14 @@
       "@type": "FAQPage",
       "@id": "https://storystak.ai/#faq",
       "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What exactly is the Vault?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It's not another tool to log into. It's your company's knowledge, served live, that the AI tools you already use can read. You connect once, and your context travels with you: your voice, your approved numbers, your standards, in every AI conversation your team has. The AI can read and suggest but never change anything. Every change is approved by a human and permanently logged. And it's your content, in your own version control, so you can take it with you anytime."
+          }
+        },
         {
           "@type": "Question",
           "name": "We've already tried AI. It didn't stick. Why would this be different?",
@@ -428,7 +436,7 @@
     align-items: center;
   }
   .hero-grid .hero-inner { max-width: 100%; }
-  .hero-grid .arch-diagram { max-width: 100%; margin: 0; width: 100%; }
+  .hero-grid .hero-demo { min-width: 0; }
   .hero-eyebrow {
     display: inline-flex;
     align-items: center;
@@ -583,39 +591,6 @@
   .pp-cta:active { transform: translateY(1px); }
   .pp-cta .icon { font-size: 18px; }
 
-  /* ── TIME SHIFT (DONUTS) ── */
-  .time-shift { background: var(--paper); }
-  .time-shift-head {
-    max-width: 760px;
-    margin: 0 auto 56px;
-    text-align: center;
-  }
-  .time-shift-head h2 { margin-left: auto; margin-right: auto; }
-  .time-shift-head .section-sub { margin-left: auto; margin-right: auto; }
-  .donuts {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    max-width: 880px;
-    margin: 0 auto;
-  }
-  .donut-block { text-align: center; }
-  .donut-block .donut-label {
-    font-family: var(--serif);
-    font-size: 20px;
-    margin-bottom: 24px;
-    color: var(--ink);
-  }
-  .donut-svg { max-width: 240px; margin: 0 auto 20px; display: block; }
-  .donut-legend {
-    display: flex;
-    justify-content: center;
-    gap: 28px;
-    font-size: 13px;
-    color: var(--muted);
-  }
-  .legend-item { display: flex; align-items: center; gap: 8px; }
-  .dot { width: 10px; height: 10px; border-radius: 50%; }
 
   /* ── PROCESS TIMELINE ── */
   .process { background: var(--ink); color: var(--paper); padding: 110px 0; }
@@ -714,136 +689,6 @@
     line-height: 1.65;
   }
 
-  .arch-diagram {
-    max-width: 600px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-  }
-  .arch-row {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px 28px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  .arch-row.mid {
-    background: linear-gradient(135deg, #fff8f5 0%, #fffbf9 100%);
-    border-color: rgba(196, 93, 44, 0.2);
-  }
-  .arch-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    background: var(--accent-bg);
-    color: var(--accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    flex-shrink: 0;
-  }
-  .arch-text .arch-heading {
-    font-family: var(--serif);
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 1.3;
-    margin-bottom: 4px;
-    letter-spacing: -0.01em;
-  }
-  .arch-text p { font-size: 14px; color: var(--muted); line-height: 1.55; }
-  .arch-arrow {
-    width: 1px;
-    height: 28px;
-    background: linear-gradient(to bottom, transparent, var(--accent), transparent);
-    margin: 0 auto;
-    position: relative;
-  }
-
-  /* ── ROI ── */
-  .roi { background: var(--paper); }
-  .roi-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 56px;
-    align-items: start;
-  }
-  .roi-narrative h2 {
-    font-family: var(--serif);
-    font-size: clamp(30px, 3.6vw, 44px);
-    line-height: 1.12;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    margin-bottom: 22px;
-  }
-  .roi-narrative p {
-    font-size: 16px;
-    color: var(--muted);
-    line-height: 1.7;
-    margin-bottom: 16px;
-  }
-  .roi-table {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  .roi-table-header {
-    display: grid;
-    grid-template-columns: 1.6fr 1fr 1fr;
-    padding: 14px 24px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted);
-    border-bottom: 1px solid var(--border);
-    background: var(--warm);
-  }
-  .roi-table-row {
-    display: grid;
-    grid-template-columns: 1.6fr 1fr 1fr;
-    padding: 14px 24px;
-    font-size: 15px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-  }
-  .roi-table-row:last-child { border-bottom: none; }
-  .roi-table-row.total {
-    background: var(--accent-bg);
-    font-weight: 600;
-    border-bottom: none;
-  }
-  .roi-table-row .cell-label { color: var(--muted); font-size: 14px; }
-  .roi-table-row .cell-value {
-    font-weight: 600;
-    text-align: right;
-    color: var(--ink);
-    font-feature-settings: "tnum";
-  }
-  .roi-highlight {
-    margin-top: 16px;
-    padding: 20px 24px;
-    background: var(--ink);
-    border-radius: 10px;
-    text-align: center;
-  }
-  .roi-highlight .big-num {
-    font-family: var(--serif);
-    font-size: 52px;
-    color: var(--accent-light);
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-  }
-  .roi-highlight .big-lbl {
-    font-size: 13px;
-    color: rgba(250, 249, 247, 0.5);
-    margin-top: 4px;
-  }
-
   /* ── DELIVERABLES ── */
   .deliverables { background: var(--warm); }
   .deliv-head {
@@ -852,7 +697,13 @@
     text-align: center;
   }
   .deliv-head h2 { margin-left: auto; margin-right: auto; }
-  .deliv-head .section-sub { margin-left: auto; margin-right: auto; }
+  .deliv-head .section-sub { margin-left: auto; margin-right: auto; margin-bottom: 18px; }
+  .deliv-keyline {
+    font-family: var(--serif);
+    font-size: clamp(19px, 2.2vw, 23px);
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+  }
   .deliv-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -894,16 +745,6 @@
 
   /* ── THE VAULT ── */
   .vault { background: var(--paper); }
-  .vault-bridge {
-    font-family: var(--serif);
-    font-size: clamp(19px, 2.2vw, 23px);
-    line-height: 1.4;
-    letter-spacing: -0.01em;
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  .vault-bridge em { font-style: italic; color: var(--accent); }
-
   /* dark panel: eyebrow + left-aligned head + intro + three chip-titled cards */
   .vault-panel {
     position: relative;
@@ -973,6 +814,12 @@
 
   /* trust layer — full container width below the panel */
   .vault-trust { margin: 0 auto; }
+  .vault-trust-intro {
+    font-size: 16px;
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 20px;
+  }
   .trust-strip {
     display: flex;
     flex-wrap: nowrap;
@@ -1406,6 +1253,197 @@
   }
   .footer-mark svg { height: 100%; width: auto; display: block; margin: 0 auto; }
 
+  /* ── VAULT MCP SESSION (hero demo embed; all selectors vmcp-prefixed) ── */
+  .vmcp-session {
+    --vmcp-card: #1a130d;
+    --vmcp-soft: rgba(247, 227, 218, 0.06);
+    --vmcp-ink: #f3eae3;
+    --vmcp-muted: #a8988c;
+    --vmcp-dim: #756657;
+    --vmcp-bronze: #c45d2c;
+    --vmcp-bronze-bright: #e08a57;
+    --vmcp-mono: 'IBM Plex Mono', 'SF Mono', Menlo, monospace;
+
+    max-width: 620px;
+    margin: 0 auto;
+    background: var(--vmcp-card);
+    border-radius: 22px;
+    padding: 26px 30px 24px;
+    box-shadow: 0 30px 70px -30px rgba(33, 15, 7, 0.45);
+    display: flex;
+    flex-direction: column;
+    height: 560px;
+    box-sizing: border-box;
+    font-family: var(--sans);
+    line-height: 1.65;
+  }
+  .vmcp-session *, .vmcp-session *::before, .vmcp-session *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  .vmcp-caption {
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 14px;
+    letter-spacing: 0.01em;
+  }
+
+  .vmcp-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding-bottom: 22px;
+  }
+  .vmcp-claude-mark { width: 18px; height: 18px; flex-shrink: 0; }
+  .vmcp-title { font-size: 14.5px; font-weight: 600; color: var(--vmcp-ink); }
+  .vmcp-title span { font-weight: 400; color: var(--vmcp-dim); }
+
+  .vmcp-feed {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+  .vmcp-feed::-webkit-scrollbar { display: none; }
+
+  .vmcp-feed .vmcp-msg:not(.vmcp-shown) { display: none; }
+  .vmcp-msg.vmcp-shown { animation: vmcp-fade-up 0.6s var(--ease); }
+  .vmcp-user.vmcp-shown, .vmcp-status.vmcp-shown, .vmcp-reply.vmcp-shown { display: block; }
+  .vmcp-tool.vmcp-shown, .vmcp-file.vmcp-shown { display: flex; }
+  @keyframes vmcp-fade-up {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: none; }
+  }
+  .vmcp-feed.vmcp-leaving .vmcp-msg.vmcp-shown {
+    opacity: 0;
+    transform: translateY(-14px);
+    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+  }
+
+  .vmcp-user {
+    align-self: flex-end;
+    max-width: 88%;
+    background: var(--vmcp-soft);
+    border-radius: 16px;
+    padding: 16px 20px;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--vmcp-muted);
+  }
+
+  .vmcp-tool {
+    align-self: flex-start;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--vmcp-dim);
+  }
+  .vmcp-tool .vmcp-label { color: var(--vmcp-dim); }
+  .vmcp-tool.vmcp-working .vmcp-label {
+    background: linear-gradient(100deg, var(--vmcp-dim) 35%, var(--vmcp-ink) 50%, var(--vmcp-dim) 65%);
+    background-size: 250% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: vmcp-shimmer 1.5s linear infinite;
+  }
+  @keyframes vmcp-shimmer {
+    0% { background-position: 120% 0; }
+    100% { background-position: -120% 0; }
+  }
+  .vmcp-chev { font-size: 13px; color: var(--vmcp-dim); }
+  .vmcp-check {
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--vmcp-bronze-bright);
+    text-transform: none;
+    opacity: 0;
+    transition: opacity 0.5s var(--ease);
+  }
+  .vmcp-check.vmcp-on { opacity: 1; }
+
+  .vmcp-status {
+    align-self: flex-start;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--vmcp-muted);
+    max-width: 95%;
+  }
+  .vmcp-num { color: var(--vmcp-ink); font-weight: 500; }
+
+  .vmcp-reply {
+    align-self: flex-start;
+    font-size: 16.5px;
+    line-height: 1.6;
+    color: var(--vmcp-ink);
+    max-width: 95%;
+  }
+
+  .vmcp-file {
+    align-self: flex-start;
+    align-items: center;
+    gap: 14px;
+    background: var(--vmcp-soft);
+    border: 1px solid rgba(247, 227, 218, 0.1);
+    border-radius: 14px;
+    padding: 14px 18px;
+    max-width: 95%;
+  }
+  .vmcp-file-icon { width: 26px; height: 26px; color: var(--vmcp-bronze-bright); flex-shrink: 0; }
+  .vmcp-file .vmcp-icon-pdf { display: none; }
+  .vmcp-file.vmcp-is-pdf .vmcp-icon-md { display: none; }
+  .vmcp-file.vmcp-is-pdf .vmcp-icon-pdf { display: block; }
+  .vmcp-file-name {
+    font-family: var(--vmcp-mono);
+    font-size: 14px;
+    color: var(--vmcp-ink);
+    line-height: 1.4;
+  }
+  .vmcp-file-meta {
+    font-size: 13px;
+    color: var(--vmcp-muted);
+    line-height: 1.4;
+  }
+
+  .vmcp-input {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+    background: var(--vmcp-soft);
+    border-radius: 14px;
+    padding: 16px 18px;
+    font-size: 15px;
+    color: var(--vmcp-dim);
+  }
+  .vmcp-input-icon { width: 19px; height: 19px; color: var(--vmcp-dim); flex-shrink: 0; }
+  .vmcp-send {
+    margin-left: auto;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--vmcp-bronze);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .vmcp-send svg { width: 15px; height: 15px; color: #fcf7f5; }
+
+  @media (max-width: 640px) {
+    .vmcp-session { padding: 22px 20px 18px; height: 520px; border-radius: 18px; }
+    .vmcp-user, .vmcp-status, .vmcp-reply { font-size: 15px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vmcp-msg.vmcp-shown { animation: none; }
+    .vmcp-tool.vmcp-working .vmcp-label { animation: none; background: none; color: var(--vmcp-dim); }
+    .vmcp-check { transition: none; }
+  }
+
   /* ── ANIMATIONS ── */
   .fade-up {
     opacity: 0;
@@ -1420,13 +1458,11 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
-    .roi-layout { grid-template-columns: 1fr; gap: 40px; }
     .timeline { grid-template-columns: 1fr 1fr; gap: 40px 24px; }
     .timeline::before { display: none; }
     .deliv-grid { grid-template-columns: 1fr 1fr; }
     .tiers-grid { grid-template-columns: 1fr; }
     .hero-grid { grid-template-columns: 1fr; gap: 48px; }
-    .hero-grid .arch-diagram { max-width: 560px; margin: 0 auto; }
     .vault-panel-cards { grid-template-columns: 1fr; }
     .vault-block { flex-basis: calc(50% - 7px); }
   }
@@ -1468,7 +1504,6 @@
     .stat { padding: 0 16px; border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.07); padding-bottom: 24px; }
     .stat:nth-last-child(-n+2) { border-bottom: none; padding-bottom: 0; }
     .stats-bar { padding: 48px 0; }
-    .donuts { grid-template-columns: 1fr; gap: 48px; }
     .outcomes-grid { grid-template-columns: 1fr; }
     .timeline { grid-template-columns: 1fr; gap: 32px; }
     .deliv-grid { grid-template-columns: 1fr; }
@@ -1492,7 +1527,6 @@
     <symbol id="icon-arrow-right" viewBox="0 0 256 256"><path d="M218.83,130.83l-72,72a4,4,0,0,1-5.66-5.66L206.34,132H40a4,4,0,0,1,0-8H206.34L141.17,58.83a4,4,0,0,1,5.66-5.66l72,72A4,4,0,0,1,218.83,130.83Z"/></symbol>
     <symbol id="icon-arrows-clockwise" viewBox="0 0 256 256"><path d="M220,48V96a4,4,0,0,1-4,4H168a4,4,0,0,1,0-8h38.34L184.89,70.54A84,84,0,0,0,66.8,69.85a4,4,0,1,1-5.6-5.72,92,92,0,0,1,129.34.76L212,86.34V48a4,4,0,0,1,8,0ZM189.2,186.15a83.44,83.44,0,0,1-58.68,23.91h-.47a83.52,83.52,0,0,1-58.94-24.6L49.66,164H88a4,4,0,0,0,0-8H40a4,4,0,0,0-4,4v48a4,4,0,0,0,8,0V169.66l21.46,21.45A91.43,91.43,0,0,0,130,218.06h.51a91.45,91.45,0,0,0,64.28-26.19,4,4,0,1,0-5.6-5.72Z"/></symbol>
     <symbol id="icon-book-open" viewBox="0 0 256 256"><path d="M232,52H160a36,36,0,0,0-32,19.54A36,36,0,0,0,96,52H24a4,4,0,0,0-4,4V200a4,4,0,0,0,4,4H96a28,28,0,0,1,28,28,4,4,0,0,0,8,0,28,28,0,0,1,28-28h72a4,4,0,0,0,4-4V56A4,4,0,0,0,232,52ZM96,196H28V60H96a28,28,0,0,1,28,28V209.4A35.93,35.93,0,0,0,96,196Zm132,0H160a35.94,35.94,0,0,0-28,13.41V88a28,28,0,0,1,28-28h68Z"/></symbol>
-    <symbol id="icon-brain" viewBox="0 0 256 256"><path d="M244,124a52.1,52.1,0,0,0-32-48V72a44,44,0,0,0-84-18.3A44,44,0,0,0,44,72v4a52,52,0,0,0,0,96v4a44,44,0,0,0,84,18.3A44,44,0,0,0,212,176v-4A52.07,52.07,0,0,0,244,124ZM88,212a36,36,0,0,1-36-36v-1.41A52.13,52.13,0,0,0,64,176h8a4,4,0,0,0,0-8H64A44,44,0,0,1,49.33,82.5,4,4,0,0,0,52,78.73V72a36,36,0,0,1,72,0v78.75A44,44,0,0,0,88,132a4,4,0,0,0,0,8,36,36,0,0,1,0,72Zm104-44h-8a4,4,0,0,0,0,8h8a52.13,52.13,0,0,0,12-1.41V176a36,36,0,1,1-36-36,4,4,0,0,0,0-8,44,44,0,0,0-36,18.75V72a36,36,0,0,1,72,0v6.73a4,4,0,0,0,2.67,3.77A44,44,0,0,1,192,168Zm12-56a4,4,0,0,1-4,4h-4a32,32,0,0,1-32-32V80a4,4,0,0,1,8,0v4a24,24,0,0,0,24,24h4A4,4,0,0,1,204,112ZM92,84a32,32,0,0,1-32,32H56a4,4,0,0,1,0-8h4A24,24,0,0,0,84,84V80a4,4,0,0,1,8,0Z"/></symbol>
     <symbol id="icon-caret-down" viewBox="0 0 256 256"><path d="M210.83,98.83l-80,80a4,4,0,0,1-5.66,0l-80-80a4,4,0,0,1,5.66-5.66L128,170.34l77.17-77.17a4,4,0,1,1,5.66,5.66Z"/></symbol>
     <symbol id="icon-chat-dots" viewBox="0 0 256 256"><path d="M136,128a8,8,0,1,1-8-8A8,8,0,0,1,136,128Zm-52-8a8,8,0,1,0,8,8A8,8,0,0,0,84,120Zm88,0a8,8,0,1,0,8,8A8,8,0,0,0,172,120Zm56-56V192a12,12,0,0,1-12,12H81.49L47.76,233.13l0,0A11.89,11.89,0,0,1,40,236a12.17,12.17,0,0,1-5.1-1.14A11.89,11.89,0,0,1,28,224V64A12,12,0,0,1,40,52H216A12,12,0,0,1,228,64Zm-8,0a4,4,0,0,0-4-4H40a4,4,0,0,0-4,4V224a4,4,0,0,0,6.56,3.08L77.38,197A4,4,0,0,1,80,196H216a4,4,0,0,0,4-4Z"/></symbol>
     <symbol id="icon-check" viewBox="0 0 256 256"><path d="M226.83,74.83l-128,128a4,4,0,0,1-5.66,0l-56-56a4,4,0,0,1,5.66-5.66L96,194.34,221.17,69.17a4,4,0,1,1,5.66,5.66Z"/></symbol>
@@ -1508,7 +1542,6 @@
     <symbol id="icon-seal-check" viewBox="0 0 256 256"><path d="M223,105.58c-4-4.2-8.2-8.54-10-12.8-1.65-4-1.73-9.53-1.82-15.41-.14-9-.29-19.19-6.83-25.74s-16.74-6.69-25.74-6.83c-5.88-.09-11.43-.17-15.41-1.82-4.26-1.76-8.6-5.93-12.8-9.95-6.68-6.41-13.59-13-22.42-13s-15.74,6.62-22.42,13c-4.2,4-8.54,8.2-12.8,10-4,1.65-9.53,1.73-15.41,1.82-9,.14-19.19.29-25.74,6.83S44.94,68.37,44.8,77.37c-.09,5.88-.17,11.43-1.82,15.41-1.76,4.26-5.93,8.6-9.95,12.8-6.41,6.68-13,13.59-13,22.42s6.62,15.74,13,22.42c4,4.2,8.2,8.54,10,12.8,1.65,4,1.73,9.53,1.82,15.41.14,9,.29,19.19,6.83,25.74s16.74,6.69,25.74,6.83c5.88.09,11.43.17,15.41,1.82,4.26,1.76,8.6,5.93,12.8,9.95,6.68,6.41,13.59,13,22.42,13s15.74-6.62,22.42-13c4.2-4,8.54-8.2,12.8-10,4-1.65,9.53-1.73,15.41-1.82,9-.14,19.19-.29,25.74-6.83s6.69-16.74,6.83-25.74c.09-5.88.17-11.43,1.82-15.41,1.76-4.26,5.93-8.6,9.95-12.8,6.41-6.68,13-13.59,13-22.42S229.38,112.26,223,105.58Zm-5.78,39.3c-4.54,4.73-9.24,9.63-11.57,15.28-2.23,5.39-2.33,12-2.43,18.35-.12,8.2-.24,16-4.49,20.2s-12,4.37-20.2,4.49c-6.37.1-13,.2-18.35,2.43-5.65,2.33-10.55,7-15.28,11.57C139.09,222.75,133.62,228,128,228s-11.09-5.25-16.88-10.8c-4.73-4.54-9.63-9.24-15.28-11.57-5.39-2.23-12-2.33-18.35-2.43-8.2-.12-15.95-.24-20.2-4.49s-4.37-12-4.49-20.2c-.1-6.37-.2-13-2.43-18.35-2.33-5.65-7-10.55-11.57-15.28C33.25,139.09,28,133.62,28,128s5.25-11.09,10.8-16.88c4.54-4.73,9.24-9.63,11.57-15.28,2.23-5.39,2.33-12,2.43-18.35.12-8.2.24-15.95,4.49-20.2s12-4.37,20.2-4.49c6.37-.1,13-.2,18.35-2.43,5.65-2.33,10.55-7,15.28-11.57C116.91,33.25,122.38,28,128,28s11.09,5.25,16.88,10.8c4.73,4.54,9.63,9.24,15.28,11.57,5.39,2.23,12,2.33,18.35,2.43,8.2.12,16,.24,20.2,4.49s4.37,12,4.49,20.2c.1,6.37.2,13,2.43,18.35,2.33,5.65,7,10.55,11.57,15.28,5.55,5.79,10.8,11.26,10.8,16.88S222.75,139.09,217.2,144.88Zm-46.37-43.71a4,4,0,0,1,0,5.66l-56,56a4,4,0,0,1-5.66,0l-24-24a4,4,0,0,1,5.66-5.66L112,154.34l53.17-53.17A4,4,0,0,1,170.83,101.17Z"/></symbol>
     <symbol id="icon-shield-check" viewBox="0 0 256 256"><path d="M208,44H48A12,12,0,0,0,36,56v56c0,51.16,24.73,82.12,45.47,99.1,22.4,18.32,44.55,24.5,45.48,24.76a4,4,0,0,0,2.1,0c.93-.26,23.08-6.44,45.48-24.76,20.74-17,45.47-47.94,45.47-99.1V56A12,12,0,0,0,208,44Zm4,68c0,38.44-14.23,69.63-42.29,92.71A132.45,132.45,0,0,1,128,227.82a132.23,132.23,0,0,1-41.71-23.11C58.23,181.63,44,150.44,44,112V56a4,4,0,0,1,4-4H208a4,4,0,0,1,4,4Zm-41.17-10.83a4,4,0,0,1,0,5.66l-56,56a4,4,0,0,1-5.66,0l-24-24a4,4,0,0,1,5.66-5.66L112,154.34l53.17-53.17A4,4,0,0,1,170.83,101.17Z"/></symbol>
     <symbol id="icon-stack-simple" viewBox="0 0 256 256"><path d="M14,107.47l112,64a4,4,0,0,0,4,0l112-64a4,4,0,0,0,0-6.94l-112-64a4,4,0,0,0-4,0l-112,64a4,4,0,0,0,0,6.94ZM128,44.61,231.94,104,128,163.39,24.06,104ZM243.47,142a4,4,0,0,1-1.49,5.45l-112,64a4,4,0,0,1-4,0l-112-64a4,4,0,0,1,4-6.94l110,62.86,110-62.86A4,4,0,0,1,243.47,142Z"/></symbol>
-    <symbol id="icon-users-three" viewBox="0 0 256 256"><path d="M237,147.44a4,4,0,0,1-5.48-1.4c-8.33-14-20.93-22-34.56-22a4,4,0,0,1-1.2-.2,36.76,36.76,0,0,1-3.8.2,4,4,0,0,1,0-8,28,28,0,1,0-27.12-35,4,4,0,0,1-7.75-2,36,36,0,1,1,54,39.48c10.81,3.85,20.51,12,27.31,23.48A4,4,0,0,1,237,147.44ZM187.46,214a4,4,0,0,1-1.46,5.46,3.93,3.93,0,0,1-2,.54,4,4,0,0,1-3.46-2,61,61,0,0,0-105.08,0,4,4,0,0,1-6.92-4,68.35,68.35,0,0,1,39.19-31,44,44,0,1,1,40.54,0A68.35,68.35,0,0,1,187.46,214ZM128,180a36,36,0,1,0-36-36A36,36,0,0,0,128,180ZM64,116A28,28,0,1,1,91.12,81a4,4,0,0,0,7.75-2A36,36,0,1,0,45.3,118.75,63.55,63.55,0,0,0,12.8,141.6a4,4,0,0,0,6.4,4.8A55.55,55.55,0,0,1,64,124a4,4,0,0,0,0-8Z"/></symbol>
     <symbol id="icon-x" viewBox="0 0 256 256"><path d="M202.83,197.17a4,4,0,0,1-5.66,5.66L128,133.66,58.83,202.83a4,4,0,0,1-5.66-5.66L122.34,128,53.17,58.83a4,4,0,0,1,5.66-5.66L128,122.34l69.17-69.17a4,4,0,1,1,5.66,5.66L133.66,128Z"/></symbol>
   </defs>
 </svg>
@@ -1530,7 +1563,7 @@
       <div class="hero-inner">
         <div class="hero-eyebrow fade-up">AI Systems Built For Your Team</div>
         <h1 class="fade-up">4x your team's output.<br>No new hires.<br><em>No new tools for your team to learn.</em></h1>
-        <p class="hero-sub fade-up">We encode your senior team's frameworks, voice, and decision-making into custom AI systems &mdash; we build and run the infrastructure; your people keep using the AI they already use. Junior team produces senior-level output. Senior team shifts from execution to strategy. 4x your capacity without hiring.</p>
+        <p class="hero-sub fade-up">We build your company a Vault: one governed source of truth for your voice, your numbers, and your standards. The AI tools your team already uses read from it. Connect once, and everyone on the team produces senior-level, on-brand work inside the AI they already know.</p>
         <div class="hero-cta-row fade-up">
           <a href="#book" class="btn-primary">
             Book a Free Call
@@ -1543,30 +1576,55 @@
         </div>
         <p class="hero-note fade-up">30 min · No pitch deck · Real recommendations for your specific situation</p>
       </div>
-      <div class="arch-diagram">
-        <div class="arch-row fade-up">
-          <div class="arch-icon"><svg class="icon" aria-hidden="true"><use href="#icon-brain"/></svg></div>
-          <div class="arch-text">
-            <h2 class="arch-heading">Senior expertise</h2>
-            <p>Interview outputs, frameworks, decision logic, voice</p>
+      <div class="hero-demo">
+        <!-- Animated mock Claude session showing the Vault MCP at work.
+             Cycles 3 scenarios; starts at 25% visibility; reduced-motion
+             shows a static final state. Copy claims are GROUNDED-only per
+             mcp-positioning-and-language.md — don't add security claims
+             here without checking that doc. Styles in the VAULT MCP SESSION
+             CSS section; behavior in the vmcp script at end of body. -->
+        <div class="vmcp-session" id="vmcp-stage">
+          <div class="vmcp-bar">
+            <svg class="vmcp-claude-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12.557 42.4146L25.1462 35.3778L25.357 34.7645L25.1462 34.4255H24.5308L22.4242 34.2965L15.2305 34.1028L8.9925 33.8445L2.94875 33.5218L1.42575 33.1988L0 31.3266L0.14575 30.3905L1.42575 29.5354L3.25675 29.6967L7.30725 29.9709L13.3833 30.3905L17.7905 30.6488L24.32 31.3266H25.357L25.5028 30.907L25.1462 30.6488L24.871 30.3905L18.5842 26.1459L11.7793 21.6591L8.21475 19.0767L6.2865 17.7693L5.3145 16.5429L4.89325 13.8638L6.64325 11.9431L8.9925 12.1047L9.592 12.2661L11.9738 14.0897L17.0613 18.0119L23.7043 22.8856L24.6765 23.6925L25.0653 23.418L25.114 23.2245L24.6765 22.4981L21.0632 15.994L17.207 9.37687L15.4895 6.63309L15.036 4.98702C14.874 4.30892 14.7605 3.74412 14.7605 3.05009L16.7535 0.354864L17.855 0L20.5125 0.355113L21.6305 1.32333L23.283 5.08389L25.9565 11.0073L30.1042 19.0608L31.3195 21.4495L31.9675 23.6606L32.2108 24.3384H32.632V23.9509L32.972 19.4159L33.604 13.8477L34.2197 6.68165L34.4305 4.66453L35.435 2.24349L37.4277 0.936093L38.9832 1.67844L40.2632 3.50232L40.085 4.68022L39.3235 9.60299L37.833 17.3179L36.8607 22.4824H37.4277L38.076 21.8367L40.7007 18.3668L45.1077 12.8792L47.0522 10.7005L49.3205 8.2956L50.7788 7.14982H53.5332L55.5583 10.1518L54.6512 13.2505L51.8158 16.8335L49.4663 19.8676L46.0962 24.3867L43.9897 28.0021L44.1842 28.2925L44.6867 28.2442L52.3018 26.6302L56.4173 25.8876L61.3265 25.0484L63.5465 26.0814L63.7892 27.1305L62.9142 29.2771L57.6647 30.5681L51.5078 31.7948L42.3372 33.9576L42.2238 34.0383L42.3535 34.1997L46.485 34.5869L48.2513 34.6838H52.5773L60.6297 35.2809L62.7363 36.669L64 38.3636L63.7892 39.6546L60.5488 41.3009L56.1743 40.268L45.9668 37.8472L42.4668 36.9756H41.9808V37.2662L44.8973 40.1066L50.244 44.9163L56.9357 51.1138L57.2757 52.6471L56.4173 53.8574L55.5098 53.7284L49.6283 49.3223L47.36 47.3371L42.2238 43.0279H41.8838V43.4797L43.0662 45.2067L49.3205 54.5676L49.6445 57.4404L49.191 58.3767L47.5708 58.9415L45.7882 58.6185L42.1265 53.5025L38.3515 47.7405L35.3052 42.5759L34.9328 42.7859L33.1343 62.0725L32.2918 63.0569L30.3472 63.7993L28.7272 62.5728L27.8682 60.5876L28.727 56.6657L29.764 51.5496L30.6065 47.4823L31.368 42.4308L31.8218 40.7523L31.7892 40.6393L31.4167 40.6876L27.593 45.9169L21.7763 53.7446L17.1747 58.6509L16.073 59.0867L14.161 58.102L14.3392 56.3429L15.4085 54.7775L21.776 46.7078L25.616 41.7043L28.0952 38.8156L28.079 38.3958H27.9333L11.0175 49.3385L8.00375 49.7258L6.7075 48.5155L6.8695 46.5302L7.48525 45.8845L12.5728 42.3984L12.557 42.4146Z" fill="#D97757"/>
+            </svg>
+            <span class="vmcp-title">Claude <span>· Vault connected</span></span>
+          </div>
+
+          <div class="vmcp-feed" id="vmcp-feed">
+            <div class="vmcp-msg vmcp-user" id="vmcp-msg-user">Draft the hero copy for the spring landing page. Use our approved numbers and keep it in our voice.</div>
+
+            <div class="vmcp-msg vmcp-tool" id="vmcp-row-search"><span class="vmcp-label">Vault search</span><span class="vmcp-chev">›</span></div>
+
+            <div class="vmcp-msg vmcp-status" id="vmcp-msg-mid">Found your voice rules and approved proof points. One governed number: <span class="vmcp-num">12,400+ customers served</span>.</div>
+
+            <div class="vmcp-msg vmcp-tool" id="vmcp-row-brand"><span class="vmcp-label">Vault brand guide</span><span class="vmcp-chev">›</span></div>
+
+            <div class="vmcp-msg vmcp-tool" id="vmcp-row-extra"><span class="vmcp-label"></span><span class="vmcp-chev">›</span></div>
+
+            <div class="vmcp-msg vmcp-status" id="vmcp-msg-mid2"></div>
+
+            <div class="vmcp-msg vmcp-reply" id="vmcp-msg-reply">Here's your hero draft, in your voice, with your approved numbers. I also found a stale stat in the old spring brief and flagged it for review.</div>
+
+            <div class="vmcp-msg vmcp-file" id="vmcp-msg-file">
+              <svg class="vmcp-file-icon vmcp-icon-md" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M210.83,85.17l-56-56A4,4,0,0,0,152,28H56A12,12,0,0,0,44,40V216a12,12,0,0,0,12,12H200a12,12,0,0,0,12-12V88A4,4,0,0,0,210.83,85.17ZM156,41.65,198.34,84H156ZM200,220H56a4,4,0,0,1-4-4V40a4,4,0,0,1,4-4h92V88a4,4,0,0,0,4,4h52V216A4,4,0,0,1,200,220Zm-36-84a4,4,0,0,1-4,4H96a4,4,0,0,1,0-8h64A4,4,0,0,1,164,136Zm0,32a4,4,0,0,1-4,4H96a4,4,0,0,1,0-8h64A4,4,0,0,1,164,168Z"/></svg>
+              <svg class="vmcp-file-icon vmcp-icon-pdf" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M220,152a4,4,0,0,1-4,4H188v24h20a4,4,0,0,1,0,8H188v20a4,4,0,0,1-8,0V152a4,4,0,0,1,4-4h32A4,4,0,0,1,220,152ZM88,172a24,24,0,0,1-24,24H52v12a4,4,0,0,1-8,0V152a4,4,0,0,1,4-4H64A24,24,0,0,1,88,172Zm-8,0a16,16,0,0,0-16-16H52v32H64A16,16,0,0,0,80,172Zm80,8a32,32,0,0,1-32,32H112a4,4,0,0,1-4-4V152a4,4,0,0,1,4-4h16A32,32,0,0,1,160,180Zm-8,0a24,24,0,0,0-24-24H116v48h12A24,24,0,0,0,152,180ZM44,112V40A12,12,0,0,1,56,28h96a4,4,0,0,1,2.83,1.17l56,56A4,4,0,0,1,212,88v24a4,4,0,0,1-8,0V92H152a4,4,0,0,1-4-4V36H56a4,4,0,0,0-4,4v72a4,4,0,0,1-8,0ZM156,84h42.34L156,41.65Z"/></svg>
+              <div>
+                <div class="vmcp-file-name" id="vmcp-file-name">spring-hero.md</div>
+                <div class="vmcp-file-meta" id="vmcp-file-meta">in your folder · ready to publish</div>
+              </div>
+            </div>
+
+            <div class="vmcp-msg vmcp-tool" id="vmcp-row-log"><span class="vmcp-label">Vault update request</span><span class="vmcp-chev">›</span><span class="vmcp-check" id="vmcp-gov-check">approved by a human · merged</span></div>
+          </div>
+
+          <div class="vmcp-input">
+            <svg class="vmcp-input-icon" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128,28A100,100,0,1,0,228,128,100.11,100.11,0,0,0,128,28Zm0,192a92,92,0,1,1,92-92A92.1,92.1,0,0,1,128,220Zm44-92a4,4,0,0,1-4,4H132v36a4,4,0,0,1-8,0V132H88a4,4,0,0,1,0-8h36V88a4,4,0,0,1,8,0v36h36A4,4,0,0,1,172,128Z"/></svg>
+            <span>Reply…</span>
+            <span class="vmcp-send"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M202.83,114.83a4,4,0,0,1-5.66,0L132,49.66V216a4,4,0,0,1-8,0V49.66L58.83,114.83a4,4,0,0,1-5.66-5.66l72-72a4,4,0,0,1,5.66,0l72,72A4,4,0,0,1,202.83,114.83Z"/></svg></span>
           </div>
         </div>
-        <div class="arch-arrow"></div>
-        <div class="arch-row mid fade-up">
-          <div class="arch-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 176.38 159.08" width="28" height="25" role="img" aria-label="Storystak AI"><g><path fill="#0f0f0f" d="M176.1,92.6c-28.9-17.29-57.99-32.75-84.88-48.3-1.91-1.08-2.87-1.89-4.65-.87C49.81,64.42,21.24,80.72.85,92.34c-1.28,1.5-.72,4.03-.54,5.9l86.55,48.79c.9.51,2,.51,2.9,0l86.38-49.14c.33-1.81.32-3.57-.04-5.29ZM88.33,137.38c-.18.1-.4.1-.58,0-2.26-1.31-4.53-2.61-6.79-3.92-4.69-2.71-9.39-5.42-14.08-8.13-8.31-4.8-16.68-9.5-24.94-14.4-7.22-4.28-14.58-8.37-21.85-12.57-1.58-.91-3.16-1.82-4.73-2.73-.08-.04-.14-.11-.18-.18-.14-.24-.06-.56.18-.7l72.27-41.72c.16-.09.34-.09.5,0,16.11,9.06,32.33,17.95,48.38,27.13,7.6,4.35,15.15,8.8,22.74,13.18l2.16,1.25c.09.05.16.12.21.21.16.28.07.63-.21.79"/><path fill="#c45d2c" d="M149.99,124.36l-60.6,34.43c-.68.38-1.5.38-2.18,0l-60.58-34.13-8.74-5.16L1.65,110.36c-.72-.4-1.17-1.16-1.18-1.99l-.16-10.14,86.55,48.79c.9.51,2,.51,2.9,0l86.38-49.14c.19,2.61.19,5.22.01,7.84-.08,1.18.31,3.39-1.12,4.21"/><path fill="#0f0f0f" d="M176.06,54.92l-86.38,49.14c-.9.51-2,.51-2.9,0L.24,55.27c-.33-1.73-.32-3.45.02-5.17.06-.31.25-.58.52-.73C21.17,37.75,49.74,21.45,86.5.47c1.78-1.02,2.74-.21,4.65.87,26.93,15.23,55.08,31.14,84.45,47.72.22.12.38.33.43.58.36,1.72.37,3.48.04,5.29ZM42.47,68.36c.16.09.36.09.52,0L115.25,26.64c.24-.14.32-.45.18-.7-.04-.08-.11-.14-.18-.18l-27.2-15.69c-.16-.09-.34-.09-.5,0L15.28,51.78c-.24.14-.32.45-.18.7.04.08.11.14.18.18l27.19,15.7ZM98.12,47.16c-.28.16-.37.52-.21.79.05.09.12.16.21.21l35.18,20.31c.18.1.4.1.58,0l27.45-15.84c.28-.16.37-.52.21-.79-.05-.09-.12-.16-.21-.21l-35.19-20.31c-.18-.1-.4-.1-.58,0l-27.44,15.84ZM88.28,52.95c-.18-.1-.4-.1-.58,0l-35.05,20.24c-.28.16-.37.52-.21.79.05.09.12.16.21.21l35.03,20.22c.18.1.4.1.58,0l35.05-20.23c.28-.16.37-.52.21-.79-.05-.09-.12-.16-.21-.21l-35.03-20.23Z"/><path fill="#c45d2c" d="M149.92,81.39l-60.6,34.43c-.68.38-1.5.38-2.18,0l-60.58-34.13-8.74-5.16L1.58,67.4c-.72-.4-1.17-1.16-1.18-1.99l-.16-10.14,86.55,48.79c.9.51,2,.51,2.9,0l86.38-49.14c.19,2.61.19,5.22.01,7.84-.08,1.18.31,3.39-1.12,4.21-3.55,2.05-8.53,4.83-14.92,8.35"/></g></svg></div>
-          <div class="arch-text">
-            <h2 class="arch-heading">Storystak AI system</h2>
-            <p>Custom workspaces, knowledge files, prompts, workflow templates</p>
-          </div>
-        </div>
-        <div class="arch-arrow"></div>
-        <div class="arch-row fade-up">
-          <div class="arch-icon"><svg class="icon" aria-hidden="true"><use href="#icon-users-three"/></svg></div>
-          <div class="arch-text">
-            <h2 class="arch-heading">Whole team</h2>
-            <p>Consistent quality at 4x speed, regardless of seniority</p>
-          </div>
-        </div>
+        <p class="vmcp-caption">This is the Vault working. Simulated conversation, real system.</p>
       </div>
     </div>
   </div>
@@ -1626,226 +1684,32 @@
   </div>
 </section>
 
-<!-- TIME SHIFT (DONUTS) -->
-<section class="time-shift">
-  <div class="container">
-    <div class="time-shift-head">
-      <div class="section-label fade-up">The real bottleneck</div>
-      <h2 class="section-head fade-up">The real bottleneck isn't headcount.</h2>
-      <p class="section-sub fade-up">Your senior team is stuck reviewing, approving, fixing. The system shifts them out of execution and into building the company.</p>
-    </div>
-    <div class="donuts">
-      <div class="donut-block fade-up">
-        <div class="donut-label">Your senior team today</div>
-        <svg class="donut-svg" viewBox="0 0 200 200" aria-label="60% execution, 40% strategy">
-          <circle cx="100" cy="100" r="80" fill="none" stroke="#0f0f0f" stroke-width="32" stroke-dasharray="301.59 502.65" stroke-dashoffset="0"></circle>
-          <circle cx="100" cy="100" r="80" fill="none" stroke="#c45d2c" stroke-width="32" stroke-dasharray="201.06 502.65" stroke-dashoffset="-301.59"></circle>
-        </svg>
-        <div class="donut-legend">
-          <div class="legend-item"><span class="dot" style="background:#0f0f0f"></span>Execution 60%</div>
-          <div class="legend-item"><span class="dot" style="background:#c45d2c"></span>Strategy 40%</div>
-        </div>
-      </div>
-      <div class="donut-block fade-up" style="transition-delay:0.1s">
-        <div class="donut-label">After 6 weeks</div>
-        <svg class="donut-svg" viewBox="0 0 200 200" aria-label="30% execution, 70% strategy">
-          <circle cx="100" cy="100" r="80" fill="none" stroke="#0f0f0f" stroke-width="32" stroke-dasharray="150.80 502.65" stroke-dashoffset="0"></circle>
-          <circle cx="100" cy="100" r="80" fill="none" stroke="#c45d2c" stroke-width="32" stroke-dasharray="351.85 502.65" stroke-dashoffset="-150.80"></circle>
-        </svg>
-        <div class="donut-legend">
-          <div class="legend-item"><span class="dot" style="background:#0f0f0f"></span>Execution 30%</div>
-          <div class="legend-item"><span class="dot" style="background:#c45d2c"></span>Strategy 70%</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS TIMELINE -->
-<section class="process" id="process">
-  <div class="container">
-    <div class="section-label">The build</div>
-    <h2 class="section-head fade-up">How we build the road.</h2>
-    <p class="section-sub fade-up">We build, deploy, and train. Your team is self-sufficient when we leave.</p>
-    <div class="timeline">
-      <div class="step fade-up">
-        <div class="step-dot"></div>
-        <div class="step-week">Week 1&ndash;2</div>
-        <h3>Deep Dive</h3>
-        <p>Map how your best people actually think. Stakeholder interviews, workflow audit, and the opportunity scorecard you approve before we build.</p>
-      </div>
-      <div class="step fade-up" style="transition-delay:0.1s">
-        <div class="step-dot"></div>
-        <div class="step-week">Week 3&ndash;4</div>
-        <h3>Build</h3>
-        <p>Custom AI workspaces. Knowledge files. Prompt libraries and workflow templates that carry your standards into every output.</p>
-      </div>
-      <div class="step fade-up" style="transition-delay:0.2s">
-        <div class="step-dot"></div>
-        <div class="step-week">Week 5</div>
-        <h3>Train</h3>
-        <p>Live sessions get your team running. Recorded walkthroughs for every system so future hires onboard themselves.</p>
-      </div>
-      <div class="step fade-up" style="transition-delay:0.3s">
-        <div class="step-dot"></div>
-        <div class="step-week">Week 6</div>
-        <h3>Optimize</h3>
-        <p>Tune outputs from real usage, measure the impact, hand off the system. You walk away with proof it worked.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ROLE OUTCOMES -->
-<section class="role-outcomes">
-  <div class="container">
-    <div style="max-width:760px;margin:0 auto 56px;text-align:center">
-      <div class="section-label fade-up">Where it lands</div>
-      <h2 class="section-head fade-up" style="margin-left:auto;margin-right:auto">Where this hits the P&amp;L first.</h2>
-    </div>
-    <div class="outcomes-grid">
-      <div class="outcome fade-up">
-        <div class="who">Sales</div>
-        <div class="out">From 45-minute prep to 15. 3x the conversations.</div>
-        <div class="det">Your best closer's qualifying questions, objection handling, and follow-up language, encoded into a system your whole team runs. Reps stop drowning in admin and get back in conversations. Pipeline math, not productivity math.</div>
-      </div>
-      <div class="outcome fade-up" style="transition-delay:0.1s">
-        <div class="who">Marketing</div>
-        <div class="out">Senior-level output from the whole team.</div>
-        <div class="det">Your strategist's brief format, brand voice, and copy standards, built into the tools the junior team uses every day. Campaigns ship faster. Quality stops depending on one person's review queue.</div>
-      </div>
-      <div class="outcome fade-up" style="transition-delay:0.2s">
-        <div class="who">Operations</div>
-        <div class="out">Your business stops running through one person.</div>
-        <div class="det">Proposals, onboarding sequences, SOPs, weekly reports. All the things that live in your best ops person's head, encoded into systems anyone can run. The work happens without them in the room. The knowledge doesn't walk out the door.</div>
-      </div>
-      <div class="outcome fade-up" style="transition-delay:0.3s">
-        <div class="who">Cross-departmental</div>
-        <div class="out">Your whole company sounds like one company.</div>
-        <div class="det">Ad copy matches the landing page. Sales follow-up matches the marketing message. The proposal matches the pitch. When every department works from the same encoded standards, the customer experience is consistent from first ad to signed contract. And the 10% of revenue most B2B companies lose to misalignment stays in the business.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ROI -->
-<section class="roi">
-  <div class="container">
-    <div class="section-label fade-up">The financial case</div>
-    <div class="roi-layout">
-      <div class="roi-narrative fade-up">
-        <h2>Pays for itself in the first 90 days.</h2>
-        <p>BCG's research is consistent: AI super-users save 9 hours per week versus 2 hours for laggards. Across a team of 10, that's 90 hours returned every single week.</p>
-        <p>Organizations with mature AI systems see 3.8x higher ROI on the same technology everyone else already has. The gap isn't the tools. It's the infrastructure.</p>
-        <p>A single $20K engagement against $138K to $414K in annual value recovered. That's a 7 to 21x return in year one. It compounds from there.</p>
-      </div>
-      <div class="fade-up" style="transition-delay:0.15s">
-        <div class="roi-table">
-          <div class="roi-table-header">
-            <span></span>
-            <span style="text-align:right">Conservative</span>
-            <span style="text-align:right">Moderate</span>
-          </div>
-          <div class="roi-table-row">
-            <span class="cell-label">Hours saved / person / week</span>
-            <span class="cell-value">5 hrs</span>
-            <span class="cell-value">10 hrs</span>
-          </div>
-          <div class="roi-table-row">
-            <span class="cell-label">Annual labor value saved</span>
-            <span class="cell-value">$78K</span>
-            <span class="cell-value">$156K</span>
-          </div>
-          <div class="roi-table-row">
-            <span class="cell-label">Hiring leverage</span>
-            <span class="cell-value">$60K</span>
-            <span class="cell-value">$120K</span>
-          </div>
-          <div class="roi-table-row total">
-            <span class="cell-label">Total annual impact</span>
-            <span class="cell-value">$138K</span>
-            <span class="cell-value">$276K</span>
-          </div>
-        </div>
-        <div class="roi-highlight">
-          <div class="big-num">7&ndash;14x</div>
-          <div class="big-lbl">Return on a single engagement</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DELIVERABLES -->
-<section class="deliverables">
-  <div class="container">
-    <div class="deliv-head">
-      <div class="section-label fade-up">What you get</div>
-      <h2 class="section-head fade-up" style="margin-left:auto;margin-right:auto">Built, deployed, ready on day one.</h2>
-      <p class="section-sub fade-up">We leave. The systems stay. Your team runs them independently from week one.</p>
-    </div>
-    <div class="deliv-grid">
-      <div class="deliv-card fade-up">
-        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-gear-six"/></svg></div>
-        <h3>Custom AI workspaces</h3>
-        <p>Built with your voice, processes, and decision criteria. Not generic. Infrastructure designed around how your team actually works.</p>
-      </div>
-      <div class="deliv-card fade-up" style="transition-delay:0.05s">
-        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-folder"/></svg></div>
-        <h3>Knowledge files</h3>
-        <p>Your SOPs, brand standards, product details, institutional knowledge. Loaded and ready. The context that turns generic output into yours.</p>
-      </div>
-      <div class="deliv-card fade-up" style="transition-delay:0.1s">
-        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-chat-dots"/></svg></div>
-        <h3>Governed prompt library</h3>
-        <p>Organized by function and served from your Vault. Pick the right prompt, get consistent output. It grows as your team uses it instead of going stale.</p>
-      </div>
-      <div class="deliv-card fade-up" style="transition-delay:0.15s">
-        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-flow-arrow"/></svg></div>
-        <h3>Workflow templates</h3>
-        <p>Standardized templates for your highest-volume recurring work. The process is built in. Nobody reinvents it each time.</p>
-      </div>
-      <div class="deliv-card fade-up" style="transition-delay:0.2s">
-        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-book-open"/></svg></div>
-        <h3>AI Playbook</h3>
-        <p>Your operating manual for every system. How to use it, extend it, and onboard new people into it without waiting for anyone to explain it.</p>
-      </div>
-      <div class="deliv-card fade-up" style="transition-delay:0.25s">
-        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-presentation"/></svg></div>
-        <h3>Training &amp; recordings</h3>
-        <p>Live sessions plus recorded walkthroughs of every system. New hires onboard themselves. You never re-train from scratch.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- THE VAULT -->
 <section class="vault">
   <div class="container">
-    <p class="vault-bridge fade-up">The 4x isn't magic &mdash; <em>it's infrastructure.</em> Here's what we build and run for you.</p>
-
     <div class="vault-panel fade-up">
-      <div class="section-label">The Vault MCP</div>
-      <h2 class="vault-panel-head">One Governed Source of Truth</h2>
-      <p class="vault-panel-sub">Most companies point AI at a folder of docs and hope. We build a governed system: your AI reads from one controlled source. Your numbers can't contradict each other, nothing changes without a human approving it, and every change leaves an audit trail.</p>
+      <div class="section-label">The road</div>
+      <h2 class="vault-panel-head">The road has a name. It's the Vault.</h2>
+      <p class="vault-panel-sub">Most companies point AI at a folder of docs and hope. We build a governed system: one controlled source of truth that your team's AI reads from. Your numbers can't contradict each other. Nothing changes without a human approving it. Every change leaves an audit trail. It's a system, not a folder.</p>
       <div class="vault-panel-cards">
         <div class="vault-panel-card">
           <h3>It travels with you.</h3>
-          <p>The Vault isn't another tool to log into. It's your company's knowledge, served live, that the AI tools your team already uses can read: Claude, ChatGPT, Copilot. Connect once, and your context travels with you across your tools and devices. You don't go to it; it comes to you, inside the AI you already use.</p>
+          <p>The Vault isn't another tool to log into. It's your company's knowledge, served live, that the AI tools your team already uses can read, starting with Claude. You don't go to it; it comes to you, inside the AI you're already in. Connect once, and your context travels with you across tools and devices.</p>
         </div>
         <div class="vault-panel-card">
           <h3>It's always current.</h3>
-          <p>Anyone on your team can flag a correction from inside the AI they're already using &mdash; it's a sentence, not a ticket. An approver reviews the exact before-and-after and lands it in one click. Update once, and everyone's AI sees it. The Vault gets better the more your team uses it, instead of going stale like every doc folder eventually does.</p>
+          <p>Anyone on your team can flag a correction from inside the AI they're already using. It's a sentence, not a ticket. An approver reviews the exact before-and-after and lands it in one click. Update once, and everyone's AI sees it. The Vault gets better the more your team uses it, instead of going stale like every doc folder eventually does.</p>
         </div>
         <div class="vault-panel-card">
           <h3>It sounds like you, everywhere.</h3>
-          <p>Every tool reads the same voice, positioning, and approved claims, so output is on-brand no matter who on the team is asking or which AI they're in. The veteran and the new hire produce equally on-brand work.</p>
+          <p>Every tool reads the same voice, positioning, and approved claims. Output is on-brand no matter who on the team is asking or which AI they're in. The veteran and the new hire produce equally on-brand work.</p>
         </div>
       </div>
       <svg class="vault-panel-mark" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 176.38 159.08"><path d="M176.1,92.6c-28.9-17.29-57.99-32.75-84.88-48.3-1.91-1.08-2.87-1.89-4.65-.87C49.81,64.42,21.24,80.72.85,92.34c-1.28,1.5-.72,4.03-.54,5.9l86.55,48.79c.9.51,2,.51,2.9,0l86.38-49.14c.33-1.81.32-3.57-.04-5.29ZM88.33,137.38c-.18.1-.4.1-.58,0-2.26-1.31-4.53-2.61-6.79-3.92-4.69-2.71-9.39-5.42-14.08-8.13-8.31-4.8-16.68-9.5-24.94-14.4-7.22-4.28-14.58-8.37-21.85-12.57-1.58-.91-3.16-1.82-4.73-2.73-.08-.04-.14-.11-.18-.18-.14-.24-.06-.56.18-.7l72.27-41.72c.16-.09.34-.09.5,0,16.11,9.06,32.33,17.95,48.38,27.13,7.6,4.35,15.15,8.8,22.74,13.18l2.16,1.25c.09.05.16.12.21.21.16.28.07.63-.21.79"/><path d="M149.99,124.36l-60.6,34.43c-.68.38-1.5.38-2.18,0l-60.58-34.13-8.74-5.16L1.65,110.36c-.72-.4-1.17-1.16-1.18-1.99l-.16-10.14,86.55,48.79c.9.51,2,.51,2.9,0l86.38-49.14c.19,2.61.19,5.22.01,7.84-.08,1.18.31,3.39-1.12,4.21"/><path d="M176.06,54.92l-86.38,49.14c-.9.51-2,.51-2.9,0L.24,55.27c-.33-1.73-.32-3.45.02-5.17.06-.31.25-.58.52-.73C21.17,37.75,49.74,21.45,86.5.47c1.78-1.02,2.74-.21,4.65.87,26.93,15.23,55.08,31.14,84.45,47.72.22.12.38.33.43.58.36,1.72.37,3.48.04,5.29ZM42.47,68.36c.16.09.36.09.52,0L115.25,26.64c.24-.14.32-.45.18-.7-.04-.08-.11-.14-.18-.18l-27.2-15.69c-.16-.09-.34-.09-.5,0L15.28,51.78c-.24.14-.32.45-.18.7.04.08.11.14.18.18l27.19,15.7ZM98.12,47.16c-.28.16-.37.52-.21.79.05.09.12.16.21.21l35.18,20.31c.18.1.4.1.58,0l27.45-15.84c.28-.16.37-.52.21-.79-.05-.09-.12-.16-.21-.21l-35.19-20.31c-.18-.1-.4-.1-.58,0l-27.44,15.84ZM88.28,52.95c-.18-.1-.4-.1-.58,0l-35.05,20.24c-.28.16-.37.52-.21.79.05.09.12.16.21.21l35.03,20.22c.18.1.4.1.58,0l35.05-20.23c.28-.16.37-.52.21-.79-.05-.09-.12-.16-.21-.21l-35.03-20.23Z"/><path d="M149.92,81.39l-60.6,34.43c-.68.38-1.5.38-2.18,0l-60.58-34.13-8.74-5.16L1.58,67.4c-.72-.4-1.17-1.16-1.18-1.99l-.16-10.14,86.55,48.79c.9.51,2,.51,2.9,0l86.38-49.14c.19,2.61.19,5.22.01,7.84-.08,1.18.31,3.39-1.12,4.21-3.55,2.05-8.53,4.83-14.92,8.35"/></svg>
     </div>
 
     <div class="vault-trust">
+      <p class="vault-trust-intro fade-up">Served over MCP, an open standard, so there's no proprietary connector to audit.</p>
       <div class="trust-strip fade-up">
         <span class="trust-item"><svg class="icon" aria-hidden="true"><use href="#icon-lock-key"/></svg>TLS 1.3 encrypted</span>
         <span class="trust-item"><svg class="icon" aria-hidden="true"><use href="#icon-shield-check"/></svg>SOC 2 Type II hosting</span>
@@ -1887,6 +1751,117 @@
           <h4>Take it with you</h4>
           <p>It's your content, in your own version control, in open formats. No lock-in. You can audit it or take it with you anytime.</p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROLE OUTCOMES -->
+<section class="role-outcomes">
+  <div class="container">
+    <div style="max-width:760px;margin:0 auto 56px;text-align:center">
+      <div class="section-label fade-up">Where it lands</div>
+      <h2 class="section-head fade-up" style="margin-left:auto;margin-right:auto">Where this hits the P&amp;L first.</h2>
+    </div>
+    <div class="outcomes-grid">
+      <div class="outcome fade-up">
+        <div class="who">Sales</div>
+        <div class="out">From 45-minute prep to 15. 3x the conversations.</div>
+        <div class="det">Your best closer's qualifying questions, objection handling, and follow-up language, encoded into a system your whole team runs. Reps stop drowning in admin and get back in conversations. Pipeline math, not productivity math.</div>
+      </div>
+      <div class="outcome fade-up" style="transition-delay:0.1s">
+        <div class="who">Marketing</div>
+        <div class="out">Senior-level output from the whole team.</div>
+        <div class="det">Your strategist's brief format, brand voice, and copy standards, built into the tools the junior team uses every day. Campaigns ship faster. Quality stops depending on one person's review queue.</div>
+      </div>
+      <div class="outcome fade-up" style="transition-delay:0.2s">
+        <div class="who">Operations</div>
+        <div class="out">Your business stops running through one person.</div>
+        <div class="det">Proposals, onboarding sequences, SOPs, weekly reports. All the things that live in your best ops person's head, encoded into systems anyone can run. The work happens without them in the room. The knowledge doesn't walk out the door.</div>
+      </div>
+      <div class="outcome fade-up" style="transition-delay:0.3s">
+        <div class="who">Cross-departmental</div>
+        <div class="out">Your whole company sounds like one company.</div>
+        <div class="det">Ad copy matches the landing page. Sales follow-up matches the marketing message. The proposal matches the pitch. When every department works from the same encoded standards, the customer experience is consistent from first ad to signed contract. And the 10% of revenue most B2B companies lose to misalignment stays in the business. Every department reads from the same Vault. That's why it holds.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS TIMELINE -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="section-label">The build</div>
+    <h2 class="section-head fade-up">How we build the road.</h2>
+    <p class="section-sub fade-up">Four milestones. Six weeks start to finish. Your team is self-sufficient when we leave.</p>
+    <div class="timeline">
+      <div class="step fade-up">
+        <div class="step-dot"></div>
+        <div class="step-week">Milestone 1</div>
+        <h3>Your Vault, authored.</h3>
+        <p>We map how your best people actually think. Stakeholder interviews, a workflow audit, and the first draft of your Vault: voice, standards, approved numbers, decision logic. You approve every word before anything goes live.</p>
+      </div>
+      <div class="step fade-up" style="transition-delay:0.1s">
+        <div class="step-dot"></div>
+        <div class="step-week">Milestone 2</div>
+        <h3>Your systems, live.</h3>
+        <p>Your Vault goes live, served to the AI tools your team already uses. Custom AI workspaces, prompt library, and workflow templates all read from it. One source, every output.</p>
+      </div>
+      <div class="step fade-up" style="transition-delay:0.2s">
+        <div class="step-dot"></div>
+        <div class="step-week">Milestone 3</div>
+        <h3>Your team, running.</h3>
+        <p>Live sessions get your team producing real work in the system. Recorded walkthroughs of everything, so future hires onboard themselves.</p>
+      </div>
+      <div class="step fade-up" style="transition-delay:0.3s">
+        <div class="step-dot"></div>
+        <div class="step-week">Milestone 4</div>
+        <h3>Your proof, in hand.</h3>
+        <p>We tune outputs from real usage, measure the impact, and hand off. You walk away with a Before/After Impact Report and a system your team owns.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section class="deliverables">
+  <div class="container">
+    <div class="deliv-head">
+      <div class="section-label fade-up">What you get</div>
+      <h2 class="section-head fade-up" style="margin-left:auto;margin-right:auto">Built, deployed, ready on day one.</h2>
+      <p class="section-sub fade-up">We leave. The systems stay. Your team runs them independently from week one.</p>
+      <p class="deliv-keyline fade-up">Everything below runs on your Vault. One source of truth, six ways your team feels it.</p>
+    </div>
+    <div class="deliv-grid">
+      <div class="deliv-card fade-up">
+        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-gear-six"/></svg></div>
+        <h3>Custom AI workspaces</h3>
+        <p>Built with your voice, processes, and decision criteria. Not generic. Infrastructure designed around how your team actually works.</p>
+      </div>
+      <div class="deliv-card fade-up" style="transition-delay:0.05s">
+        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-folder"/></svg></div>
+        <h3>Your Vault, served live</h3>
+        <p>Your voice, ICP, approved stats, SOPs, and institutional knowledge, governed and served to the AI tools your team already uses. The context that turns generic output into yours.</p>
+      </div>
+      <div class="deliv-card fade-up" style="transition-delay:0.1s">
+        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-chat-dots"/></svg></div>
+        <h3>Governed prompt library</h3>
+        <p>Organized by function and served from your Vault. Pick the right prompt, get consistent output. It grows as your team uses it instead of going stale.</p>
+      </div>
+      <div class="deliv-card fade-up" style="transition-delay:0.15s">
+        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-flow-arrow"/></svg></div>
+        <h3>Workflow templates</h3>
+        <p>Standardized templates for your highest-volume recurring work. The process is built in. Nobody reinvents it each time.</p>
+      </div>
+      <div class="deliv-card fade-up" style="transition-delay:0.2s">
+        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-book-open"/></svg></div>
+        <h3>AI Playbook</h3>
+        <p>Your operating manual for every system. How to use it, extend it, and onboard new people into it without waiting for anyone to explain it.</p>
+      </div>
+      <div class="deliv-card fade-up" style="transition-delay:0.25s">
+        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-presentation"/></svg></div>
+        <h3>Training &amp; recordings</h3>
+        <p>Live sessions plus recorded walkthroughs of every system. New hires onboard themselves. You never re-train from scratch.</p>
       </div>
     </div>
   </div>
@@ -1939,8 +1914,9 @@
         <div class="tier-price">$7,500</div>
         <div class="tier-desc">One team. Four weeks. A focused system build for your single highest-leverage department.</div>
         <ul class="tier-includes">
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Your governed Vault, served live to your team's AI tools</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>AI workflow audit, one department</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>4&ndash;5 custom AI workspaces</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>4&ndash;5 custom AI workspaces that read from your Vault</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Prompt library for your core workflows</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Team training + recorded walkthroughs</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>30-day optimization pass</li>
@@ -1953,8 +1929,9 @@
         <div class="tier-price">$20,000</div>
         <div class="tier-desc">Entire company. Six weeks. A complete system that scales across all teams. Cross-department continuity individual builds can't replicate.</div>
         <ul class="tier-includes">
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Your governed Vault, served live across every department</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Full audit across all departments</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>8&ndash;10 workspaces that work together</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>8&ndash;10 workspaces that work together, all reading from one Vault</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Governed prompt library across all functions</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Training for the full team</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>AI Playbook + Before/After Impact Report</li>
@@ -1990,10 +1967,10 @@
         <ul class="vs-list">
           <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Prompt workshops your team forgets</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Strategy decks with no implementation</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Generic "how to use ChatGPT" training</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Generic "how to use AI" training</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Custom code that requires engineers to maintain</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Vague "productivity gains" promises</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Docs in a folder you point AI at, hoping it stays current</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Docs in a folder you point AI at and hope</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Nothing left behind when they leave</li>
         </ul>
       </div>
@@ -2004,7 +1981,7 @@
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Your senior team's expertise encoded into the infrastructure</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Prompt libraries tuned to your actual workflows</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>No new tools for your team to learn. We build and run the infrastructure</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>A governed, audited source of truth your AI reads from</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>A governed Vault: enforced, audited, self-maintaining</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Specific financial case: $138K&ndash;$414K annual impact</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Team is self-sufficient after 6 weeks</li>
         </ul>
@@ -2019,6 +1996,16 @@
     <div class="section-label fade-up">Questions, answered</div>
     <h2 class="section-head fade-up">What founders want to know</h2>
     <div class="faq-list fade-up" style="margin-top:48px">
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>What exactly is the Vault?</span>
+          <span class="faq-toggle"><svg class="icon" aria-hidden="true"><use href="#icon-plus"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <p>It's not another tool to log into. It's your company's knowledge, served live, that the AI tools you already use can read. You connect once, and your context travels with you: your voice, your approved numbers, your standards, in every AI conversation your team has. The AI can read and suggest but never change anything. Every change is approved by a human and permanently logged. And it's your content, in your own version control, so you can take it with you anytime.</p>
+        </div>
+      </div>
 
       <div class="faq-item">
         <button class="faq-q">
@@ -2126,6 +2113,167 @@
 </footer>
 
 <script>
+  // Vault MCP hero demo: animated mock session, 3 looping scenarios.
+  // Starts when the card is 25% in view; reduced-motion gets a static
+  // final state. All DOM hooks are vmcp-prefixed ids in the hero.
+  (function () {
+    var $ = function (id) { return document.getElementById(id); };
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var msgs = ['vmcp-msg-user', 'vmcp-row-search', 'vmcp-msg-mid', 'vmcp-row-brand', 'vmcp-row-extra', 'vmcp-msg-mid2', 'vmcp-msg-reply', 'vmcp-msg-file', 'vmcp-row-log'].map($);
+    var govCheck = $('vmcp-gov-check');
+    var feed = $('vmcp-feed');
+    var fileCard = $('vmcp-msg-file');
+
+    var SCENARIOS = [
+      { // marketing
+        prompt: 'Draft the hero copy for the spring landing page. Use our approved numbers and keep it in our voice.',
+        mid: 'Found your voice rules and approved proof points. One governed number: <span class="vmcp-num">12,400+ customers served</span>.',
+        tool2: 'Vault brand guide',
+        extra: null,
+        reply: "Here's your hero draft, in your voice, with your approved numbers. I also found a stale stat in the old spring brief and flagged it for review.",
+        file: 'spring-hero.md',
+        filePdf: false,
+        fileMeta: 'in your folder · ready to publish',
+        showFlag: true
+      },
+      { // sales
+        prompt: 'Write a proposal from this call transcript. Price it with our standard tiers.',
+        mid: 'Matched their pain points to your ICP and pulled pricing from its <span class="vmcp-num">one approved source</span>.',
+        tool2: 'Vault proof points',
+        extra: {
+          tool: 'Vault brand guide',
+          status: 'Getting your fonts, colors, and logos.'
+        },
+        reply: 'Proposal drafted: their own words from the call, your approved pricing, and two case studies from their industry.',
+        file: 'meridian-proposal.pdf',
+        filePdf: true,
+        fileMeta: 'in your folder · ready to send',
+        showFlag: false
+      },
+      { // customer ops
+        prompt: 'A customer is asking if we offer refunds after 60 days. Draft a reply.',
+        mid: 'Found your refund policy and the <span class="vmcp-num">approved wording</span> for exactly this situation.',
+        tool2: 'Vault compliance rules',
+        extra: null,
+        reply: 'Reply drafted with the approved policy language. No improvised promises.',
+        file: 'refund-reply.md',
+        filePdf: false,
+        fileMeta: 'in your folder · ready to send',
+        showFlag: false
+      }
+    ];
+    var scenarioIndex = 0;
+
+    function loadScenario(s) {
+      $('vmcp-msg-user').textContent = s.prompt;
+      $('vmcp-msg-mid').innerHTML = s.mid;
+      $('vmcp-row-brand').querySelector('.vmcp-label').textContent = s.tool2;
+      $('vmcp-row-extra').querySelector('.vmcp-label').textContent = s.extra ? s.extra.tool : '';
+      $('vmcp-msg-mid2').textContent = s.extra ? s.extra.status : '';
+      $('vmcp-msg-reply').textContent = s.reply;
+      $('vmcp-file-name').textContent = s.file;
+      $('vmcp-file-meta').textContent = s.fileMeta;
+      fileCard.classList.toggle('vmcp-is-pdf', s.filePdf);
+    }
+
+    function show(id) {
+      $(id).classList.add('vmcp-shown');
+      feed.scrollTo({ top: feed.scrollHeight, behavior: 'smooth' });
+    }
+
+    function reset() {
+      msgs.forEach(function (m) { m.classList.remove('vmcp-shown', 'vmcp-working'); });
+      govCheck.classList.remove('vmcp-on');
+      feed.classList.remove('vmcp-leaving');
+      feed.scrollTop = 0;
+    }
+
+    function showFinalState() {
+      var s = SCENARIOS[0];
+      loadScenario(s);
+      msgs.forEach(function (m) {
+        if (!s.extra && (m.id === 'vmcp-row-extra' || m.id === 'vmcp-msg-mid2')) return;
+        if (!s.showFlag && m.id === 'vmcp-row-log') return;
+        m.classList.add('vmcp-shown');
+      });
+      govCheck.classList.add('vmcp-on');
+    }
+
+    function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+    async function play() {
+      var scenario = SCENARIOS[scenarioIndex];
+      reset();
+      loadScenario(scenario);
+      scenarioIndex = (scenarioIndex + 1) % SCENARIOS.length;
+      await sleep(900);
+
+      show('vmcp-msg-user');
+      await sleep(1800);
+
+      $('vmcp-row-search').classList.add('vmcp-working');
+      show('vmcp-row-search');
+      await sleep(2000);
+      $('vmcp-row-search').classList.remove('vmcp-working');
+
+      show('vmcp-msg-mid');
+      await sleep(2000);
+
+      $('vmcp-row-brand').classList.add('vmcp-working');
+      show('vmcp-row-brand');
+      await sleep(1800);
+      $('vmcp-row-brand').classList.remove('vmcp-working');
+
+      if (scenario.extra) {
+        $('vmcp-row-extra').classList.add('vmcp-working');
+        show('vmcp-row-extra');
+        await sleep(1800);
+        $('vmcp-row-extra').classList.remove('vmcp-working');
+
+        show('vmcp-msg-mid2');
+        await sleep(1800);
+      }
+
+      show('vmcp-msg-reply');
+      await sleep(1600);
+
+      show('vmcp-msg-file');
+      await sleep(1800);
+
+      if (scenario.showFlag) {
+        $('vmcp-row-log').classList.add('vmcp-working');
+        show('vmcp-row-log');
+        await sleep(2400);
+        $('vmcp-row-log').classList.remove('vmcp-working');
+        govCheck.classList.add('vmcp-on');
+      }
+      await sleep(3800);
+
+      feed.classList.add('vmcp-leaving');
+      await sleep(800);
+    }
+
+    async function loop() {
+      while (true) { await play(); }
+    }
+
+    if (reduced) {
+      showFinalState();
+    } else {
+      var stage = $('vmcp-stage');
+      var io = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
+          io.disconnect();
+          loop();
+        }
+      }, { threshold: 0.25 });
+      io.observe(stage);
+    }
+  })();
+</script>
+
+<script>
   // Cal.com modal embed on any anchor pointing at #book.
   // embed.js is lazy-loaded on first hover/click/keypress, keeping it out of
   // the critical render path. Falls through to the #book scroll fallback if
@@ -2228,64 +2376,6 @@
     });
   }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
-
-
-  // Donut arc draw-in (Option A: arc fills clockwise, second donut staggered)
-  (function () {
-    const donuts = document.querySelectorAll('.donut-svg');
-    if (!donuts.length) return;
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const CIRC = 502.65;
-    const DURATION = 1200;
-    const STAGGER = 200;
-
-    // Cache final values into data-final-dash, then reset to 0 so the animation can play.
-    // If JS fails before this runs, the SVGs render in their correct final state from the inline attributes.
-    donuts.forEach(svg => {
-      svg.querySelectorAll('circle').forEach(c => {
-        const dash = c.getAttribute('stroke-dasharray') || '';
-        const final = parseFloat(dash.split(/\s+/)[0]) || 0;
-        c.dataset.finalDash = final;
-        if (!reduced) c.setAttribute('stroke-dasharray', '0 ' + CIRC);
-      });
-    });
-
-    if (reduced) return;
-
-    const easeOutExpo = t => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
-
-    function animate(svg, delay) {
-      const [ink, bronze] = svg.querySelectorAll('circle');
-      if (!ink || !bronze) return;
-      const inkFinal = parseFloat(ink.dataset.finalDash);
-      const bronzeFinal = parseFloat(bronze.dataset.finalDash);
-      const total = inkFinal + bronzeFinal;
-      const start = performance.now() + delay;
-      function frame(now) {
-        if (now < start) { requestAnimationFrame(frame); return; }
-        const t = Math.min(1, (now - start) / DURATION);
-        const drawn = easeOutExpo(t) * total;
-        const inkLen = Math.min(drawn, inkFinal);
-        const bronzeLen = Math.max(0, drawn - inkFinal);
-        ink.setAttribute('stroke-dasharray', inkLen + ' ' + CIRC);
-        bronze.setAttribute('stroke-dasharray', bronzeLen + ' ' + CIRC);
-        if (t < 1) requestAnimationFrame(frame);
-      }
-      requestAnimationFrame(frame);
-    }
-
-    const donutList = Array.from(donuts);
-    const donutObs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          const idx = donutList.indexOf(e.target);
-          animate(e.target, idx * STAGGER);
-          donutObs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.3, rootMargin: '0px 0px -40px 0px' });
-    donutList.forEach(svg => donutObs.observe(svg));
-  })();
 </script>
 
 </body>
