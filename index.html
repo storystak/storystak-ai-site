@@ -714,86 +714,6 @@
     line-height: 1.65;
   }
 
-  /* ── ROI ── */
-  .roi { background: var(--paper); }
-  .roi-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 56px;
-    align-items: start;
-  }
-  .roi-narrative h2 {
-    font-family: var(--serif);
-    font-size: clamp(30px, 3.6vw, 44px);
-    line-height: 1.12;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    margin-bottom: 22px;
-  }
-  .roi-narrative p {
-    font-size: 16px;
-    color: var(--muted);
-    line-height: 1.7;
-    margin-bottom: 16px;
-  }
-  .roi-table {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  .roi-table-header {
-    display: grid;
-    grid-template-columns: 1.6fr 1fr 1fr;
-    padding: 14px 24px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted);
-    border-bottom: 1px solid var(--border);
-    background: var(--warm);
-  }
-  .roi-table-row {
-    display: grid;
-    grid-template-columns: 1.6fr 1fr 1fr;
-    padding: 14px 24px;
-    font-size: 15px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-  }
-  .roi-table-row:last-child { border-bottom: none; }
-  .roi-table-row.total {
-    background: var(--accent-bg);
-    font-weight: 600;
-    border-bottom: none;
-  }
-  .roi-table-row .cell-label { color: var(--muted); font-size: 14px; }
-  .roi-table-row .cell-value {
-    font-weight: 600;
-    text-align: right;
-    color: var(--ink);
-    font-feature-settings: "tnum";
-  }
-  .roi-highlight {
-    margin-top: 16px;
-    padding: 20px 24px;
-    background: var(--ink);
-    border-radius: 10px;
-    text-align: center;
-  }
-  .roi-highlight .big-num {
-    font-family: var(--serif);
-    font-size: 52px;
-    color: var(--accent-light);
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-  }
-  .roi-highlight .big-lbl {
-    font-size: 13px;
-    color: rgba(250, 249, 247, 0.5);
-    margin-top: 4px;
-  }
-
   /* ── DELIVERABLES ── */
   .deliverables { background: var(--warm); }
   .deliv-head {
@@ -1561,7 +1481,6 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
-    .roi-layout { grid-template-columns: 1fr; gap: 40px; }
     .timeline { grid-template-columns: 1fr 1fr; gap: 40px 24px; }
     .timeline::before { display: none; }
     .deliv-grid { grid-template-columns: 1fr 1fr; }
@@ -1886,54 +1805,6 @@
         <div class="who">Cross-departmental</div>
         <div class="out">Your whole company sounds like one company.</div>
         <div class="det">Ad copy matches the landing page. Sales follow-up matches the marketing message. The proposal matches the pitch. When every department works from the same encoded standards, the customer experience is consistent from first ad to signed contract. And the 10% of revenue most B2B companies lose to misalignment stays in the business.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ROI -->
-<section class="roi">
-  <div class="container">
-    <div class="section-label fade-up">The financial case</div>
-    <div class="roi-layout">
-      <div class="roi-narrative fade-up">
-        <h2>Pays for itself in the first 90 days.</h2>
-        <p>BCG's research is consistent: AI super-users save 9 hours per week versus 2 hours for laggards. Across a team of 10, that's 90 hours returned every single week.</p>
-        <p>Organizations with mature AI systems see 3.8x higher ROI on the same technology everyone else already has. The gap isn't the tools. It's the infrastructure.</p>
-        <p>A single $20K engagement against $138K to $414K in annual value recovered. That's a 7 to 21x return in year one. It compounds from there.</p>
-      </div>
-      <div class="fade-up" style="transition-delay:0.15s">
-        <div class="roi-table">
-          <div class="roi-table-header">
-            <span></span>
-            <span style="text-align:right">Conservative</span>
-            <span style="text-align:right">Moderate</span>
-          </div>
-          <div class="roi-table-row">
-            <span class="cell-label">Hours saved / person / week</span>
-            <span class="cell-value">5 hrs</span>
-            <span class="cell-value">10 hrs</span>
-          </div>
-          <div class="roi-table-row">
-            <span class="cell-label">Annual labor value saved</span>
-            <span class="cell-value">$78K</span>
-            <span class="cell-value">$156K</span>
-          </div>
-          <div class="roi-table-row">
-            <span class="cell-label">Hiring leverage</span>
-            <span class="cell-value">$60K</span>
-            <span class="cell-value">$120K</span>
-          </div>
-          <div class="roi-table-row total">
-            <span class="cell-label">Total annual impact</span>
-            <span class="cell-value">$138K</span>
-            <span class="cell-value">$276K</span>
-          </div>
-        </div>
-        <div class="roi-highlight">
-          <div class="big-num">7&ndash;14x</div>
-          <div class="big-lbl">Return on a single engagement</div>
-        </div>
       </div>
     </div>
   </div>
