@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Storystak AI: Your whole team, thinking like your best person</title>
-<meta name="description" content="We encode your senior team's frameworks, voice, and decision-making into custom AI systems. Junior team produces senior-level output. 4x your capacity without hiring. 6-week build.">
+<meta name="description" content="We build your company a Vault: one governed source of truth the AI tools your team already uses read from. Your whole team produces senior-level, on-brand output. 4x capacity without hiring. 6-week build.">
 <link rel="canonical" href="https://storystak.ai/">
 
 <!-- Robots: explicit index/follow, allow large image preview in AI Overviews + rich results -->
@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="Storystak AI">
 <meta property="og:url" content="https://storystak.ai/">
 <meta property="og:title" content="Storystak AI: Your whole team, thinking like your best person">
-<meta property="og:description" content="We encode your senior team's frameworks, voice, and decision-making into custom AI systems. Junior team produces senior-level output. 4x your capacity without hiring. 6-week build.">
+<meta property="og:description" content="We build your company a Vault: one governed source of truth the AI tools your team already uses read from. Your whole team produces senior-level, on-brand output. 4x capacity without hiring. 6-week build.">
 <meta property="og:image" content="https://storystak.ai/og-image.jpg">
 <meta property="og:image:width" content="1920">
 <meta property="og:image:height" content="1080">
@@ -37,7 +37,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://storystak.ai/">
 <meta name="twitter:title" content="Storystak AI: Your whole team, thinking like your best person">
-<meta name="twitter:description" content="We encode your senior team's frameworks, voice, and decision-making into custom AI systems. Junior team produces senior-level output. 4x your capacity without hiring. 6-week build.">
+<meta name="twitter:description" content="We build your company a Vault: one governed source of truth the AI tools your team already uses read from. Your whole team produces senior-level, on-brand output. 4x capacity without hiring. 6-week build.">
 <meta name="twitter:image" content="https://storystak.ai/og-image.jpg">
 <meta name="twitter:image:alt" content="Aerial view of a single car on a road through a dense autumn forest.">
 
@@ -194,6 +194,14 @@
       "@type": "FAQPage",
       "@id": "https://storystak.ai/#faq",
       "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What exactly is the Vault?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It's not another tool to log into. It's your company's knowledge, served live, that the AI tools you already use can read. You connect once, and your context travels with you: your voice, your approved numbers, your standards, in every AI conversation your team has. The AI can read and suggest but never change anything. Every change is approved by a human and permanently logged. And it's your content, in your own version control, so you can take it with you anytime."
+          }
+        },
         {
           "@type": "Question",
           "name": "We've already tried AI. It didn't stick. Why would this be different?",
@@ -722,7 +730,13 @@
     text-align: center;
   }
   .deliv-head h2 { margin-left: auto; margin-right: auto; }
-  .deliv-head .section-sub { margin-left: auto; margin-right: auto; }
+  .deliv-head .section-sub { margin-left: auto; margin-right: auto; margin-bottom: 18px; }
+  .deliv-keyline {
+    font-family: var(--serif);
+    font-size: clamp(19px, 2.2vw, 23px);
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+  }
   .deliv-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -764,16 +778,6 @@
 
   /* ── THE VAULT ── */
   .vault { background: var(--paper); }
-  .vault-bridge {
-    font-family: var(--serif);
-    font-size: clamp(19px, 2.2vw, 23px);
-    line-height: 1.4;
-    letter-spacing: -0.01em;
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  .vault-bridge em { font-style: italic; color: var(--accent); }
-
   /* dark panel: eyebrow + left-aligned head + intro + three chip-titled cards */
   .vault-panel {
     position: relative;
@@ -843,6 +847,12 @@
 
   /* trust layer — full container width below the panel */
   .vault-trust { margin: 0 auto; }
+  .vault-trust-intro {
+    font-size: 16px;
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 20px;
+  }
   .trust-strip {
     display: flex;
     flex-wrap: nowrap;
@@ -1587,7 +1597,7 @@
       <div class="hero-inner">
         <div class="hero-eyebrow fade-up">AI Systems Built For Your Team</div>
         <h1 class="fade-up">4x your team's output.<br>No new hires.<br><em>No new tools for your team to learn.</em></h1>
-        <p class="hero-sub fade-up">We encode your senior team's frameworks, voice, and decision-making into custom AI systems &mdash; we build and run the infrastructure; your people keep using the AI they already use. Junior team produces senior-level output. Senior team shifts from execution to strategy. 4x your capacity without hiring.</p>
+        <p class="hero-sub fade-up">We build your company a Vault: one governed source of truth for your voice, your numbers, and your standards. The AI tools your team already uses read from it. Connect once, and everyone on the team produces senior-level, on-brand work inside the AI they already know.</p>
         <div class="hero-cta-row fade-up">
           <a href="#book" class="btn-primary">
             Book a Free Call
@@ -1612,7 +1622,7 @@
             <svg class="vmcp-claude-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M12.557 42.4146L25.1462 35.3778L25.357 34.7645L25.1462 34.4255H24.5308L22.4242 34.2965L15.2305 34.1028L8.9925 33.8445L2.94875 33.5218L1.42575 33.1988L0 31.3266L0.14575 30.3905L1.42575 29.5354L3.25675 29.6967L7.30725 29.9709L13.3833 30.3905L17.7905 30.6488L24.32 31.3266H25.357L25.5028 30.907L25.1462 30.6488L24.871 30.3905L18.5842 26.1459L11.7793 21.6591L8.21475 19.0767L6.2865 17.7693L5.3145 16.5429L4.89325 13.8638L6.64325 11.9431L8.9925 12.1047L9.592 12.2661L11.9738 14.0897L17.0613 18.0119L23.7043 22.8856L24.6765 23.6925L25.0653 23.418L25.114 23.2245L24.6765 22.4981L21.0632 15.994L17.207 9.37687L15.4895 6.63309L15.036 4.98702C14.874 4.30892 14.7605 3.74412 14.7605 3.05009L16.7535 0.354864L17.855 0L20.5125 0.355113L21.6305 1.32333L23.283 5.08389L25.9565 11.0073L30.1042 19.0608L31.3195 21.4495L31.9675 23.6606L32.2108 24.3384H32.632V23.9509L32.972 19.4159L33.604 13.8477L34.2197 6.68165L34.4305 4.66453L35.435 2.24349L37.4277 0.936093L38.9832 1.67844L40.2632 3.50232L40.085 4.68022L39.3235 9.60299L37.833 17.3179L36.8607 22.4824H37.4277L38.076 21.8367L40.7007 18.3668L45.1077 12.8792L47.0522 10.7005L49.3205 8.2956L50.7788 7.14982H53.5332L55.5583 10.1518L54.6512 13.2505L51.8158 16.8335L49.4663 19.8676L46.0962 24.3867L43.9897 28.0021L44.1842 28.2925L44.6867 28.2442L52.3018 26.6302L56.4173 25.8876L61.3265 25.0484L63.5465 26.0814L63.7892 27.1305L62.9142 29.2771L57.6647 30.5681L51.5078 31.7948L42.3372 33.9576L42.2238 34.0383L42.3535 34.1997L46.485 34.5869L48.2513 34.6838H52.5773L60.6297 35.2809L62.7363 36.669L64 38.3636L63.7892 39.6546L60.5488 41.3009L56.1743 40.268L45.9668 37.8472L42.4668 36.9756H41.9808V37.2662L44.8973 40.1066L50.244 44.9163L56.9357 51.1138L57.2757 52.6471L56.4173 53.8574L55.5098 53.7284L49.6283 49.3223L47.36 47.3371L42.2238 43.0279H41.8838V43.4797L43.0662 45.2067L49.3205 54.5676L49.6445 57.4404L49.191 58.3767L47.5708 58.9415L45.7882 58.6185L42.1265 53.5025L38.3515 47.7405L35.3052 42.5759L34.9328 42.7859L33.1343 62.0725L32.2918 63.0569L30.3472 63.7993L28.7272 62.5728L27.8682 60.5876L28.727 56.6657L29.764 51.5496L30.6065 47.4823L31.368 42.4308L31.8218 40.7523L31.7892 40.6393L31.4167 40.6876L27.593 45.9169L21.7763 53.7446L17.1747 58.6509L16.073 59.0867L14.161 58.102L14.3392 56.3429L15.4085 54.7775L21.776 46.7078L25.616 41.7043L28.0952 38.8156L28.079 38.3958H27.9333L11.0175 49.3385L8.00375 49.7258L6.7075 48.5155L6.8695 46.5302L7.48525 45.8845L12.5728 42.3984L12.557 42.4146Z" fill="#D97757"/>
             </svg>
-            <span class="vmcp-title">Claude <span>· Vault MCP connected</span></span>
+            <span class="vmcp-title">Claude <span>· Vault connected</span></span>
           </div>
 
           <div class="vmcp-feed" id="vmcp-feed">
@@ -1648,7 +1658,7 @@
             <span class="vmcp-send"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M202.83,114.83a4,4,0,0,1-5.66,0L132,49.66V216a4,4,0,0,1-8,0V49.66L58.83,114.83a4,4,0,0,1-5.66-5.66l72-72a4,4,0,0,1,5.66,0l72,72A4,4,0,0,1,202.83,114.83Z"/></svg></span>
           </div>
         </div>
-        <p class="vmcp-caption">Simulated session. The tool surface is the real Storystak Vault MCP.</p>
+        <p class="vmcp-caption">This is the Vault working. Simulated conversation, real system.</p>
       </div>
     </div>
   </div>
@@ -1708,178 +1718,32 @@
   </div>
 </section>
 
-<!-- TIME SHIFT (DONUTS) -->
-<section class="time-shift">
-  <div class="container">
-    <div class="time-shift-head">
-      <div class="section-label fade-up">The real bottleneck</div>
-      <h2 class="section-head fade-up">The real bottleneck isn't headcount.</h2>
-      <p class="section-sub fade-up">Your senior team is stuck reviewing, approving, fixing. The system shifts them out of execution and into building the company.</p>
-    </div>
-    <div class="donuts">
-      <div class="donut-block fade-up">
-        <div class="donut-label">Your senior team today</div>
-        <svg class="donut-svg" viewBox="0 0 200 200" aria-label="60% execution, 40% strategy">
-          <circle cx="100" cy="100" r="80" fill="none" stroke="#0f0f0f" stroke-width="32" stroke-dasharray="301.59 502.65" stroke-dashoffset="0"></circle>
-          <circle cx="100" cy="100" r="80" fill="none" stroke="#c45d2c" stroke-width="32" stroke-dasharray="201.06 502.65" stroke-dashoffset="-301.59"></circle>
-        </svg>
-        <div class="donut-legend">
-          <div class="legend-item"><span class="dot" style="background:#0f0f0f"></span>Execution 60%</div>
-          <div class="legend-item"><span class="dot" style="background:#c45d2c"></span>Strategy 40%</div>
-        </div>
-      </div>
-      <div class="donut-block fade-up" style="transition-delay:0.1s">
-        <div class="donut-label">After 6 weeks</div>
-        <svg class="donut-svg" viewBox="0 0 200 200" aria-label="30% execution, 70% strategy">
-          <circle cx="100" cy="100" r="80" fill="none" stroke="#0f0f0f" stroke-width="32" stroke-dasharray="150.80 502.65" stroke-dashoffset="0"></circle>
-          <circle cx="100" cy="100" r="80" fill="none" stroke="#c45d2c" stroke-width="32" stroke-dasharray="351.85 502.65" stroke-dashoffset="-150.80"></circle>
-        </svg>
-        <div class="donut-legend">
-          <div class="legend-item"><span class="dot" style="background:#0f0f0f"></span>Execution 30%</div>
-          <div class="legend-item"><span class="dot" style="background:#c45d2c"></span>Strategy 70%</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS TIMELINE -->
-<section class="process" id="process">
-  <div class="container">
-    <div class="section-label">The build</div>
-    <h2 class="section-head fade-up">How we build the road.</h2>
-    <p class="section-sub fade-up">We build, deploy, and train. Your team is self-sufficient when we leave.</p>
-    <div class="timeline">
-      <div class="step fade-up">
-        <div class="step-dot"></div>
-        <div class="step-week">Week 1&ndash;2</div>
-        <h3>Deep Dive</h3>
-        <p>Map how your best people actually think. Stakeholder interviews, workflow audit, and the opportunity scorecard you approve before we build.</p>
-      </div>
-      <div class="step fade-up" style="transition-delay:0.1s">
-        <div class="step-dot"></div>
-        <div class="step-week">Week 3&ndash;4</div>
-        <h3>Build</h3>
-        <p>Custom AI workspaces. Knowledge files. Prompt libraries and workflow templates that carry your standards into every output.</p>
-      </div>
-      <div class="step fade-up" style="transition-delay:0.2s">
-        <div class="step-dot"></div>
-        <div class="step-week">Week 5</div>
-        <h3>Train</h3>
-        <p>Live sessions get your team running. Recorded walkthroughs for every system so future hires onboard themselves.</p>
-      </div>
-      <div class="step fade-up" style="transition-delay:0.3s">
-        <div class="step-dot"></div>
-        <div class="step-week">Week 6</div>
-        <h3>Optimize</h3>
-        <p>Tune outputs from real usage, measure the impact, hand off the system. You walk away with proof it worked.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ROLE OUTCOMES -->
-<section class="role-outcomes">
-  <div class="container">
-    <div style="max-width:760px;margin:0 auto 56px;text-align:center">
-      <div class="section-label fade-up">Where it lands</div>
-      <h2 class="section-head fade-up" style="margin-left:auto;margin-right:auto">Where this hits the P&amp;L first.</h2>
-    </div>
-    <div class="outcomes-grid">
-      <div class="outcome fade-up">
-        <div class="who">Sales</div>
-        <div class="out">From 45-minute prep to 15. 3x the conversations.</div>
-        <div class="det">Your best closer's qualifying questions, objection handling, and follow-up language, encoded into a system your whole team runs. Reps stop drowning in admin and get back in conversations. Pipeline math, not productivity math.</div>
-      </div>
-      <div class="outcome fade-up" style="transition-delay:0.1s">
-        <div class="who">Marketing</div>
-        <div class="out">Senior-level output from the whole team.</div>
-        <div class="det">Your strategist's brief format, brand voice, and copy standards, built into the tools the junior team uses every day. Campaigns ship faster. Quality stops depending on one person's review queue.</div>
-      </div>
-      <div class="outcome fade-up" style="transition-delay:0.2s">
-        <div class="who">Operations</div>
-        <div class="out">Your business stops running through one person.</div>
-        <div class="det">Proposals, onboarding sequences, SOPs, weekly reports. All the things that live in your best ops person's head, encoded into systems anyone can run. The work happens without them in the room. The knowledge doesn't walk out the door.</div>
-      </div>
-      <div class="outcome fade-up" style="transition-delay:0.3s">
-        <div class="who">Cross-departmental</div>
-        <div class="out">Your whole company sounds like one company.</div>
-        <div class="det">Ad copy matches the landing page. Sales follow-up matches the marketing message. The proposal matches the pitch. When every department works from the same encoded standards, the customer experience is consistent from first ad to signed contract. And the 10% of revenue most B2B companies lose to misalignment stays in the business.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DELIVERABLES -->
-<section class="deliverables">
-  <div class="container">
-    <div class="deliv-head">
-      <div class="section-label fade-up">What you get</div>
-      <h2 class="section-head fade-up" style="margin-left:auto;margin-right:auto">Built, deployed, ready on day one.</h2>
-      <p class="section-sub fade-up">We leave. The systems stay. Your team runs them independently from week one.</p>
-    </div>
-    <div class="deliv-grid">
-      <div class="deliv-card fade-up">
-        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-gear-six"/></svg></div>
-        <h3>Custom AI workspaces</h3>
-        <p>Built with your voice, processes, and decision criteria. Not generic. Infrastructure designed around how your team actually works.</p>
-      </div>
-      <div class="deliv-card fade-up" style="transition-delay:0.05s">
-        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-folder"/></svg></div>
-        <h3>Knowledge files</h3>
-        <p>Your SOPs, brand standards, product details, institutional knowledge. Loaded and ready. The context that turns generic output into yours.</p>
-      </div>
-      <div class="deliv-card fade-up" style="transition-delay:0.1s">
-        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-chat-dots"/></svg></div>
-        <h3>Governed prompt library</h3>
-        <p>Organized by function and served from your Vault. Pick the right prompt, get consistent output. It grows as your team uses it instead of going stale.</p>
-      </div>
-      <div class="deliv-card fade-up" style="transition-delay:0.15s">
-        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-flow-arrow"/></svg></div>
-        <h3>Workflow templates</h3>
-        <p>Standardized templates for your highest-volume recurring work. The process is built in. Nobody reinvents it each time.</p>
-      </div>
-      <div class="deliv-card fade-up" style="transition-delay:0.2s">
-        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-book-open"/></svg></div>
-        <h3>AI Playbook</h3>
-        <p>Your operating manual for every system. How to use it, extend it, and onboard new people into it without waiting for anyone to explain it.</p>
-      </div>
-      <div class="deliv-card fade-up" style="transition-delay:0.25s">
-        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-presentation"/></svg></div>
-        <h3>Training &amp; recordings</h3>
-        <p>Live sessions plus recorded walkthroughs of every system. New hires onboard themselves. You never re-train from scratch.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- THE VAULT -->
 <section class="vault">
   <div class="container">
-    <p class="vault-bridge fade-up">The 4x isn't magic &mdash; <em>it's infrastructure.</em> Here's what we build and run for you.</p>
-
     <div class="vault-panel fade-up">
-      <div class="section-label">The Vault MCP</div>
-      <h2 class="vault-panel-head">One Governed Source of Truth</h2>
-      <p class="vault-panel-sub">Most companies point AI at a folder of docs and hope. We build a governed system: your AI reads from one controlled source. Your numbers can't contradict each other, nothing changes without a human approving it, and every change leaves an audit trail.</p>
+      <div class="section-label">The road</div>
+      <h2 class="vault-panel-head">The road has a name. It's the Vault.</h2>
+      <p class="vault-panel-sub">Most companies point AI at a folder of docs and hope. We build a governed system: one controlled source of truth that your team's AI reads from. Your numbers can't contradict each other. Nothing changes without a human approving it. Every change leaves an audit trail. It's a system, not a folder.</p>
       <div class="vault-panel-cards">
         <div class="vault-panel-card">
           <h3>It travels with you.</h3>
-          <p>The Vault isn't another tool to log into. It's your company's knowledge, served live, that the AI tools your team already uses can read: Claude, ChatGPT, Copilot. Connect once, and your context travels with you across your tools and devices. You don't go to it; it comes to you, inside the AI you already use.</p>
+          <p>The Vault isn't another tool to log into. It's your company's knowledge, served live, that the AI tools your team already uses can read, starting with Claude. You don't go to it; it comes to you, inside the AI you're already in. Connect once, and your context travels with you across tools and devices.</p>
         </div>
         <div class="vault-panel-card">
           <h3>It's always current.</h3>
-          <p>Anyone on your team can flag a correction from inside the AI they're already using &mdash; it's a sentence, not a ticket. An approver reviews the exact before-and-after and lands it in one click. Update once, and everyone's AI sees it. The Vault gets better the more your team uses it, instead of going stale like every doc folder eventually does.</p>
+          <p>Anyone on your team can flag a correction from inside the AI they're already using. It's a sentence, not a ticket. An approver reviews the exact before-and-after and lands it in one click. Update once, and everyone's AI sees it. The Vault gets better the more your team uses it, instead of going stale like every doc folder eventually does.</p>
         </div>
         <div class="vault-panel-card">
           <h3>It sounds like you, everywhere.</h3>
-          <p>Every tool reads the same voice, positioning, and approved claims, so output is on-brand no matter who on the team is asking or which AI they're in. The veteran and the new hire produce equally on-brand work.</p>
+          <p>Every tool reads the same voice, positioning, and approved claims. Output is on-brand no matter who on the team is asking or which AI they're in. The veteran and the new hire produce equally on-brand work.</p>
         </div>
       </div>
       <svg class="vault-panel-mark" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 176.38 159.08"><path d="M176.1,92.6c-28.9-17.29-57.99-32.75-84.88-48.3-1.91-1.08-2.87-1.89-4.65-.87C49.81,64.42,21.24,80.72.85,92.34c-1.28,1.5-.72,4.03-.54,5.9l86.55,48.79c.9.51,2,.51,2.9,0l86.38-49.14c.33-1.81.32-3.57-.04-5.29ZM88.33,137.38c-.18.1-.4.1-.58,0-2.26-1.31-4.53-2.61-6.79-3.92-4.69-2.71-9.39-5.42-14.08-8.13-8.31-4.8-16.68-9.5-24.94-14.4-7.22-4.28-14.58-8.37-21.85-12.57-1.58-.91-3.16-1.82-4.73-2.73-.08-.04-.14-.11-.18-.18-.14-.24-.06-.56.18-.7l72.27-41.72c.16-.09.34-.09.5,0,16.11,9.06,32.33,17.95,48.38,27.13,7.6,4.35,15.15,8.8,22.74,13.18l2.16,1.25c.09.05.16.12.21.21.16.28.07.63-.21.79"/><path d="M149.99,124.36l-60.6,34.43c-.68.38-1.5.38-2.18,0l-60.58-34.13-8.74-5.16L1.65,110.36c-.72-.4-1.17-1.16-1.18-1.99l-.16-10.14,86.55,48.79c.9.51,2,.51,2.9,0l86.38-49.14c.19,2.61.19,5.22.01,7.84-.08,1.18.31,3.39-1.12,4.21"/><path d="M176.06,54.92l-86.38,49.14c-.9.51-2,.51-2.9,0L.24,55.27c-.33-1.73-.32-3.45.02-5.17.06-.31.25-.58.52-.73C21.17,37.75,49.74,21.45,86.5.47c1.78-1.02,2.74-.21,4.65.87,26.93,15.23,55.08,31.14,84.45,47.72.22.12.38.33.43.58.36,1.72.37,3.48.04,5.29ZM42.47,68.36c.16.09.36.09.52,0L115.25,26.64c.24-.14.32-.45.18-.7-.04-.08-.11-.14-.18-.18l-27.2-15.69c-.16-.09-.34-.09-.5,0L15.28,51.78c-.24.14-.32.45-.18.7.04.08.11.14.18.18l27.19,15.7ZM98.12,47.16c-.28.16-.37.52-.21.79.05.09.12.16.21.21l35.18,20.31c.18.1.4.1.58,0l27.45-15.84c.28-.16.37-.52.21-.79-.05-.09-.12-.16-.21-.21l-35.19-20.31c-.18-.1-.4-.1-.58,0l-27.44,15.84ZM88.28,52.95c-.18-.1-.4-.1-.58,0l-35.05,20.24c-.28.16-.37.52-.21.79.05.09.12.16.21.21l35.03,20.22c.18.1.4.1.58,0l35.05-20.23c.28-.16.37-.52.21-.79-.05-.09-.12-.16-.21-.21l-35.03-20.23Z"/><path d="M149.92,81.39l-60.6,34.43c-.68.38-1.5.38-2.18,0l-60.58-34.13-8.74-5.16L1.58,67.4c-.72-.4-1.17-1.16-1.18-1.99l-.16-10.14,86.55,48.79c.9.51,2,.51,2.9,0l86.38-49.14c.19,2.61.19,5.22.01,7.84-.08,1.18.31,3.39-1.12,4.21-3.55,2.05-8.53,4.83-14.92,8.35"/></svg>
     </div>
 
     <div class="vault-trust">
+      <p class="vault-trust-intro fade-up">Served over MCP, an open standard, so there's no proprietary connector to audit.</p>
       <div class="trust-strip fade-up">
         <span class="trust-item"><svg class="icon" aria-hidden="true"><use href="#icon-lock-key"/></svg>TLS 1.3 encrypted</span>
         <span class="trust-item"><svg class="icon" aria-hidden="true"><use href="#icon-shield-check"/></svg>SOC 2 Type II hosting</span>
@@ -1921,6 +1785,152 @@
           <h4>Take it with you</h4>
           <p>It's your content, in your own version control, in open formats. No lock-in. You can audit it or take it with you anytime.</p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIME SHIFT (DONUTS) -->
+<section class="time-shift">
+  <div class="container">
+    <div class="time-shift-head">
+      <div class="section-label fade-up">The real bottleneck</div>
+      <h2 class="section-head fade-up">The real bottleneck isn't headcount.</h2>
+      <p class="section-sub fade-up">Your senior team is stuck reviewing, approving, fixing. The system shifts them out of execution and into building the company.</p>
+    </div>
+    <div class="donuts">
+      <div class="donut-block fade-up">
+        <div class="donut-label">Your senior team today</div>
+        <svg class="donut-svg" viewBox="0 0 200 200" aria-label="60% execution, 40% strategy">
+          <circle cx="100" cy="100" r="80" fill="none" stroke="#0f0f0f" stroke-width="32" stroke-dasharray="301.59 502.65" stroke-dashoffset="0"></circle>
+          <circle cx="100" cy="100" r="80" fill="none" stroke="#c45d2c" stroke-width="32" stroke-dasharray="201.06 502.65" stroke-dashoffset="-301.59"></circle>
+        </svg>
+        <div class="donut-legend">
+          <div class="legend-item"><span class="dot" style="background:#0f0f0f"></span>Execution 60%</div>
+          <div class="legend-item"><span class="dot" style="background:#c45d2c"></span>Strategy 40%</div>
+        </div>
+      </div>
+      <div class="donut-block fade-up" style="transition-delay:0.1s">
+        <div class="donut-label">After 6 weeks</div>
+        <svg class="donut-svg" viewBox="0 0 200 200" aria-label="30% execution, 70% strategy">
+          <circle cx="100" cy="100" r="80" fill="none" stroke="#0f0f0f" stroke-width="32" stroke-dasharray="150.80 502.65" stroke-dashoffset="0"></circle>
+          <circle cx="100" cy="100" r="80" fill="none" stroke="#c45d2c" stroke-width="32" stroke-dasharray="351.85 502.65" stroke-dashoffset="-150.80"></circle>
+        </svg>
+        <div class="donut-legend">
+          <div class="legend-item"><span class="dot" style="background:#0f0f0f"></span>Execution 30%</div>
+          <div class="legend-item"><span class="dot" style="background:#c45d2c"></span>Strategy 70%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROLE OUTCOMES -->
+<section class="role-outcomes">
+  <div class="container">
+    <div style="max-width:760px;margin:0 auto 56px;text-align:center">
+      <div class="section-label fade-up">Where it lands</div>
+      <h2 class="section-head fade-up" style="margin-left:auto;margin-right:auto">Where this hits the P&amp;L first.</h2>
+    </div>
+    <div class="outcomes-grid">
+      <div class="outcome fade-up">
+        <div class="who">Sales</div>
+        <div class="out">From 45-minute prep to 15. 3x the conversations.</div>
+        <div class="det">Your best closer's qualifying questions, objection handling, and follow-up language, encoded into a system your whole team runs. Reps stop drowning in admin and get back in conversations. Pipeline math, not productivity math.</div>
+      </div>
+      <div class="outcome fade-up" style="transition-delay:0.1s">
+        <div class="who">Marketing</div>
+        <div class="out">Senior-level output from the whole team.</div>
+        <div class="det">Your strategist's brief format, brand voice, and copy standards, built into the tools the junior team uses every day. Campaigns ship faster. Quality stops depending on one person's review queue.</div>
+      </div>
+      <div class="outcome fade-up" style="transition-delay:0.2s">
+        <div class="who">Operations</div>
+        <div class="out">Your business stops running through one person.</div>
+        <div class="det">Proposals, onboarding sequences, SOPs, weekly reports. All the things that live in your best ops person's head, encoded into systems anyone can run. The work happens without them in the room. The knowledge doesn't walk out the door.</div>
+      </div>
+      <div class="outcome fade-up" style="transition-delay:0.3s">
+        <div class="who">Cross-departmental</div>
+        <div class="out">Your whole company sounds like one company.</div>
+        <div class="det">Ad copy matches the landing page. Sales follow-up matches the marketing message. The proposal matches the pitch. When every department works from the same encoded standards, the customer experience is consistent from first ad to signed contract. And the 10% of revenue most B2B companies lose to misalignment stays in the business. Every department reads from the same Vault. That's why it holds.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS TIMELINE -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="section-label">The build</div>
+    <h2 class="section-head fade-up">How we build the road.</h2>
+    <p class="section-sub fade-up">Four milestones. Six weeks start to finish. Your team is self-sufficient when we leave.</p>
+    <div class="timeline">
+      <div class="step fade-up">
+        <div class="step-dot"></div>
+        <div class="step-week">Milestone 1</div>
+        <h3>Your Vault, authored.</h3>
+        <p>We map how your best people actually think. Stakeholder interviews, a workflow audit, and the first draft of your Vault: voice, standards, approved numbers, decision logic. You approve every word before anything goes live.</p>
+      </div>
+      <div class="step fade-up" style="transition-delay:0.1s">
+        <div class="step-dot"></div>
+        <div class="step-week">Milestone 2</div>
+        <h3>Your systems, live.</h3>
+        <p>Your Vault goes live, served to the AI tools your team already uses. Custom AI workspaces, prompt library, and workflow templates all read from it. One source, every output.</p>
+      </div>
+      <div class="step fade-up" style="transition-delay:0.2s">
+        <div class="step-dot"></div>
+        <div class="step-week">Milestone 3</div>
+        <h3>Your team, running.</h3>
+        <p>Live sessions get your team producing real work in the system. Recorded walkthroughs of everything, so future hires onboard themselves.</p>
+      </div>
+      <div class="step fade-up" style="transition-delay:0.3s">
+        <div class="step-dot"></div>
+        <div class="step-week">Milestone 4</div>
+        <h3>Your proof, in hand.</h3>
+        <p>We tune outputs from real usage, measure the impact, and hand off. You walk away with a Before/After Impact Report and a system your team owns.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section class="deliverables">
+  <div class="container">
+    <div class="deliv-head">
+      <div class="section-label fade-up">What you get</div>
+      <h2 class="section-head fade-up" style="margin-left:auto;margin-right:auto">Built, deployed, ready on day one.</h2>
+      <p class="section-sub fade-up">We leave. The systems stay. Your team runs them independently from week one.</p>
+      <p class="deliv-keyline fade-up">Everything below runs on your Vault. One source of truth, six ways your team feels it.</p>
+    </div>
+    <div class="deliv-grid">
+      <div class="deliv-card fade-up">
+        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-gear-six"/></svg></div>
+        <h3>Custom AI workspaces</h3>
+        <p>Built with your voice, processes, and decision criteria. Not generic. Infrastructure designed around how your team actually works.</p>
+      </div>
+      <div class="deliv-card fade-up" style="transition-delay:0.05s">
+        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-folder"/></svg></div>
+        <h3>Your Vault, served live</h3>
+        <p>Your voice, ICP, approved stats, SOPs, and institutional knowledge, governed and served to the AI tools your team already uses. The context that turns generic output into yours.</p>
+      </div>
+      <div class="deliv-card fade-up" style="transition-delay:0.1s">
+        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-chat-dots"/></svg></div>
+        <h3>Governed prompt library</h3>
+        <p>Organized by function and served from your Vault. Pick the right prompt, get consistent output. It grows as your team uses it instead of going stale.</p>
+      </div>
+      <div class="deliv-card fade-up" style="transition-delay:0.15s">
+        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-flow-arrow"/></svg></div>
+        <h3>Workflow templates</h3>
+        <p>Standardized templates for your highest-volume recurring work. The process is built in. Nobody reinvents it each time.</p>
+      </div>
+      <div class="deliv-card fade-up" style="transition-delay:0.2s">
+        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-book-open"/></svg></div>
+        <h3>AI Playbook</h3>
+        <p>Your operating manual for every system. How to use it, extend it, and onboard new people into it without waiting for anyone to explain it.</p>
+      </div>
+      <div class="deliv-card fade-up" style="transition-delay:0.25s">
+        <div class="deliv-icon"><svg class="icon" aria-hidden="true"><use href="#icon-presentation"/></svg></div>
+        <h3>Training &amp; recordings</h3>
+        <p>Live sessions plus recorded walkthroughs of every system. New hires onboard themselves. You never re-train from scratch.</p>
       </div>
     </div>
   </div>
@@ -1973,8 +1983,9 @@
         <div class="tier-price">$7,500</div>
         <div class="tier-desc">One team. Four weeks. A focused system build for your single highest-leverage department.</div>
         <ul class="tier-includes">
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Your governed Vault, served live to your team's AI tools</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>AI workflow audit, one department</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>4&ndash;5 custom AI workspaces</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>4&ndash;5 custom AI workspaces that read from your Vault</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Prompt library for your core workflows</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Team training + recorded walkthroughs</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>30-day optimization pass</li>
@@ -1987,8 +1998,9 @@
         <div class="tier-price">$20,000</div>
         <div class="tier-desc">Entire company. Six weeks. A complete system that scales across all teams. Cross-department continuity individual builds can't replicate.</div>
         <ul class="tier-includes">
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Your governed Vault, served live across every department</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Full audit across all departments</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>8&ndash;10 workspaces that work together</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>8&ndash;10 workspaces that work together, all reading from one Vault</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Governed prompt library across all functions</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Training for the full team</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>AI Playbook + Before/After Impact Report</li>
@@ -2024,10 +2036,10 @@
         <ul class="vs-list">
           <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Prompt workshops your team forgets</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Strategy decks with no implementation</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Generic "how to use ChatGPT" training</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Generic "how to use AI" training</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Custom code that requires engineers to maintain</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Vague "productivity gains" promises</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Docs in a folder you point AI at, hoping it stays current</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Docs in a folder you point AI at and hope</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>Nothing left behind when they leave</li>
         </ul>
       </div>
@@ -2038,7 +2050,7 @@
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Your senior team's expertise encoded into the infrastructure</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Prompt libraries tuned to your actual workflows</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>No new tools for your team to learn. We build and run the infrastructure</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>A governed, audited source of truth your AI reads from</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>A governed Vault: enforced, audited, self-maintaining</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Specific financial case: $138K&ndash;$414K annual impact</li>
           <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Team is self-sufficient after 6 weeks</li>
         </ul>
@@ -2053,6 +2065,16 @@
     <div class="section-label fade-up">Questions, answered</div>
     <h2 class="section-head fade-up">What founders want to know</h2>
     <div class="faq-list fade-up" style="margin-top:48px">
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>What exactly is the Vault?</span>
+          <span class="faq-toggle"><svg class="icon" aria-hidden="true"><use href="#icon-plus"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <p>It's not another tool to log into. It's your company's knowledge, served live, that the AI tools you already use can read. You connect once, and your context travels with you: your voice, your approved numbers, your standards, in every AI conversation your team has. The AI can read and suggest but never change anything. Every change is approved by a human and permanently logged. And it's your content, in your own version control, so you can take it with you anytime.</p>
+        </div>
+      </div>
 
       <div class="faq-item">
         <button class="faq-q">
