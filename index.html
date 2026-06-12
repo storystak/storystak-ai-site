@@ -1365,6 +1365,9 @@
   @media (max-width: 768px) {
     section { padding: 72px 0; }
     .hero { padding: 120px 0 64px; }
+    .hide-mobile { display: none; }
+    /* Demo caption breaks into two lines on mobile. */
+    .vmcp-caption-line { display: block; }
     .container { padding: 0 20px; }
     .nav-inner { padding: 0 20px; }
     .post-pilot {
@@ -1473,7 +1476,7 @@
             <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
           </a>
         </div>
-        <p class="hero-note fade-up">30 min · No pitch deck · Real recommendations for your specific situation</p>
+        <p class="hero-note fade-up">30 min · No pitch deck · Real recommendations<span class="hide-mobile"> for your specific situation</span></p>
       </div>
       <div class="hero-demo">
         <!-- Animated mock Claude session showing the Vault MCP at work.
@@ -1523,7 +1526,7 @@
             <span class="vmcp-send"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M202.83,114.83a4,4,0,0,1-5.66,0L132,49.66V216a4,4,0,0,1-8,0V49.66L58.83,114.83a4,4,0,0,1-5.66-5.66l72-72a4,4,0,0,1,5.66,0l72,72A4,4,0,0,1,202.83,114.83Z"/></svg></span>
           </div>
         </div>
-        <p class="vmcp-caption">This is the Vault working. Simulated conversation, real system.</p>
+        <p class="vmcp-caption"><span class="vmcp-caption-line">This is the Vault working.</span> <span class="vmcp-caption-line">Simulated conversation, real system.</span></p>
       </div>
     </div>
   </div>
