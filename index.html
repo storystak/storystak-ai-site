@@ -570,7 +570,7 @@
     --vb-muted: #a8988c;
     --vb-faint: #c9b9ac;
     --vb-bronze: #c45d2c;      /* Bronze Spice */
-    --road-img: url("storystak-road-travel.webp");
+    --road-img: url("storystak-road-travel-bg.webp"); /* same frame, car removed — the car is a separate scroll-driven sprite */
     --road-img-v: url("storystak-road-travel-vertical.webp"); /* mobile: same photo rotated 90° */
     --road-img-f: url("storystak-road-travel-forest.webp");   /* mobile: forest-only crop, full-bleed ambient */
     --road-y: 49.4%;           /* asphalt centerline in the photo */
@@ -634,6 +634,27 @@
       linear-gradient(to right, var(--vb-bg), transparent 9%, transparent 91%, var(--vb-bg)),
       linear-gradient(to bottom, var(--vb-bg), transparent 18%, transparent 84%, var(--vb-bg));
     pointer-events: none;
+  }
+
+  /* the car: a cut-out sprite that drives the road as you scroll.
+     --car-p (0..1, set by the script below the section) is the section's
+     scroll progress through the viewport. Desktop: right → left along the
+     asphalt centerline. The sprite faces left natively. */
+  .vbuild-car {
+    position: absolute;
+    left: calc(88% - var(--car-p, 0.5) * 78%);
+    top: calc(var(--road-y) - 0.5%);   /* the lane the car occupied in the original photo */
+    width: clamp(42px, 3.4vw, 58px);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  .vbuild-car img, .vbuild-mcar img {
+    width: 100%; height: auto; display: block;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
+  }
+  .vbuild-mcar { display: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .vbuild-car, .vbuild-mcar { --car-p: 0.5; } /* parked mid-road */
   }
 
   /* one stop = dot on the asphalt + stem + copy */
@@ -795,6 +816,21 @@
       background: linear-gradient(to right, rgba(243, 234, 227, 0.45), rgba(243, 234, 227, 0.08));
     }
     .vbuild-mstep .vbuild-t { font-size: 23px; }
+
+    /* mobile car: drives bottom → top up the spine. Sprite faces left, so
+       rotate(90deg) points it up the road. Horizontal position = the dot
+       centerline (list padding + 35.5px; the ol is centered at 560px max,
+       so from the wrapper's center that's 50% - 280px + 68px). */
+    .vbuild-mcar {
+      display: block;
+      position: absolute;
+      left: calc(50% - 212px);
+      top: calc(90% - var(--car-p, 0.5) * 86%);
+      width: 36px;
+      transform: translate(-50%, -50%) rotate(90deg);
+      pointer-events: none;
+      z-index: 1;            /* above the road strip (ol::before paints later in tree order) */
+    }
   }
 
   @media (max-width: 560px) {
@@ -802,6 +838,7 @@
     .vbuild-mlist { padding: 0 24px; }
     .vbuild-mlist::before,
     .vbuild-mlist::after { left: -70px; }
+    .vbuild-mcar { left: 60px; }
   }
 
   /* ── ROLE OUTCOMES (2x2 vision grid pattern) ── */
@@ -1960,6 +1997,8 @@
   <!-- DESKTOP: the photo is the timeline -->
   <div class="vbuild-road" role="list" aria-label="The five build milestones">
 
+    <div class="vbuild-car" aria-hidden="true"><img src="storystak-road-travel-car.webp" alt="" width="149" height="86" loading="lazy"></div>
+
     <div class="vbuild-stop vbuild-up" style="--x:10%; --shift:-30%" role="listitem">
       <span class="vbuild-dot" aria-hidden="true"></span>
       <span class="vbuild-stem" aria-hidden="true"></span>
@@ -2014,6 +2053,7 @@
 
   <!-- MOBILE: the road runs vertically as the spine of the list -->
   <div class="vbuild-mobile" aria-hidden="false">
+    <div class="vbuild-mcar" aria-hidden="true"><img src="storystak-road-travel-car.webp" alt="" width="149" height="86" loading="lazy"></div>
     <ol class="vbuild-mlist">
       <li class="vbuild-mstep">
         <div class="vbuild-m">Milestone 1</div>
@@ -2065,6 +2105,26 @@
       });
     }, { threshold: 0.25 });
     io.observe(section);
+
+    /* car scroll-driver: --car-p is the road's progress through the
+       viewport (0 = just entering at the bottom, 1 = leaving at the top) */
+    var road = section.querySelector('.vbuild-road');
+    var mwrap = section.querySelector('.vbuild-mobile');
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var ticking = false;
+    function carTick() {
+      ticking = false;
+      var el = road.offsetParent ? road : mwrap;
+      var r = el.getBoundingClientRect();
+      var p = (window.innerHeight - r.top) / (window.innerHeight + r.height);
+      section.style.setProperty('--car-p', Math.max(0, Math.min(1, p)).toFixed(4));
+    }
+    function onScroll() {
+      if (!ticking) { ticking = true; requestAnimationFrame(carTick); }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    carTick();
   })();
 </script>
 
