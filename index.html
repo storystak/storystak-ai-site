@@ -558,61 +558,250 @@
   .pp-cta .icon { font-size: 18px; }
 
 
-  /* ── PROCESS TIMELINE ── */
-  .process { background: var(--ink); color: var(--paper); padding: 110px 0; }
-  .process .section-label { color: var(--accent-light); }
-  .process .section-head { color: var(--paper); max-width: 720px; }
-  .process .section-sub { color: rgba(250, 249, 247, 0.55); }
-  .timeline {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 32px;
-    position: relative;
-    margin-top: 24px;
+  /* ── PROCESS TIMELINE / THE BUILD ROAD (vbuild-, handoff 2026-06-12) ──
+     The aerial road photo is the timeline. Desktop: five mile-marker dots
+     on the asphalt (road centerline at 49.4% of photo height, pinned via
+     --road-y; crop is symmetric so it holds at any band height). Mobile:
+     the photo rotated 90° runs as the list spine, plus a forest-only crop
+     as full-bleed ambient. Assets: storystak-road-travel[-vertical|-forest].webp */
+  .vbuild {
+    --vb-bg: #210f07;          /* Coffee Bean */
+    --vb-ink: #f3eae3;
+    --vb-muted: #a8988c;
+    --vb-faint: #c9b9ac;
+    --vb-bronze: #c45d2c;      /* Bronze Spice */
+    --road-img: url("storystak-road-travel.webp");
+    --road-img-v: url("storystak-road-travel-vertical.webp"); /* mobile: same photo rotated 90° */
+    --road-img-f: url("storystak-road-travel-forest.webp");   /* mobile: forest-only crop, full-bleed ambient */
+    --road-y: 49.4%;           /* asphalt centerline in the photo */
+
+    background: var(--vb-bg);
+    color: var(--vb-ink);
+    font-family: 'DM Sans', sans-serif;
+    padding: 96px 0 110px;
+    overflow: hidden;
   }
-  .timeline::before {
-    content: '';
-    position: absolute;
-    top: 6px;
-    left: 5px;
-    right: 5px;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.1);
+  .vbuild *, .vbuild *::before, .vbuild *::after { box-sizing: border-box; }
+
+  .vbuild-container {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 32px;
   }
-  .step { position: relative; padding-right: 16px; }
-  .step:last-child { padding-right: 0; }
-  .step-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--accent);
-    margin-bottom: 28px;
-    position: relative;
-    z-index: 1;
-    box-shadow: 0 0 0 4px var(--ink);
+
+  .vbuild-label {
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--vb-bronze);
+    margin-bottom: 18px;
   }
-  .step-week {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--accent-light);
-    margin-bottom: 10px;
-  }
-  .step h3 {
-    font-family: var(--serif);
-    font-size: 22px;
-    font-weight: 400;
-    line-height: 1.25;
-    margin-bottom: 10px;
-    color: var(--paper);
+  .vbuild-head {
+    font-family: 'Instrument Serif', serif; font-weight: 400;
+    font-size: clamp(34px, 4.6vw, 54px); line-height: 1.08;
     letter-spacing: -0.01em;
+    color: #fcf7f5;
+    margin: 0 0 18px;
   }
-  .step p {
-    font-size: 14px;
-    color: rgba(250, 249, 247, 0.6);
-    line-height: 1.6;
+  .vbuild-intro {
+    font-size: 17px; line-height: 1.6;
+    color: var(--vb-muted);
+    max-width: 560px;
+    margin: 0;
+  }
+
+  /* desktop only: the section header centers above the road band;
+     mobile stays left-aligned */
+  @media (min-width: 1021px) {
+    .vbuild-container { text-align: center; }
+    .vbuild-head { margin-left: auto; margin-right: auto; }
+    .vbuild-intro { margin: 0 auto; max-width: 620px; text-wrap: balance; }
+  }
+
+  /* ───── the road band ───── */
+  .vbuild-road {
+    position: relative;
+    height: 640px;
+    margin-top: 26px;
+    background-image: var(--road-img);
+    background-size: cover;
+    background-position: center;
+  }
+  /* blend the photo into the section background */
+  .vbuild-road::before {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to right, var(--vb-bg), transparent 9%, transparent 91%, var(--vb-bg)),
+      linear-gradient(to bottom, var(--vb-bg), transparent 18%, transparent 84%, var(--vb-bg));
+    pointer-events: none;
+  }
+
+  /* one stop = dot on the asphalt + stem + copy */
+  .vbuild-stop {
+    position: absolute;
+    left: var(--x);
+    top: 0; bottom: 0;
+    width: 0;
+  }
+  .vbuild-dot {
+    position: absolute;
+    left: -7px; top: calc(var(--road-y) - 7px);
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--vb-bronze);
+    box-shadow: 0 0 0 4px rgba(196, 93, 44, 0.22);
+  }
+  .vbuild-stem {
+    position: absolute;
+    left: 0; width: 1px;
+    background: linear-gradient(to bottom, rgba(243, 234, 227, 0.45), rgba(243, 234, 227, 0.08));
+  }
+  .vbuild-up .vbuild-stem {
+    top: calc(var(--road-y) - 66px); height: 50px;
+    background: linear-gradient(to top, rgba(243, 234, 227, 0.45), rgba(243, 234, 227, 0.08));
+  }
+  .vbuild-down .vbuild-stem {
+    top: calc(var(--road-y) + 16px); height: 50px;
+  }
+
+  .vbuild-card {
+    position: absolute;
+    left: 50%;
+    transform: translateX(var(--shift, -50%));
+    width: 248px;
+    text-shadow: 0 1px 14px rgba(13, 6, 2, 0.85), 0 0 28px rgba(13, 6, 2, 0.55);
+  }
+  .vbuild-up .vbuild-card { bottom: calc(100% - var(--road-y) + 74px); }
+  .vbuild-down .vbuild-card { top: calc(var(--road-y) + 74px); }
+
+  .vbuild-m {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--vb-bronze);
+    margin-bottom: 8px;
+  }
+  .vbuild-t {
+    font-family: 'Instrument Serif', serif; font-weight: 400;
+    font-size: 25px; line-height: 1.15;
+    color: #fcf7f5;
+    margin: 0 0 8px;
+  }
+  .vbuild-p {
+    font-size: 13.5px; line-height: 1.6;
+    color: var(--vb-faint);
+    margin: 0;
+  }
+
+  /* ───── reveal (self-contained; script sits after the section) ───── */
+  .vbuild-stop, .vbuild-mstep {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    transition-delay: calc(var(--i, 0) * 120ms);
+  }
+  .vbuild-stop { transform: translateY(0); }  /* stops fade in place; cards are absolutely placed */
+  .vbuild.vbuild-in .vbuild-stop,
+  .vbuild.vbuild-in .vbuild-mstep {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .vbuild-stop, .vbuild-mstep { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ───── mobile ───── */
+  .vbuild-mobile { display: none; }
+
+  @media (max-width: 1020px) {
+    .vbuild { padding: 72px 0 80px; }
+    .vbuild-road { display: none; }
+    .vbuild-mobile { display: block; position: relative; margin-top: 44px; }
+
+    /* full-bleed ambient layer: a forest-only crop of the same photo (no
+       road in it), so it can cover any width with no alignment concerns */
+    .vbuild-mobile::before,
+    .vbuild-mobile::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; top: -26px; bottom: -26px;
+      pointer-events: none;
+    }
+    .vbuild-mobile::before {
+      background-image: var(--road-img-f);
+      background-size: cover;
+      background-position: 50% 50%;
+    }
+    /* one shared top/bottom fade into the section background, painted over
+       both image layers but under the dots and copy */
+    .vbuild-mobile::after {
+      background: linear-gradient(to bottom, var(--vb-bg), transparent 8%, transparent 92%, var(--vb-bg));
+    }
+
+    .vbuild-mlist {
+      list-style: none;
+      margin: 0 auto;
+      padding: 0 32px;
+      max-width: 560px;
+      position: relative;
+    }
+    /* the road itself is the spine: the rotated photo runs the full height
+       of the list in a 260px strip whose CENTER is the dot line — keeping
+       the strip centered on the dots is what locks the asphalt under them
+       at any list height. Its edges crossfade (mask) into the ambient
+       forest layer behind it. Dot centerline = list padding + 35.5px;
+       strip left = centerline - 130px. */
+    .vbuild-mlist::before {
+      content: "";
+      position: absolute;
+      left: -62px; top: -26px; bottom: -26px;
+      width: 260px;
+      pointer-events: none;
+      background-image: var(--road-img-v);
+      /* height-only sizing keeps the road width steady at any strip width.
+         112% + top-pinned drops the white car (at 65% of the photo) to
+         ~73% of the strip — between the milestone 4 and 5 dots instead of
+         on top of one */
+      background-size: auto 112%;
+      /* 49% keeps the asphalt centerline (49.4% of the rotated photo's
+         width) centered in the strip */
+      background-position: 49% 0%;
+      -webkit-mask-image: linear-gradient(to right, transparent 3%, #000 30%, #000 66%, transparent 98%);
+              mask-image: linear-gradient(to right, transparent 3%, #000 30%, #000 66%, transparent 98%);
+    }
+
+    .vbuild-mstep {
+      position: relative;
+      z-index: 1;            /* dots and copy paint above the road strip */
+      padding: 0 0 40px 92px;
+      text-shadow: 0 1px 14px rgba(13, 6, 2, 0.85), 0 0 28px rgba(13, 6, 2, 0.55);
+    }
+    .vbuild-mstep:last-child { padding-bottom: 0; }
+    .vbuild-mstep::after {
+      content: "";
+      position: absolute;
+      left: 29px; top: 4px;  /* centered on the asphalt strip */
+      width: 13px; height: 13px;
+      border-radius: 50%;
+      background: var(--vb-bronze);
+      box-shadow: 0 0 0 4px rgba(196, 93, 44, 0.22);
+    }
+    /* horizontal stem from the dot to the copy, the desktop stems turned
+       on their side */
+    .vbuild-mstep::before {
+      content: "";
+      position: absolute;
+      left: 52px; top: 10px;
+      width: 32px; height: 1px;
+      background: linear-gradient(to right, rgba(243, 234, 227, 0.45), rgba(243, 234, 227, 0.08));
+    }
+    .vbuild-mstep .vbuild-t { font-size: 23px; }
+  }
+
+  @media (max-width: 560px) {
+    .vbuild-container { padding: 0 24px; }
+    .vbuild-mlist { padding: 0 24px; }
+    .vbuild-mlist::before,
+    .vbuild-mlist::after { left: -70px; }
   }
 
   /* ── ROLE OUTCOMES (2x2 vision grid pattern) ── */
@@ -1357,8 +1546,6 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
-    .timeline { grid-template-columns: 1fr 1fr; gap: 40px 24px; }
-    .timeline::before { display: none; }
     .deliv-grid { grid-template-columns: 1fr 1fr; }
     .hero-grid { grid-template-columns: 1fr; gap: 48px; }
   }
@@ -1405,7 +1592,6 @@
     .stat:nth-child(2) { border-right: 1px solid rgba(255, 255, 255, 0.07); }
     .stats-bar { padding: 48px 0; }
     .outcomes-grid { grid-template-columns: 1fr; }
-    .timeline { grid-template-columns: 1fr; gap: 32px; }
     .deliv-grid { grid-template-columns: 1fr; }
     .vs-grid { grid-template-columns: 1fr; }
     .founder { padding: 80px 0; }
@@ -1762,40 +1948,125 @@
   </div>
 </section>
 
-<!-- PROCESS TIMELINE -->
-<section class="process" id="process">
-  <div class="container">
-    <div class="section-label">The build</div>
-    <h2 class="section-head fade-up">How we build the road.</h2>
-    <p class="section-sub fade-up">Four milestones. Six weeks start to finish. Your team is self-sufficient when we leave.</p>
-    <div class="timeline">
-      <div class="step fade-up">
-        <div class="step-dot"></div>
-        <div class="step-week">Milestone 1</div>
-        <h3>Your Vault, authored.</h3>
-        <p>We map how your best people actually think. Stakeholder interviews, a workflow audit, and the first draft of your Vault: voice, standards, approved numbers, decision logic. You approve every word before anything goes live.</p>
-      </div>
-      <div class="step fade-up" style="transition-delay:0.1s">
-        <div class="step-dot"></div>
-        <div class="step-week">Milestone 2</div>
-        <h3>Your systems, live.</h3>
-        <p>Your Vault goes live, served to the AI tools your team already uses. Custom AI workspaces, prompt library, and workflow templates all read from it. One source, every output.</p>
-      </div>
-      <div class="step fade-up" style="transition-delay:0.2s">
-        <div class="step-dot"></div>
-        <div class="step-week">Milestone 3</div>
-        <h3>Your team, running.</h3>
-        <p>Live sessions get your team producing real work in the system. Recorded walkthroughs of everything, so future hires onboard themselves.</p>
-      </div>
-      <div class="step fade-up" style="transition-delay:0.3s">
-        <div class="step-dot"></div>
-        <div class="step-week">Milestone 4</div>
-        <h3>Your proof, in hand.</h3>
-        <p>We tune outputs from real usage, measure the impact, and hand off. You walk away with a Before/After Impact Report and a system your team owns.</p>
+<!-- PROCESS TIMELINE / THE BUILD ROAD (vbuild-, handoff 2026-06-12) -->
+<section class="vbuild" id="process">
+
+  <div class="vbuild-container">
+    <div class="vbuild-label">The Build</div>
+    <h2 class="vbuild-head">How we build the road.</h2>
+    <p class="vbuild-intro">Five milestones. We start with what your team already knows and end with a system they run without us. We pave the road, you keep the keys.</p>
+  </div>
+
+  <!-- DESKTOP: the photo is the timeline -->
+  <div class="vbuild-road" role="list" aria-label="The five build milestones">
+
+    <div class="vbuild-stop vbuild-up" style="--x:10%; --shift:-30%" role="listitem">
+      <span class="vbuild-dot" aria-hidden="true"></span>
+      <span class="vbuild-stem" aria-hidden="true"></span>
+      <div class="vbuild-card">
+        <div class="vbuild-m">Milestone 1</div>
+        <h3 class="vbuild-t">Gather.</h3>
+        <p class="vbuild-p">We pull from what you already have: documents, templates, reports, reviews, survey results, etc.</p>
       </div>
     </div>
+
+    <div class="vbuild-stop vbuild-down" style="--x:30%" role="listitem">
+      <span class="vbuild-dot" aria-hidden="true"></span>
+      <span class="vbuild-stem" aria-hidden="true"></span>
+      <div class="vbuild-card">
+        <div class="vbuild-m">Milestone 2</div>
+        <h3 class="vbuild-t">Refine.</h3>
+        <p class="vbuild-p">Your team uses it while we build. Gaps surface fast and get fixed fast.</p>
+      </div>
+    </div>
+
+    <div class="vbuild-stop vbuild-up" style="--x:50%" role="listitem">
+      <span class="vbuild-dot" aria-hidden="true"></span>
+      <span class="vbuild-stem" aria-hidden="true"></span>
+      <div class="vbuild-card">
+        <div class="vbuild-m">Milestone 3</div>
+        <h3 class="vbuild-t">Serve.</h3>
+        <p class="vbuild-p">The Vault goes live as a secure connection in every tool your team works in.</p>
+      </div>
+    </div>
+
+    <div class="vbuild-stop vbuild-down" style="--x:70%" role="listitem">
+      <span class="vbuild-dot" aria-hidden="true"></span>
+      <span class="vbuild-stem" aria-hidden="true"></span>
+      <div class="vbuild-card">
+        <div class="vbuild-m">Milestone 4</div>
+        <h3 class="vbuild-t">Train.</h3>
+        <p class="vbuild-p">An all-staff baseline session, plus recorded tutorials specific to your system.</p>
+      </div>
+    </div>
+
+    <div class="vbuild-stop vbuild-up" style="--x:90%; --shift:-72%" role="listitem">
+      <span class="vbuild-dot" aria-hidden="true"></span>
+      <span class="vbuild-stem" aria-hidden="true"></span>
+      <div class="vbuild-card">
+        <div class="vbuild-m">Milestone 5</div>
+        <h3 class="vbuild-t">Optimize.</h3>
+        <p class="vbuild-p">After real use: what&rsquo;s working, what&rsquo;s missing, make it right.</p>
+      </div>
+    </div>
+
   </div>
+
+  <!-- MOBILE: the road runs vertically as the spine of the list -->
+  <div class="vbuild-mobile" aria-hidden="false">
+    <ol class="vbuild-mlist">
+      <li class="vbuild-mstep">
+        <div class="vbuild-m">Milestone 1</div>
+        <h3 class="vbuild-t">Gather.</h3>
+        <p class="vbuild-p">We pull from what you already have: documents, templates, reports, reviews, survey results, etc.</p>
+      </li>
+      <li class="vbuild-mstep">
+        <div class="vbuild-m">Milestone 2</div>
+        <h3 class="vbuild-t">Refine.</h3>
+        <p class="vbuild-p">Your team uses it while we build. Gaps surface fast and get fixed fast.</p>
+      </li>
+      <li class="vbuild-mstep">
+        <div class="vbuild-m">Milestone 3</div>
+        <h3 class="vbuild-t">Serve.</h3>
+        <p class="vbuild-p">The Vault goes live as a secure connection in every tool your team works in.</p>
+      </li>
+      <li class="vbuild-mstep">
+        <div class="vbuild-m">Milestone 4</div>
+        <h3 class="vbuild-t">Train.</h3>
+        <p class="vbuild-p">An all-staff baseline session, plus recorded tutorials specific to your system.</p>
+      </li>
+      <li class="vbuild-mstep">
+        <div class="vbuild-m">Milestone 5</div>
+        <h3 class="vbuild-t">Optimize.</h3>
+        <p class="vbuild-p">After real use: what&rsquo;s working, what&rsquo;s missing, make it right.</p>
+      </li>
+    </ol>
+  </div>
+
 </section>
+
+<script>
+  /* Reveal-on-scroll for the build section. Self-contained, reduced-motion
+     safe (CSS disables the transition; this just toggles a class). */
+  (function () {
+    var section = document.querySelector('.vbuild');
+    if (!section || !('IntersectionObserver' in window)) {
+      if (section) section.classList.add('vbuild-in');
+      return;
+    }
+    var stops = section.querySelectorAll('.vbuild-stop, .vbuild-mstep');
+    stops.forEach(function (el, i) { el.style.setProperty('--i', i % 5); });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          section.classList.add('vbuild-in');
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.25 });
+    io.observe(section);
+  })();
+</script>
 
 <!-- DELIVERABLES -->
 <section class="deliverables">
