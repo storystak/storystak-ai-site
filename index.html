@@ -1318,8 +1318,10 @@
     .pp-head { margin-bottom: 22px; }
     .pp-body { margin-bottom: 24px; }
     .stats-grid { grid-template-columns: 1fr 1fr; gap: 32px 0; }
-    .stat { padding: 0 16px; border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.07); padding-bottom: 24px; }
-    .stat:nth-last-child(-n+1) { border-bottom: none; padding-bottom: 0; }
+    /* Only the 9 hrs and 4x stats show on mobile, side by side in one row. */
+    .stat-hide-mobile { display: none; }
+    .stat { padding: 0 16px; border-right: none; border-bottom: none; padding-bottom: 0; }
+    .stat:nth-child(2) { border-right: 1px solid rgba(255, 255, 255, 0.07); }
     .stats-bar { padding: 48px 0; }
     .outcomes-grid { grid-template-columns: 1fr; }
     .timeline { grid-template-columns: 1fr; gap: 32px; }
@@ -1453,7 +1455,7 @@
 <div class="stats-bar">
   <div class="container">
     <div class="stats-grid">
-      <div class="stat fade-up">
+      <div class="stat stat-hide-mobile fade-up">
         <div class="num">51 days</div>
         <div class="lbl">Lost per person, per year, to tech friction</div>
       </div>
