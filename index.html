@@ -1606,25 +1606,53 @@
       margin-top: -16px;
       position: relative;
       z-index: 1;
-    }
-    .post-pilot-media img {
-      height: auto;
-      /* Box is square so cover crops out the ~134px black bars baked into
-         the top and bottom of road-hero-treated-mobile.webp. */
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      object-position: center;
-    }
-    .post-pilot-overlay {
-      position: static;
-      transform: none;
-      /* 16px of coffee-bean above the eyebrow + eyebrow's own 24px top
-         padding = ~40px of breathing room between image and eyebrow text. */
-      padding: 16px 0 56px;
       background: var(--coffee-bean);
     }
-    .pp-eyebrow { padding-top: 24px; }
-    .pp-eyebrow { margin-bottom: 18px; }
+    /* Mobile: the (90°-rotated) road image becomes the full background for
+       the copy. The image absolutely fills the media box, whose height is
+       driven by the overlay's content + reserved bottom space, so the car —
+       anchored near the bottom of the rotated frame — stays uncovered below
+       the CTA. Desktop layout is untouched (overlay stays centered). */
+    .post-pilot-media {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100svh;
+    }
+    .post-pilot-media picture {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .post-pilot-media img {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: auto;
+      object-fit: cover;
+      object-position: center bottom;
+    }
+    /* Legibility scrim over the copy that fades out before the car. */
+    .post-pilot-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(180deg,
+        rgba(33, 15, 7, 0.9) 0%,
+        rgba(33, 15, 7, 0.8) 40%,
+        rgba(33, 15, 7, 0.5) 60%,
+        rgba(33, 15, 7, 0) 76%);
+      pointer-events: none;
+    }
+    .post-pilot-overlay {
+      position: relative;
+      z-index: 2;
+      transform: none;
+      background: transparent;
+      /* Clear the fixed nav at the top; reserve a band at the bottom so the
+         car shows below the CTA, uncovered by text or button. */
+      padding: 96px 0 44vh;
+    }
+    .pp-eyebrow { padding-top: 0; margin-bottom: 18px; }
     .pp-head { margin-bottom: 22px; }
     .pp-body { margin-bottom: 24px; }
     .stats-grid { grid-template-columns: 1fr 1fr; gap: 32px 0; }
@@ -1784,7 +1812,7 @@
 <section class="post-pilot">
   <div class="post-pilot-media">
     <picture>
-      <source media="(max-width: 768px)" srcset="brand/imagery/road-hero-treated-mobile.webp" type="image/webp">
+      <source media="(max-width: 768px)" srcset="brand/imagery/road-hero-treated-mobile-rotated.webp" type="image/webp">
       <source srcset="brand/imagery/road-hero-treated.webp" type="image/webp">
       <img
         src="brand/imagery/road-hero-treated.webp"
