@@ -1630,19 +1630,6 @@
       object-fit: cover;
       object-position: center bottom;
     }
-    /* Legibility scrim over the copy that fades out before the car. */
-    .post-pilot-media::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background: linear-gradient(180deg,
-        rgba(33, 15, 7, 0.9) 0%,
-        rgba(33, 15, 7, 0.8) 40%,
-        rgba(33, 15, 7, 0.5) 60%,
-        rgba(33, 15, 7, 0) 76%);
-      pointer-events: none;
-    }
     .post-pilot-overlay {
       position: relative;
       z-index: 2;
