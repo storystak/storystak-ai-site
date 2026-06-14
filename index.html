@@ -2780,14 +2780,13 @@
     function openMenu() {
       dropdown.hidden = false;
       setExpanded(true);
-      // Flip the dropdown above the button when there isn't room below it (e.g. near
-      // the footer), so it never gets cut off or spills past the section.
+      // Open toward whichever side has more room (prefer up). This placement sits just
+      // above the footer, so it almost always opens upward and never gets cut off.
+      // visualViewport is used so mobile browser toolbars don't overstate the room below.
       menu.classList.remove('dropup');
       const rect = menu.getBoundingClientRect();
-      const needed = dropdown.offsetHeight + 16;
-      if (window.innerHeight - rect.bottom < needed && rect.top > needed) {
-        menu.classList.add('dropup');
-      }
+      const vh = (window.visualViewport && window.visualViewport.height) || window.innerHeight;
+      if (rect.top >= vh - rect.bottom) menu.classList.add('dropup');
       document.addEventListener('click', onOutside, true);
       document.addEventListener('keydown', onKey);
     }
