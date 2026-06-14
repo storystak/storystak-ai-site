@@ -319,6 +319,86 @@
   }
   .nav-cta:hover { background: #2a2a2a; }
   .nav-cta:active { transform: translateY(1px); }
+  .nav-cta { white-space: nowrap; }
+
+  /* ── "OPEN IN AI" SPLIT BUTTON ──
+     Quiet secondary control that sits next to the primary CTA. Bronze Spice is
+     kept to the small icons only (the ~10% accent role); text/borders stay neutral
+     so it never competes with the dark primary CTA. */
+  .nav-actions { display: flex; align-items: center; gap: 12px; position: relative; }
+  .ai-menu { position: static; }
+  .ai-split {
+    display: inline-flex;
+    align-items: stretch;
+    background: var(--snow);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .ai-split button {
+    font-family: var(--sans);
+    color: var(--coffee-bean);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s var(--ease), transform 0.15s var(--ease);
+  }
+  .ai-split-main { font-size: 14px; font-weight: 600; padding: 9px 14px; }
+  .ai-split-toggle { padding: 0 9px; border-left: 1px solid var(--border); }
+  .ai-split button:hover { background: var(--powder-petal); }
+  .ai-split button:active { transform: translateY(1px); }
+  .ai-split button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .ai-split .icon { font-size: 16px; color: var(--accent); }
+  .ai-split-toggle .icon { font-size: 14px; color: var(--muted); transition: transform 0.2s var(--ease); }
+  .ai-split-toggle[aria-expanded="true"] .icon { transform: rotate(180deg); }
+
+  .ai-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: min(300px, calc(100vw - 40px));
+    background: var(--snow);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 14px 40px rgba(33, 15, 7, 0.14);
+    padding: 6px;
+    z-index: 200;
+  }
+  .ai-dropdown[hidden] { display: none; }
+  .ai-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--coffee-bean);
+    font-family: var(--sans);
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s var(--ease);
+  }
+  .ai-item:hover, .ai-item:focus-visible { background: var(--powder-petal); outline: none; }
+  .ai-item-icon { display: inline-flex; padding-top: 1px; }
+  .ai-item-icon .icon { font-size: 20px; color: var(--accent); }
+  .ai-item-text { display: flex; flex-direction: column; gap: 1px; }
+  .ai-item-title { font-size: 14px; font-weight: 600; line-height: 1.3; }
+  .ai-item-sub { font-size: 12.5px; color: var(--muted); line-height: 1.35; }
+  .ai-item-arrow { margin-left: auto; align-self: center; font-size: 14px; color: var(--muted); }
+
+  /* Mobile: collapse the split trigger to icons so it doesn't crowd the CTA.
+     The dropdown still exposes all four actions (Copy page is the first item). */
+  @media (max-width: 768px) {
+    .nav-actions { gap: 8px; }
+    .ai-split-label { display: none; }
+    .ai-split-main { padding: 9px 11px; }
+  }
 
   /* ── BUTTONS ── */
   .btn-primary {
@@ -1684,6 +1764,10 @@
     <symbol id="icon-shield-check" viewBox="0 0 256 256"><path d="M208,44H48A12,12,0,0,0,36,56v56c0,51.16,24.73,82.12,45.47,99.1,22.4,18.32,44.55,24.5,45.48,24.76a4,4,0,0,0,2.1,0c.93-.26,23.08-6.44,45.48-24.76,20.74-17,45.47-47.94,45.47-99.1V56A12,12,0,0,0,208,44Zm4,68c0,38.44-14.23,69.63-42.29,92.71A132.45,132.45,0,0,1,128,227.82a132.23,132.23,0,0,1-41.71-23.11C58.23,181.63,44,150.44,44,112V56a4,4,0,0,1,4-4H208a4,4,0,0,1,4,4Zm-41.17-10.83a4,4,0,0,1,0,5.66l-56,56a4,4,0,0,1-5.66,0l-24-24a4,4,0,0,1,5.66-5.66L112,154.34l53.17-53.17A4,4,0,0,1,170.83,101.17Z"/></symbol>
     <symbol id="icon-stack-simple" viewBox="0 0 256 256"><path d="M14,107.47l112,64a4,4,0,0,0,4,0l112-64a4,4,0,0,0,0-6.94l-112-64a4,4,0,0,0-4,0l-112,64a4,4,0,0,0,0,6.94ZM128,44.61,231.94,104,128,163.39,24.06,104ZM243.47,142a4,4,0,0,1-1.49,5.45l-112,64a4,4,0,0,1-4,0l-112-64a4,4,0,0,1,4-6.94l110,62.86,110-62.86A4,4,0,0,1,243.47,142Z"/></symbol>
     <symbol id="icon-x" viewBox="0 0 256 256"><path d="M202.83,197.17a4,4,0,0,1-5.66,5.66L128,133.66,58.83,202.83a4,4,0,0,1-5.66-5.66L122.34,128,53.17,58.83a4,4,0,0,1,5.66-5.66L128,122.34l69.17-69.17a4,4,0,1,1,5.66,5.66L133.66,128Z"/></symbol>
+    <symbol id="icon-copy" viewBox="0 0 256 256"><path d="M216,36H88a4,4,0,0,0-4,4V84H40a4,4,0,0,0-4,4V216a4,4,0,0,0,4,4H168a4,4,0,0,0,4-4V172h44a4,4,0,0,0,4-4V40A4,4,0,0,0,216,36ZM164,212H44V92H164Zm48-48H172V88a4,4,0,0,0-4-4H92V44H212Z"/></symbol>
+    <symbol id="icon-arrow-up-right" viewBox="0 0 256 256"><path d="M196,64V168a4,4,0,0,1-8,0V73.66L66.83,194.83a4,4,0,0,1-5.66-5.66L182.34,68H88a4,4,0,0,1,0-8H192A4,4,0,0,1,196,64Z"/></symbol>
+    <symbol id="icon-star-four" viewBox="0 0 256 256"><path d="M128,28L152.5,103.5L228,128L152.5,152.5L128,228L103.5,152.5L28,128L103.5,103.5Z"/></symbol>
+    <symbol id="icon-sparkle" viewBox="0 0 256 256"><path d="M128,24L150,106L232,128L150,150L128,232L106,150L24,128L106,106Z"/><path transform="rotate(45 128 128)" d="M128,52L143,113L204,128L143,143L128,204L113,143L52,128L113,113Z"/></symbol>
   </defs>
 </svg>
 
@@ -1691,7 +1775,60 @@
 <nav class="nav">
   <div class="nav-inner">
     <a href="#" class="logo" aria-label="Storystak AI"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 628.64 159.08" role="img" aria-label="Storystak AI"><g><path fill="#0f0f0f" d="M237.16,121c-3.23,0-6.3-.41-9.2-1.24-2.9-.83-5.55-2.07-7.95-3.72-.45-.38-.87-.77-1.24-1.18-.38-.41-.68-.88-.9-1.41-.6-1.88-1.02-4.19-1.24-6.94-.23-2.74-.3-5.4-.23-7.95,0-.53.21-.9.62-1.13.41-.23.92-.34,1.52-.34s1.07.1,1.41.28c.34.19.58.55.73,1.07,1.65,5.64,4.06,10.04,7.22,13.2,3.16,3.16,6.73,4.74,10.72,4.74,2.48,0,4.59-.56,6.32-1.69,1.73-1.13,3.05-2.6,3.95-4.4.9-1.81,1.35-3.76,1.35-5.87,0-2.63-.47-4.81-1.41-6.54-.94-1.73-2.35-3.29-4.23-4.68-1.88-1.39-4.25-2.88-7.11-4.46-3.08-1.81-6.09-3.7-9.03-5.7-2.93-1.99-5.34-4.36-7.22-7.11-1.88-2.74-2.82-6.15-2.82-10.21s1.07-7.92,3.22-11.11c2.14-3.2,5.13-5.7,8.97-7.5s8.27-2.71,13.31-2.71c2.78,0,5.38.3,7.78.9,2.41.6,4.32,1.2,5.75,1.81.83.3,1.45.68,1.86,1.13.41.45.73,1.17.96,2.14.45,1.58.85,3.46,1.18,5.64.34,2.18.51,4.48.51,6.88,0,.9-.68,1.35-2.03,1.35-.6,0-1.2-.15-1.81-.45-.6-.3-.98-.71-1.13-1.24-1.35-4.36-3.22-7.67-5.58-9.93-2.37-2.26-5.29-3.38-8.74-3.38-2.33,0-4.33.4-5.98,1.18-1.66.79-2.97,1.99-3.95,3.61-.98,1.62-1.47,3.71-1.47,6.26,0,1.96.66,3.76,1.97,5.42,1.31,1.66,3.16,3.27,5.53,4.85,2.37,1.58,5.02,3.31,7.95,5.19,3.61,2.11,6.64,4.23,9.08,6.37,2.44,2.14,4.3,4.51,5.58,7.11,1.28,2.59,1.92,5.66,1.92,9.19,0,4.96-1.09,9.12-3.27,12.47-2.18,3.35-5.23,5.87-9.14,7.56-3.91,1.69-8.5,2.54-13.76,2.54Z"/><path fill="#0f0f0f" d="M286.46,120.89c-4.51,0-7.94-1.2-10.27-3.61-2.33-2.41-3.5-5.9-3.5-10.49v-26.06c0-.6-.25-1.05-.73-1.35-.49-.3-1.45-.49-2.88-.56h-1.24c-.45,0-.83-.36-1.13-1.07-.3-.71-.45-1.41-.45-2.09,0-.15.06-.36.17-.62.11-.26.28-.43.51-.51,1.73-.75,3.5-1.79,5.3-3.1,1.81-1.31,3.5-2.67,5.08-4.06,1.58-1.39,2.89-2.58,3.95-3.55.52-.38.96-.71,1.3-1.02.34-.3.73-.45,1.18-.45.6,0,1.07.13,1.41.4.34.26.43.77.28,1.52l-.68,6.21c-.08.9.13,1.51.62,1.81.49.3,1.18.45,2.09.45h13.31c.23,0,.45.26.68.79.23.53.34,1.05.34,1.58,0,.98-.13,1.88-.39,2.71-.26.83-.58,1.24-.96,1.24h-10.72c-1.73,0-2.92.19-3.55.56-.64.38-.96,1.17-.96,2.37v21.66c0,3.31.64,5.81,1.92,7.5,1.28,1.69,3.08,2.54,5.42,2.54,2.1,0,3.7-.19,4.79-.56,1.09-.38,2.09-.83,2.99-1.35.23-.15.41-.23.56-.23.38,0,.66.23.85.68.19.45.28.94.28,1.47,0,.38-.73,1.17-2.2,2.37-1.47,1.2-3.38,2.31-5.75,3.33-2.37,1.02-4.91,1.52-7.62,1.52Z"/><path fill="#0f0f0f" d="M328.43,120.89c-4.44,0-8.42-1-11.96-2.99-3.54-1.99-6.36-4.76-8.46-8.29-2.11-3.53-3.16-7.52-3.16-11.96,0-3.46.68-6.77,2.03-9.93,1.35-3.16,3.2-5.98,5.53-8.46,2.33-2.48,5.08-4.46,8.24-5.92,3.16-1.47,6.54-2.2,10.15-2.2,4.59,0,8.71,1.07,12.35,3.22,3.65,2.14,6.56,4.98,8.74,8.52,2.18,3.54,3.27,7.41,3.27,11.62,0,4.66-1,9.01-2.99,13.03-1.99,4.02-4.96,7.26-8.91,9.7-3.95,2.44-8.9,3.67-14.84,3.67ZM330.68,116.49c1.88,0,3.55-.38,5.02-1.13,1.47-.75,2.65-1.92,3.55-3.5.9-1.58,1.52-3.67,1.86-6.26.34-2.59.51-5.4.51-8.41,0-3.99-.53-7.6-1.58-10.83-1.05-3.23-2.52-5.83-4.4-7.78-1.88-1.96-4.1-2.93-6.66-2.93-1.43,0-2.73.25-3.89.73-1.17.49-2.24,1.3-3.22,2.43-1.35,1.58-2.28,3.74-2.76,6.49-.49,2.75-.73,5.92-.73,9.53s.54,7.07,1.64,10.38c1.09,3.31,2.56,6.02,4.4,8.12,1.84,2.11,3.93,3.16,6.26,3.16Z"/><path fill="#0f0f0f" d="M360.02,119.64c-.6,0-1.13-.13-1.58-.4-.45-.26-.68-.62-.68-1.07,0-.6.24-1.05.73-1.35.49-.3,1.11-.56,1.86-.79,1.58-.45,2.69-1,3.33-1.64.64-.64.96-1.52.96-2.65v-25.38c0-1.73-.25-3.18-.73-4.34-.49-1.17-1.52-1.94-3.1-2.31-.3-.15-.6-.36-.9-.62-.3-.26-.45-.66-.45-1.18,0-.98.41-1.58,1.24-1.81,2.26-.6,4.7-1.41,7.33-2.43,2.63-1.02,4.85-2.01,6.66-2.99.38-.23.79-.45,1.24-.68s.79-.34,1.02-.34c.6,0,.9.38.9,1.13,0,.3-.02.98-.06,2.03-.04,1.05-.08,2.2-.11,3.44-.04,1.24-.1,2.35-.17,3.33,0,.45.11.68.34.68,1.2-1.58,2.56-3.05,4.06-4.4,1.5-1.35,3.1-2.48,4.79-3.38,1.69-.9,3.4-1.35,5.13-1.35,2.18,0,3.82.45,4.91,1.35,1.09.9,1.64,2.03,1.64,3.38,0,1.05-.28,2.18-.85,3.38-.56,1.2-1.28,2.24-2.14,3.1-.87.87-1.83,1.3-2.88,1.3-.6,0-1.24-.13-1.92-.39-.68-.26-1.35-.58-2.03-.96-.68-.3-1.37-.6-2.09-.9-.72-.3-1.37-.45-1.97-.45-1.88,0-3.57.7-5.08,2.09-1.5,1.39-2.26,4.12-2.26,8.18v19.86c0,1.35.49,2.39,1.47,3.1.98.72,2.48,1.37,4.51,1.97.83.23,1.45.47,1.86.73.41.26.62.7.62,1.3,0,.98-.68,1.47-2.03,1.47-2.26,0-4.38-.1-6.37-.28-1.99-.19-3.97-.28-5.92-.28-1.28,0-2.5.04-3.67.11-1.17.08-2.35.17-3.55.28-1.2.11-2.56.17-4.06.17Z"/><path fill="#0f0f0f" d="M408.75,151.35c-1.8,0-3.5-.58-5.08-1.75-1.58-1.17-2.37-2.69-2.37-4.57,0-1.43.36-2.78,1.07-4.06.71-1.28,1.79-1.92,3.21-1.92,1.05,0,2.12.19,3.22.56,1.09.38,2.12.52,3.1.45.9-.08,1.56-.28,1.97-.62.41-.34.88-.96,1.41-1.86.6-1.05,1.26-2.2,1.97-3.44.71-1.24,1.47-2.73,2.26-4.46.79-1.73,1.67-3.8,2.65-6.21.68-1.58,1.02-3.08,1.02-4.51,0-.9-.11-1.77-.34-2.6-.23-.83-.49-1.58-.79-2.26l-13.65-32.15c-.6-1.5-1.34-2.82-2.2-3.95-.87-1.13-1.94-1.88-3.22-2.26-.68-.3-1.22-.6-1.64-.9-.41-.3-.62-.75-.62-1.35s.3-.96.9-1.07c.6-.11,1.13-.17,1.58-.17,1.73,0,3.12.04,4.17.11,1.05.08,2.03.15,2.93.23.9.08,1.88.11,2.93.11,1.58,0,2.86-.04,3.84-.11.98-.07,2.01-.15,3.1-.23,1.09-.07,2.46-.11,4.12-.11.53,0,1.09.1,1.69.28.6.19.9.58.9,1.18s-.34,1.07-1.02,1.41c-.68.34-1.32.62-1.92.85-.75.23-1.35.66-1.81,1.3-.45.64-.68,1.56-.68,2.76,0,.53.11,1.19.34,1.97s.49,1.64.79,2.54l7.79,18.84c.07.3.23.45.45.45.07,0,.19-.15.34-.45l6.43-18.39c.23-.53.43-1.22.62-2.09.19-.86.28-1.6.28-2.2,0-1.35-.32-2.39-.96-3.1-.64-.71-1.34-1.22-2.09-1.52-.6-.3-1.24-.62-1.92-.96-.68-.34-1.02-.81-1.02-1.41s.32-1,.96-1.18c.64-.19,1.18-.28,1.64-.28,1.65,0,3.05.08,4.17.23,1.13.15,2.44.23,3.95.23.98,0,1.79-.04,2.43-.11.64-.07,1.33-.15,2.09-.23.75-.07,1.69-.11,2.82-.11.45,0,1,.06,1.64.17.64.11.96.47.96,1.07s-.21,1.05-.62,1.35c-.42.3-.96.6-1.64.9-1.28.38-2.52,1.22-3.72,2.54-1.2,1.32-2.18,2.84-2.93,4.57l-16.25,39.26c-.45,1.05-1.05,2.46-1.81,4.23-.75,1.77-1.56,3.7-2.43,5.81-.87,2.1-1.79,4.29-2.76,6.54-.98,2.26-1.92,4.47-2.82,6.66-.83,1.95-2.09,3.44-3.78,4.46-1.69,1.02-3.59,1.52-5.7,1.52Z"/><path fill="#0f0f0f" d="M465.73,120.89c-2.41,0-4.72-.32-6.94-.96-2.22-.64-4.23-1.6-6.04-2.88-.53-1.05-.92-2.71-1.18-4.96-.26-2.26-.4-4.47-.4-6.66,0-.9.64-1.35,1.92-1.35.53,0,.98.15,1.35.45.38.3.64.64.79,1.02,1.28,3.31,2.89,5.96,4.85,7.95,1.96,1.99,4.17,2.99,6.66,2.99,2.11,0,3.76-.66,4.96-1.97,1.2-1.31,1.8-2.84,1.8-4.57,0-2.03-.73-3.72-2.2-5.08-1.47-1.35-3.48-2.74-6.04-4.17-2.33-1.28-4.42-2.63-6.26-4.06-1.84-1.43-3.29-3.06-4.34-4.91-1.05-1.84-1.58-4.01-1.58-6.49,0-2.78.71-5.23,2.14-7.33,1.43-2.1,3.44-3.76,6.04-4.96,2.59-1.2,5.58-1.81,8.97-1.81,2.41,0,4.57.26,6.49.79,1.92.53,3.25,1.05,4,1.58.6.75,1.09,2.13,1.47,4.12.38,1.99.56,4.08.56,6.26,0,.68-.56,1.02-1.69,1.02-.53,0-1.05-.15-1.58-.45-.53-.3-.87-.6-1.02-.9-.98-2.78-2.22-4.89-3.72-6.32-1.51-1.43-3.23-2.14-5.19-2.14-1.73,0-3.29.55-4.68,1.64-1.39,1.09-2.09,2.61-2.09,4.57,0,1.58.66,3.01,1.97,4.29,1.31,1.28,3.21,2.6,5.7,3.95,4.74,2.56,8.16,4.98,10.27,7.28,2.1,2.29,3.16,5.36,3.16,9.19,0,4.59-1.58,8.22-4.74,10.89s-7.63,4.01-13.43,4.01Z"/><path fill="#0f0f0f" d="M506.57,120.89c-4.51,0-7.94-1.2-10.27-3.61-2.33-2.41-3.5-5.9-3.5-10.49v-26.06c0-.6-.25-1.05-.73-1.35-.49-.3-1.45-.49-2.88-.56h-1.24c-.45,0-.83-.36-1.13-1.07-.3-.71-.45-1.41-.45-2.09,0-.15.06-.36.17-.62.11-.26.28-.43.51-.51,1.73-.75,3.5-1.79,5.3-3.1,1.8-1.31,3.5-2.67,5.08-4.06,1.58-1.39,2.89-2.58,3.95-3.55.53-.38.96-.71,1.3-1.02.34-.3.73-.45,1.18-.45.6,0,1.07.13,1.41.4.34.26.43.77.28,1.52l-.68,6.21c-.08.9.13,1.51.62,1.81.49.3,1.18.45,2.09.45h13.31c.23,0,.45.26.68.79.23.53.34,1.05.34,1.58,0,.98-.13,1.88-.4,2.71-.26.83-.58,1.24-.96,1.24h-10.72c-1.73,0-2.92.19-3.55.56-.64.38-.96,1.17-.96,2.37v21.66c0,3.31.64,5.81,1.92,7.5,1.28,1.69,3.08,2.54,5.42,2.54,2.11,0,3.7-.19,4.79-.56,1.09-.38,2.09-.83,2.99-1.35.23-.15.41-.23.56-.23.38,0,.66.23.85.68.19.45.28.94.28,1.47,0,.38-.73,1.17-2.2,2.37-1.47,1.2-3.38,2.31-5.75,3.33-2.37,1.02-4.91,1.52-7.62,1.52Z"/><path fill="#0f0f0f" d="M536.02,120.89c-1.8,0-3.52-.49-5.13-1.47-1.62-.98-2.92-2.26-3.89-3.84-.98-1.58-1.47-3.2-1.47-4.85,0-2.56.75-4.64,2.26-6.26,1.5-1.62,3.76-3.06,6.77-4.34l10.49-4.51c1.5-.6,2.42-1.17,2.76-1.69.34-.53.51-1.5.51-2.93l.23-6.66c.07-2.1-.36-3.8-1.3-5.08-.94-1.28-2.35-1.92-4.23-1.92-.98,0-1.99.19-3.05.56-1.05.38-1.88.87-2.48,1.47-.3.3-.51.7-.62,1.18-.11.49-.17.96-.17,1.41,0,.38.02.85.06,1.41.04.56.06,1.07.06,1.52s-.56,1.02-1.69,1.69-2.41,1.28-3.84,1.81c-1.43.53-2.63.79-3.61.79-.53,0-.94-.19-1.24-.56-.3-.38-.45-.83-.45-1.35,0-1.2.39-2.43,1.18-3.67.79-1.24,2.05-2.58,3.78-4.01,1.88-1.58,3.95-2.99,6.21-4.23,2.26-1.24,4.46-2.24,6.6-2.99,2.14-.75,4-1.13,5.58-1.13,3.61,0,6.5,1.18,8.69,3.55,2.18,2.37,3.23,5.47,3.16,9.31l-.56,24.14c-.08,1.66.24,3.05.96,4.17.71,1.13,1.6,1.69,2.65,1.69,1.58,0,2.86-.45,3.84-1.35.3-.3.56-.45.79-.45.38,0,.7.13.96.4.26.26.4.58.4.96,0,.83-.6,1.84-1.81,3.05-1.35,1.35-2.8,2.39-4.34,3.1-1.54.71-3.07,1.07-4.57,1.07-3.99,0-7.22-2.07-9.7-6.21h-.34c-2.48,2.18-4.76,3.76-6.83,4.74-2.07.98-4.27,1.47-6.6,1.47ZM542.22,114.12c1.05,0,1.96-.17,2.71-.51.75-.34,1.39-.81,1.92-1.41.3-.38.54-.83.73-1.35.19-.53.32-1.28.39-2.26l.23-7.22c.07-.75,0-1.26-.23-1.52-.23-.26-.49-.39-.79-.39-.15,0-.38.02-.68.06-.3.04-.64.17-1.01.4-2.78,1.13-4.78,2.33-5.98,3.61-1.2,1.28-1.81,2.93-1.81,4.96s.49,3.48,1.47,4.34c.98.87,1.99,1.3,3.05,1.3Z"/><path fill="#0f0f0f" d="M573.02,119.64c-1.58,0-2.37-.49-2.37-1.47,0-.6.24-1.03.73-1.3.49-.26,1.11-.54,1.86-.85,1.13-.38,2.16-.81,3.1-1.3.94-.49,1.41-1.52,1.41-3.1v-54.94c0-2.33-.32-4.17-.96-5.53-.64-1.35-1.9-2.22-3.78-2.59-.75-.15-1.13-.71-1.13-1.69,0-.9.34-1.43,1.02-1.58,1.96-.38,3.91-.9,5.87-1.58,1.96-.68,3.8-1.35,5.53-2.03,1.73-.68,3.16-1.2,4.29-1.58.6-.23,1.05-.34,1.35-.34.38,0,.64.11.79.34.15.23.23.53.23.9,0,.68-.11,1.86-.34,3.55-.23,1.69-.38,3.89-.45,6.6l.11,40.5c0,.83.26,1.24.79,1.24.3,0,.69-.11,1.18-.34.49-.23.96-.56,1.41-1.02,2.86-2.48,5.36-4.89,7.5-7.22,2.14-2.33,3.59-4.02,4.34-5.08.38-.45.64-.83.79-1.13.15-.3.23-.56.23-.79,0-.38-.3-.73-.9-1.07-.6-.34-1.43-.58-2.48-.73-.9-.23-1.35-.68-1.35-1.35,0-.52.26-.9.79-1.13.53-.23,1.09-.34,1.69-.34h5.53c1.28,0,2.88-.07,4.79-.23,1.92-.15,3.76-.32,5.53-.51,1.77-.19,3.1-.32,4-.4.9,0,1.35.41,1.35,1.24,0,.53-.25.98-.73,1.35-.49.38-1.15.68-1.97.9-1.35.3-2.8.81-4.34,1.52-1.54.72-3.1,1.52-4.68,2.43-.98.53-2.22,1.35-3.72,2.48-1.51,1.13-3.07,2.35-4.68,3.67-1.62,1.32-3.1,2.61-4.46,3.89-.38.38-.56.75-.56,1.13,0,.23.06.41.17.56.11.15.24.34.39.56,1.88,2.33,3.74,4.66,5.58,7,1.84,2.33,3.63,4.51,5.36,6.54,1.73,2.03,3.27,3.84,4.63,5.42,1.28,1.28,2.8,2.46,4.57,3.55,1.77,1.09,3.22,1.82,4.34,2.2.75.3,1.48.58,2.2.85.71.26,1.07.7,1.07,1.3,0,.98-.79,1.47-2.37,1.47-4.06,0-8.14-.06-12.24-.17-4.1-.11-8.03-.17-11.79-.17-1.43,0-2.14-.45-2.14-1.35,0-.53.21-.96.62-1.3.41-.34.96-.62,1.64-.85s1.2-.51,1.58-.85c.38-.34.6-.73.68-1.18,0-.3-.11-.62-.34-.96s-.53-.77-.9-1.3l-11.73-15.12c-.3-.38-.56-.56-.79-.56-.38.08-.56.38-.56.9-.08,1.05-.11,2.18-.11,3.38v7.56c0,1.35.04,2.67.11,3.95,0,1.35.3,2.33.9,2.93.6.6,1.47,1.09,2.6,1.47.6.23,1.17.47,1.69.73.53.26.79.7.79,1.3,0,.53-.26.92-.79,1.18-.53.26-1.01.4-1.47.4-1.43,0-2.67-.06-3.72-.17-1.05-.11-2.07-.21-3.05-.28-.98-.07-2.14-.11-3.5-.11-1.28,0-2.44.04-3.5.11-1.05.08-2.14.17-3.27.28-1.13.11-2.45.17-3.95.17Z"/><path fill="#0f0f0f" d="M176.1,92.6c-28.9-17.29-57.99-32.75-84.88-48.3-1.91-1.08-2.87-1.89-4.65-.87C49.81,64.42,21.24,80.72.85,92.34c-1.28,1.5-.72,4.03-.54,5.9l86.55,48.79c.9.51,2,.51,2.9,0l86.38-49.14c.33-1.81.32-3.57-.04-5.29ZM88.33,137.38c-.18.1-.4.1-.58,0-2.26-1.31-4.53-2.61-6.79-3.92-4.69-2.71-9.39-5.42-14.08-8.13-8.31-4.8-16.68-9.5-24.94-14.4-7.22-4.28-14.58-8.37-21.85-12.57-1.58-.91-3.16-1.82-4.73-2.73-.08-.04-.14-.11-.18-.18-.14-.24-.06-.56.18-.7l72.27-41.72c.16-.09.34-.09.5,0,16.11,9.06,32.33,17.95,48.38,27.13,7.6,4.35,15.15,8.8,22.74,13.18l2.16,1.25c.09.05.16.12.21.21.16.28.07.63-.21.79"/><path fill="#c45d2c" d="M149.99,124.36l-60.6,34.43c-.68.38-1.5.38-2.18,0l-60.58-34.13-8.74-5.16L1.65,110.36c-.72-.4-1.17-1.16-1.18-1.99l-.16-10.14,86.55,48.79c.9.51,2,.51,2.9,0l86.38-49.14c.19,2.61.19,5.22.01,7.84-.08,1.18.31,3.39-1.12,4.21"/><path fill="#0f0f0f" d="M176.06,54.92l-86.38,49.14c-.9.51-2,.51-2.9,0L.24,55.27c-.33-1.73-.32-3.45.02-5.17.06-.31.25-.58.52-.73C21.17,37.75,49.74,21.45,86.5.47c1.78-1.02,2.74-.21,4.65.87,26.93,15.23,55.08,31.14,84.45,47.72.22.12.38.33.43.58.36,1.72.37,3.48.04,5.29ZM42.47,68.36c.16.09.36.09.52,0L115.25,26.64c.24-.14.32-.45.18-.7-.04-.08-.11-.14-.18-.18l-27.2-15.69c-.16-.09-.34-.09-.5,0L15.28,51.78c-.24.14-.32.45-.18.7.04.08.11.14.18.18l27.19,15.7ZM98.12,47.16c-.28.16-.37.52-.21.79.05.09.12.16.21.21l35.18,20.31c.18.1.4.1.58,0l27.45-15.84c.28-.16.37-.52.21-.79-.05-.09-.12-.16-.21-.21l-35.19-20.31c-.18-.1-.4-.1-.58,0l-27.44,15.84ZM88.28,52.95c-.18-.1-.4-.1-.58,0l-35.05,20.24c-.28.16-.37.52-.21.79.05.09.12.16.21.21l35.03,20.22c.18.1.4.1.58,0l35.05-20.23c.28-.16.37-.52.21-.79-.05-.09-.12-.16-.21-.21l-35.03-20.23Z"/><path fill="#c45d2c" d="M149.92,81.39l-60.6,34.43c-.68.38-1.5.38-2.18,0l-60.58-34.13-8.74-5.16L1.58,67.4c-.72-.4-1.17-1.16-1.18-1.99l-.16-10.14,86.55,48.79c.9.51,2,.51,2.9,0l86.38-49.14c.19,2.61.19,5.22.01,7.84-.08,1.18.31,3.39-1.12,4.21-3.55,2.05-8.53,4.83-14.92,8.35"/></g></svg></a>
-    <a href="#book" class="nav-cta">See What We'd Build</a>
+    <div class="nav-actions">
+      <!-- "Open in AI" split button — Copy page + dropdown (Claude / ChatGPT / Gemini).
+           Acts on the raw Markdown served at /overview.md. Links work without JS;
+           JS adds copy-to-clipboard, the popover, and the Gemini clipboard fallback. -->
+      <div class="ai-menu" data-ai-menu>
+        <div class="ai-split">
+          <button type="button" class="ai-split-main" data-ai-copy aria-label="Copy page as Markdown for LLMs">
+            <svg class="icon" aria-hidden="true"><use href="#icon-copy"></use></svg>
+            <span class="ai-split-label">Copy page</span>
+          </button>
+          <button type="button" class="ai-split-toggle" data-ai-toggle aria-haspopup="true" aria-expanded="false" aria-label="More AI options">
+            <svg class="icon" aria-hidden="true"><use href="#icon-caret-down"></use></svg>
+          </button>
+        </div>
+        <div class="ai-dropdown" role="menu" aria-label="Open this page in an AI assistant" hidden>
+          <button type="button" class="ai-item" role="menuitem" data-ai-copy>
+            <span class="ai-item-icon"><svg class="icon" aria-hidden="true"><use href="#icon-copy"></use></svg></span>
+            <span class="ai-item-text">
+              <span class="ai-item-title">Copy page</span>
+              <span class="ai-item-sub">Copy page as Markdown for LLMs</span>
+            </span>
+          </button>
+          <a class="ai-item" role="menuitem" href="https://claude.ai/new?q=Read%20from%20https%3A%2F%2Fstorystak.ai%2Foverview.md%20so%20I%20can%20ask%20questions%20about%20Storystak%20AI." target="_blank" rel="noopener noreferrer">
+            <span class="ai-item-icon"><svg class="icon" aria-hidden="true"><use href="#icon-sparkle"></use></svg></span>
+            <span class="ai-item-text">
+              <span class="ai-item-title">Open in Claude</span>
+              <span class="ai-item-sub">Ask questions about this page</span>
+            </span>
+            <svg class="icon ai-item-arrow" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg>
+          </a>
+          <a class="ai-item" role="menuitem" href="https://chatgpt.com/?q=Read%20from%20https%3A%2F%2Fstorystak.ai%2Foverview.md%20so%20I%20can%20ask%20questions%20about%20Storystak%20AI." target="_blank" rel="noopener noreferrer">
+            <span class="ai-item-icon"><svg class="icon" aria-hidden="true"><use href="#icon-chat-dots"></use></svg></span>
+            <span class="ai-item-text">
+              <span class="ai-item-title">Open in ChatGPT</span>
+              <span class="ai-item-sub">Ask questions about this page</span>
+            </span>
+            <svg class="icon ai-item-arrow" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg>
+          </a>
+          <!-- Gemini: Google's ?q= prompt-prefill is historically unreliable and could not
+               be live-verified in this build environment, so we use the documented fallback —
+               open the Gemini app AND copy the prompt to the clipboard so the user can paste it. -->
+          <a class="ai-item" role="menuitem" href="https://gemini.google.com/app" target="_blank" rel="noopener noreferrer"
+             data-ai-gemini data-ai-prompt="Read from https://storystak.ai/overview.md so I can ask questions about Storystak AI.">
+            <span class="ai-item-icon"><svg class="icon" aria-hidden="true"><use href="#icon-star-four"></use></svg></span>
+            <span class="ai-item-text">
+              <span class="ai-item-title">Open in Gemini</span>
+              <span class="ai-item-sub">Ask questions about this page</span>
+            </span>
+            <svg class="icon ai-item-arrow" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg>
+          </a>
+        </div>
+      </div>
+      <a href="#book" class="nav-cta">See What We'd Build</a>
+    </div>
   </div>
 </nav>
 
@@ -2624,5 +2761,98 @@
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 </script>
 
+<script>
+  // "Open in AI" split button. Progressive enhancement: the Claude/ChatGPT/Gemini
+  // links work without JS; JS adds copy-to-clipboard, the popover (keyboard +
+  // outside-click + Escape), and the Gemini clipboard fallback.
+  (function () {
+    const menu = document.querySelector('[data-ai-menu]');
+    if (!menu) return;
+    const toggle = menu.querySelector('[data-ai-toggle]');
+    const dropdown = menu.querySelector('.ai-dropdown');
+    const mainBtn = menu.querySelector('.ai-split-main');
+    const copyEls = menu.querySelectorAll('[data-ai-copy]');
+    const items = Array.from(dropdown.querySelectorAll('.ai-item'));
+    const OVERVIEW_URL = 'https://storystak.ai/overview.md';
+
+    const isOpen = () => !dropdown.hidden;
+    function openMenu() {
+      dropdown.hidden = false;
+      toggle.setAttribute('aria-expanded', 'true');
+      document.addEventListener('click', onOutside, true);
+      document.addEventListener('keydown', onKey);
+    }
+    function closeMenu(focusToggle) {
+      dropdown.hidden = true;
+      toggle.setAttribute('aria-expanded', 'false');
+      document.removeEventListener('click', onOutside, true);
+      document.removeEventListener('keydown', onKey);
+      if (focusToggle) toggle.focus();
+    }
+    function onOutside(e) { if (!menu.contains(e.target)) closeMenu(false); }
+    function onKey(e) {
+      if (e.key === 'Escape') { e.preventDefault(); closeMenu(true); return; }
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        let i = items.indexOf(document.activeElement);
+        i = e.key === 'ArrowDown' ? (i + 1) % items.length : (i <= 0 ? items.length - 1 : i - 1);
+        items[i].focus();
+      }
+    }
+
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (isOpen()) { closeMenu(false); return; }
+      openMenu();
+      requestAnimationFrame(() => items[0] && items[0].focus());
+    });
+
+    // Copy page: fetch the raw Markdown, write to clipboard, show inline confirmation.
+    let resetTimer;
+    function setMainState(label, iconId) {
+      const lbl = mainBtn.querySelector('.ai-split-label');
+      const use = mainBtn.querySelector('use');
+      if (lbl) lbl.textContent = label;
+      if (use) use.setAttribute('href', iconId);
+    }
+    async function copyPage() {
+      try {
+        const res = await fetch(OVERVIEW_URL, { headers: { 'Accept': 'text/markdown, text/plain' } });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const text = await res.text();
+        await navigator.clipboard.writeText(text);
+        setMainState('Copied', '#icon-check');
+      } catch (err) {
+        setMainState('Copy failed, try again', '#icon-x');
+      } finally {
+        clearTimeout(resetTimer);
+        resetTimer = setTimeout(() => setMainState('Copy page', '#icon-copy'), 2000);
+      }
+    }
+    copyEls.forEach((el) => el.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (isOpen()) closeMenu(false);
+      copyPage();
+    }));
+
+    // Gemini fallback: copy the prompt so the user can paste it after the app opens
+    // in the new tab (the anchor's default navigation is left intact).
+    const gemini = menu.querySelector('[data-ai-gemini]');
+    if (gemini) {
+      gemini.addEventListener('click', function () {
+        const prompt = gemini.getAttribute('data-ai-prompt') || '';
+        if (navigator.clipboard && prompt) navigator.clipboard.writeText(prompt).catch(() => {});
+        closeMenu(false);
+      });
+    }
+
+    // Close the popover after choosing Claude / ChatGPT too.
+    items.forEach((it) => {
+      if (it.tagName === 'A' && !it.hasAttribute('data-ai-gemini')) {
+        it.addEventListener('click', () => closeMenu(false));
+      }
+    });
+  })();
+</script>
 </body>
 </html>
