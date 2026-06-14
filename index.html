@@ -392,12 +392,16 @@
   .ai-item-sub { font-size: 12.5px; color: var(--muted); line-height: 1.35; }
   .ai-item-arrow { margin-left: auto; align-self: center; font-size: 14px; color: var(--muted); }
 
-  /* Mobile: collapse the split trigger to icons so it doesn't crowd the CTA.
-     The dropdown still exposes all four actions (Copy page is the first item). */
+  /* Hero "Ask AI" — mobile only. Hidden on desktop (the nav button is used there);
+     shown under the hero note on mobile, where its dropdown anchors to itself. */
+  .ai-hero { display: none; margin-top: 20px; }
+  .ai-hero .ai-menu { position: relative; }
+  .ai-hero .ai-dropdown { left: 0; right: auto; }
+
+  /* Mobile: move the "Ask AI" button out of the nav and into the hero. */
   @media (max-width: 768px) {
-    .nav-actions { gap: 8px; }
-    .ai-split-label { display: none; }
-    .ai-split-main { padding: 9px 11px; }
+    .nav .ai-menu { display: none; }
+    .ai-hero { display: block; }
   }
 
   /* ── BUTTONS ── */
@@ -1859,6 +1863,55 @@
           </a>
         </div>
         <p class="hero-note fade-up">30 min · No pitch deck · Real recommendations<span class="hide-mobile"> for your specific situation</span></p>
+        <!-- Mobile-only "Ask AI" button. On mobile the nav copy is hidden and this
+             one is shown here, under the hero note. Same markup/behavior as the nav. -->
+        <div class="ai-hero fade-up">
+          <div class="ai-menu" data-ai-menu>
+            <div class="ai-split">
+              <button type="button" class="ai-split-main" data-ai-toggle aria-haspopup="true" aria-expanded="false" aria-label="Ask AI about this page">
+                <svg class="icon" aria-hidden="true"><use href="#icon-chat-dots"></use></svg>
+                <span class="ai-split-label">Ask AI</span>
+              </button>
+              <button type="button" class="ai-split-toggle" data-ai-toggle aria-haspopup="true" aria-expanded="false" aria-label="More AI options">
+                <svg class="icon" aria-hidden="true"><use href="#icon-caret-down"></use></svg>
+              </button>
+            </div>
+            <div class="ai-dropdown" role="menu" aria-label="Open this page in an AI assistant" hidden>
+              <button type="button" class="ai-item" role="menuitem" data-ai-copy>
+                <span class="ai-item-icon"><svg class="icon" aria-hidden="true"><use href="#icon-copy"></use></svg></span>
+                <span class="ai-item-text">
+                  <span class="ai-item-title">Copy page</span>
+                  <span class="ai-item-sub">Copy page as Markdown for LLMs</span>
+                </span>
+              </button>
+              <a class="ai-item" role="menuitem" href="https://claude.ai/new?q=Read%20from%20https%3A%2F%2Fstorystak.ai%2Foverview.md%20so%20I%20can%20ask%20questions%20about%20Storystak%20AI." target="_blank" rel="noopener noreferrer">
+                <span class="ai-item-icon"><svg class="icon" aria-hidden="true"><use href="#icon-claude"></use></svg></span>
+                <span class="ai-item-text">
+                  <span class="ai-item-title">Open in Claude</span>
+                  <span class="ai-item-sub">Ask questions about this page</span>
+                </span>
+                <svg class="icon ai-item-arrow" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg>
+              </a>
+              <a class="ai-item" role="menuitem" href="https://chatgpt.com/?q=Read%20from%20https%3A%2F%2Fstorystak.ai%2Foverview.md%20so%20I%20can%20ask%20questions%20about%20Storystak%20AI." target="_blank" rel="noopener noreferrer">
+                <span class="ai-item-icon"><svg class="icon" aria-hidden="true"><use href="#vroad-i-openai"></use></svg></span>
+                <span class="ai-item-text">
+                  <span class="ai-item-title">Open in ChatGPT</span>
+                  <span class="ai-item-sub">Ask questions about this page</span>
+                </span>
+                <svg class="icon ai-item-arrow" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg>
+              </a>
+              <a class="ai-item" role="menuitem" href="https://gemini.google.com/app" target="_blank" rel="noopener noreferrer"
+                 data-ai-gemini data-ai-prompt="Read from https://storystak.ai/overview.md so I can ask questions about Storystak AI.">
+                <span class="ai-item-icon"><svg class="icon" aria-hidden="true"><use href="#icon-gemini"></use></svg></span>
+                <span class="ai-item-text">
+                  <span class="ai-item-title">Open in Gemini</span>
+                  <span class="ai-item-sub">Ask questions about this page</span>
+                </span>
+                <svg class="icon ai-item-arrow" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="hero-demo">
         <!-- Animated mock Claude session showing the Vault MCP at work.
@@ -2768,8 +2821,10 @@
   // links work without JS; JS adds copy-to-clipboard, the popover (keyboard +
   // outside-click + Escape), and the Gemini clipboard fallback.
   (function () {
-    const menu = document.querySelector('[data-ai-menu]');
-    if (!menu) return;
+    const menus = document.querySelectorAll('[data-ai-menu]');
+    if (!menus.length) return;
+    menus.forEach(initAiMenu);
+    function initAiMenu(menu) {
     // Both segments of the split button ("Ask AI" + caret) open the menu.
     const toggles = Array.from(menu.querySelectorAll('[data-ai-toggle]'));
     const dropdown = menu.querySelector('.ai-dropdown');
@@ -2856,6 +2911,7 @@
         it.addEventListener('click', () => closeMenu(false));
       }
     });
+    }
   })();
 </script>
 </body>
