@@ -1783,9 +1783,9 @@
            JS adds copy-to-clipboard, the popover, and the Gemini clipboard fallback. -->
       <div class="ai-menu" data-ai-menu>
         <div class="ai-split">
-          <button type="button" class="ai-split-main" data-ai-copy aria-label="Copy page as Markdown for LLMs">
-            <svg class="icon" aria-hidden="true"><use href="#icon-copy"></use></svg>
-            <span class="ai-split-label">Copy page</span>
+          <button type="button" class="ai-split-main" data-ai-toggle aria-haspopup="true" aria-expanded="false" aria-label="Ask AI about this page">
+            <svg class="icon" aria-hidden="true"><use href="#icon-chat-dots"></use></svg>
+            <span class="ai-split-label">Ask AI</span>
           </button>
           <button type="button" class="ai-split-toggle" data-ai-toggle aria-haspopup="true" aria-expanded="false" aria-label="More AI options">
             <svg class="icon" aria-hidden="true"><use href="#icon-caret-down"></use></svg>
@@ -2770,7 +2770,8 @@
   (function () {
     const menu = document.querySelector('[data-ai-menu]');
     if (!menu) return;
-    const toggle = menu.querySelector('[data-ai-toggle]');
+    // Both segments of the split button ("Ask AI" + caret) open the menu.
+    const toggles = Array.from(menu.querySelectorAll('[data-ai-toggle]'));
     const dropdown = menu.querySelector('.ai-dropdown');
     const mainBtn = menu.querySelector('.ai-split-main');
     const copyEls = menu.querySelectorAll('[data-ai-copy]');
@@ -2778,18 +2779,19 @@
     const OVERVIEW_URL = 'https://storystak.ai/overview.md';
 
     const isOpen = () => !dropdown.hidden;
+    const setExpanded = (v) => toggles.forEach((t) => t.setAttribute('aria-expanded', v ? 'true' : 'false'));
     function openMenu() {
       dropdown.hidden = false;
-      toggle.setAttribute('aria-expanded', 'true');
+      setExpanded(true);
       document.addEventListener('click', onOutside, true);
       document.addEventListener('keydown', onKey);
     }
-    function closeMenu(focusToggle) {
+    function closeMenu(focusTrigger) {
       dropdown.hidden = true;
-      toggle.setAttribute('aria-expanded', 'false');
+      setExpanded(false);
       document.removeEventListener('click', onOutside, true);
       document.removeEventListener('keydown', onKey);
-      if (focusToggle) toggle.focus();
+      if (focusTrigger) mainBtn.focus();
     }
     function onOutside(e) { if (!menu.contains(e.target)) closeMenu(false); }
     function onKey(e) {
@@ -2802,12 +2804,12 @@
       }
     }
 
-    toggle.addEventListener('click', function (e) {
+    toggles.forEach((t) => t.addEventListener('click', function (e) {
       e.stopPropagation();
       if (isOpen()) { closeMenu(false); return; }
       openMenu();
       requestAnimationFrame(() => items[0] && items[0].focus());
-    });
+    }));
 
     // Copy page: fetch the raw Markdown, write to clipboard, show inline confirmation.
     let resetTimer;
@@ -2828,7 +2830,7 @@
         setMainState('Copy failed, try again', '#icon-x');
       } finally {
         clearTimeout(resetTimer);
-        resetTimer = setTimeout(() => setMainState('Copy page', '#icon-copy'), 2000);
+        resetTimer = setTimeout(() => setMainState('Ask AI', '#icon-chat-dots'), 2000);
       }
     }
     copyEls.forEach((el) => el.addEventListener('click', function (e) {
