@@ -1803,7 +1803,7 @@
               <span class="ai-item-sub">Copy page as Markdown for LLMs</span>
             </span>
           </button>
-          <a class="ai-item" role="menuitem" href="https://claude.ai/new?q=Read%20from%20https%3A%2F%2Fstorystak.ai%2Foverview.md%20so%20I%20can%20ask%20questions%20about%20Storystak%20AI." target="_blank" rel="noopener noreferrer">
+          <a class="ai-item" role="menuitem" href="https://claude.ai/new?q=Please%20open%20and%20read%20this%20exact%20URL%20using%20your%20browsing%2Ffetch%20tool%2C%20not%20web%20search%3A%20https%3A%2F%2Fstorystak.ai%2Foverview.md%20%E2%80%94%20it%20is%20the%20official%20Storystak%20AI%20overview.%20Use%20only%20the%20content%20at%20that%20URL.%20If%20you%20cannot%20open%20it%2C%20tell%20me%20you%20couldn't%20access%20it%20and%20stop%20rather%20than%20guessing.%20Once%20you've%20read%20it%2C%20follow%20the%20guidance%20on%20the%20page." target="_blank" rel="noopener noreferrer">
             <span class="ai-item-icon"><svg class="icon" aria-hidden="true"><use href="#icon-claude"></use></svg></span>
             <span class="ai-item-text">
               <span class="ai-item-title">Open in Claude</span>
@@ -1811,7 +1811,7 @@
             </span>
             <svg class="icon ai-item-arrow" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg>
           </a>
-          <a class="ai-item" role="menuitem" href="https://chatgpt.com/?q=Read%20from%20https%3A%2F%2Fstorystak.ai%2Foverview.md%20so%20I%20can%20ask%20questions%20about%20Storystak%20AI." target="_blank" rel="noopener noreferrer">
+          <a class="ai-item" role="menuitem" href="https://chatgpt.com/?q=Please%20open%20and%20read%20this%20exact%20URL%20using%20your%20browsing%2Ffetch%20tool%2C%20not%20web%20search%3A%20https%3A%2F%2Fstorystak.ai%2Foverview.md%20%E2%80%94%20it%20is%20the%20official%20Storystak%20AI%20overview.%20Use%20only%20the%20content%20at%20that%20URL.%20If%20you%20cannot%20open%20it%2C%20tell%20me%20you%20couldn't%20access%20it%20and%20stop%20rather%20than%20guessing.%20Once%20you've%20read%20it%2C%20follow%20the%20guidance%20on%20the%20page." target="_blank" rel="noopener noreferrer">
             <span class="ai-item-icon"><svg class="icon" aria-hidden="true"><use href="#vroad-i-openai"></use></svg></span>
             <span class="ai-item-text">
               <span class="ai-item-title">Open in ChatGPT</span>
@@ -1819,11 +1819,11 @@
             </span>
             <svg class="icon ai-item-arrow" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg>
           </a>
-          <!-- Gemini: Google's ?q= prompt-prefill is historically unreliable and could not
-               be live-verified in this build environment, so we use the documented fallback —
-               open the Gemini app AND copy the prompt to the clipboard so the user can paste it. -->
-          <a class="ai-item" role="menuitem" href="https://gemini.google.com/app" target="_blank" rel="noopener noreferrer"
-             data-ai-gemini data-ai-prompt="Read from https://storystak.ai/overview.md so I can ask questions about Storystak AI.">
+          <!-- Gemini: we pass the hardened prompt via ?q=, but Google's prompt-prefill is
+               historically unreliable and could not be live-verified in this build environment,
+               so we also copy the prompt to the clipboard as a fallback (the user can paste it). -->
+          <a class="ai-item" role="menuitem" href="https://gemini.google.com/app?q=Please%20open%20and%20read%20this%20exact%20URL%20using%20your%20browsing%2Ffetch%20tool%2C%20not%20web%20search%3A%20https%3A%2F%2Fstorystak.ai%2Foverview.md%20%E2%80%94%20it%20is%20the%20official%20Storystak%20AI%20overview.%20Use%20only%20the%20content%20at%20that%20URL.%20If%20you%20cannot%20open%20it%2C%20tell%20me%20you%20couldn't%20access%20it%20and%20stop%20rather%20than%20guessing.%20Once%20you've%20read%20it%2C%20follow%20the%20guidance%20on%20the%20page." target="_blank" rel="noopener noreferrer"
+             data-ai-gemini data-ai-prompt="Please open and read this exact URL using your browsing/fetch tool, not web search: https://storystak.ai/overview.md — it is the official Storystak AI overview. Use only the content at that URL. If you cannot open it, tell me you couldn't access it and stop rather than guessing. Once you've read it, follow the guidance on the page.">
             <span class="ai-item-icon"><svg class="icon" aria-hidden="true"><use href="#icon-gemini"></use></svg></span>
             <span class="ai-item-text">
               <span class="ai-item-title">Open in Gemini</span>
@@ -1884,7 +1884,7 @@
                   <span class="ai-item-sub">Copy page as Markdown for LLMs</span>
                 </span>
               </button>
-              <a class="ai-item" role="menuitem" href="https://claude.ai/new?q=Read%20from%20https%3A%2F%2Fstorystak.ai%2Foverview.md%20so%20I%20can%20ask%20questions%20about%20Storystak%20AI." target="_blank" rel="noopener noreferrer">
+              <a class="ai-item" role="menuitem" href="https://claude.ai/new?q=Please%20open%20and%20read%20this%20exact%20URL%20using%20your%20browsing%2Ffetch%20tool%2C%20not%20web%20search%3A%20https%3A%2F%2Fstorystak.ai%2Foverview.md%20%E2%80%94%20it%20is%20the%20official%20Storystak%20AI%20overview.%20Use%20only%20the%20content%20at%20that%20URL.%20If%20you%20cannot%20open%20it%2C%20tell%20me%20you%20couldn't%20access%20it%20and%20stop%20rather%20than%20guessing.%20Once%20you've%20read%20it%2C%20follow%20the%20guidance%20on%20the%20page." target="_blank" rel="noopener noreferrer">
                 <span class="ai-item-icon"><svg class="icon" aria-hidden="true"><use href="#icon-claude"></use></svg></span>
                 <span class="ai-item-text">
                   <span class="ai-item-title">Open in Claude</span>
@@ -1892,7 +1892,7 @@
                 </span>
                 <svg class="icon ai-item-arrow" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg>
               </a>
-              <a class="ai-item" role="menuitem" href="https://chatgpt.com/?q=Read%20from%20https%3A%2F%2Fstorystak.ai%2Foverview.md%20so%20I%20can%20ask%20questions%20about%20Storystak%20AI." target="_blank" rel="noopener noreferrer">
+              <a class="ai-item" role="menuitem" href="https://chatgpt.com/?q=Please%20open%20and%20read%20this%20exact%20URL%20using%20your%20browsing%2Ffetch%20tool%2C%20not%20web%20search%3A%20https%3A%2F%2Fstorystak.ai%2Foverview.md%20%E2%80%94%20it%20is%20the%20official%20Storystak%20AI%20overview.%20Use%20only%20the%20content%20at%20that%20URL.%20If%20you%20cannot%20open%20it%2C%20tell%20me%20you%20couldn't%20access%20it%20and%20stop%20rather%20than%20guessing.%20Once%20you've%20read%20it%2C%20follow%20the%20guidance%20on%20the%20page." target="_blank" rel="noopener noreferrer">
                 <span class="ai-item-icon"><svg class="icon" aria-hidden="true"><use href="#vroad-i-openai"></use></svg></span>
                 <span class="ai-item-text">
                   <span class="ai-item-title">Open in ChatGPT</span>
@@ -1900,8 +1900,8 @@
                 </span>
                 <svg class="icon ai-item-arrow" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg>
               </a>
-              <a class="ai-item" role="menuitem" href="https://gemini.google.com/app" target="_blank" rel="noopener noreferrer"
-                 data-ai-gemini data-ai-prompt="Read from https://storystak.ai/overview.md so I can ask questions about Storystak AI.">
+              <a class="ai-item" role="menuitem" href="https://gemini.google.com/app?q=Please%20open%20and%20read%20this%20exact%20URL%20using%20your%20browsing%2Ffetch%20tool%2C%20not%20web%20search%3A%20https%3A%2F%2Fstorystak.ai%2Foverview.md%20%E2%80%94%20it%20is%20the%20official%20Storystak%20AI%20overview.%20Use%20only%20the%20content%20at%20that%20URL.%20If%20you%20cannot%20open%20it%2C%20tell%20me%20you%20couldn't%20access%20it%20and%20stop%20rather%20than%20guessing.%20Once%20you've%20read%20it%2C%20follow%20the%20guidance%20on%20the%20page." target="_blank" rel="noopener noreferrer"
+                 data-ai-gemini data-ai-prompt="Please open and read this exact URL using your browsing/fetch tool, not web search: https://storystak.ai/overview.md — it is the official Storystak AI overview. Use only the content at that URL. If you cannot open it, tell me you couldn't access it and stop rather than guessing. Once you've read it, follow the guidance on the page.">
                 <span class="ai-item-icon"><svg class="icon" aria-hidden="true"><use href="#icon-gemini"></use></svg></span>
                 <span class="ai-item-text">
                   <span class="ai-item-title">Open in Gemini</span>
@@ -2820,6 +2820,12 @@
   // "Open in AI" split button. Progressive enhancement: the Claude/ChatGPT/Gemini
   // links work without JS; JS adds copy-to-clipboard, the popover (keyboard +
   // outside-click + Escape), and the Gemini clipboard fallback.
+  //
+  // The ?q= prompts are deliberately directive ("open and read this exact URL using
+  // your browsing/fetch tool, not web search ...") to stop assistants from web-searching
+  // the company name and hallucinating an unrelated company. ChatGPT's honoring of this
+  // could not be live-verified in this build environment; if it still web-searches, the
+  // backstop is the self-verifying header at the top of overview.md itself.
   (function () {
     const menus = document.querySelectorAll('[data-ai-menu]');
     if (!menus.length) return;
