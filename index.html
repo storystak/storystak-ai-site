@@ -2816,7 +2816,10 @@
     }));
 
     // Copy page: fetch the raw Markdown, write to clipboard, show inline confirmation.
+    // Reset to this button's own label/icon (captured here so it works for any label).
     let resetTimer;
+    const DEFAULT_LABEL = (mainBtn.querySelector('.ai-split-label') || {}).textContent || 'Ask AI';
+    const DEFAULT_ICON = (mainBtn.querySelector('use') || { getAttribute: () => '#icon-chat-dots' }).getAttribute('href');
     function setMainState(label, iconId) {
       const lbl = mainBtn.querySelector('.ai-split-label');
       const use = mainBtn.querySelector('use');
@@ -2824,17 +2827,25 @@
       if (use) use.setAttribute('href', iconId);
     }
     async function copyPage() {
+      const getText = () => fetch(OVERVIEW_URL, { headers: { 'Accept': 'text/markdown, text/plain' } })
+        .then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); });
       try {
-        const res = await fetch(OVERVIEW_URL, { headers: { 'Accept': 'text/markdown, text/plain' } });
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        const text = await res.text();
-        await navigator.clipboard.writeText(text);
+        // iOS Safari revokes clipboard permission once `fetch` is awaited before the
+        // write, so initiate the write synchronously by handing ClipboardItem the
+        // (pending) fetch promise — this preserves the user-gesture activation.
+        if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write) {
+          await navigator.clipboard.write([
+            new ClipboardItem({ 'text/plain': getText().then((t) => new Blob([t], { type: 'text/plain' })) })
+          ]);
+        } else {
+          await navigator.clipboard.writeText(await getText());
+        }
         setMainState('Copied', '#icon-check');
       } catch (err) {
         setMainState('Copy failed, try again', '#icon-x');
       } finally {
         clearTimeout(resetTimer);
-        resetTimer = setTimeout(() => setMainState('Ask AI', '#icon-chat-dots'), 2000);
+        resetTimer = setTimeout(() => setMainState(DEFAULT_LABEL, DEFAULT_ICON), 2000);
       }
     }
     copyEls.forEach((el) => el.addEventListener('click', function (e) {
