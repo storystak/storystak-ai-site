@@ -6,7 +6,7 @@
 
 We build the operational layer that sits between the AI tools a company already has (Claude, ChatGPT, etc.) and the team that uses them. Most companies that have tried AI report that pilots didn't stick or output sounded generic — the issue is almost always missing infrastructure, not missing tools. BCG calls this the 70% (people, processes, organizational readiness); the tools and models are only 30% of the equation.
 
-A typical Storystak engagement runs 6 weeks and produces:
+A typical Storystak engagement produces:
 
 - Custom AI workspaces configured with the client's voice, processes, and decision criteria
 - Knowledge files containing SOPs, brand standards, product details, and institutional knowledge
@@ -31,8 +31,6 @@ Every system we build reads from the Vault: the client's knowledge (voice, posit
 - 9 hours reclaimed per person per week (BCG research on AI super-users vs. laggards)
 - 51 working days per person per year previously lost to technology friction
 - 4x team output without adding headcount
-- $138K–$414K in annual value recovered from a single engagement (typical range for a 10-person team)
-- 7–14x return on a single engagement in year one
 
 ## How we differ from typical AI consulting
 
