@@ -2582,44 +2582,44 @@
       reset();
       loadScenario(scenario);
       scenarioIndex = (scenarioIndex + 1) % SCENARIOS.length;
-      await sleep(900);
+      await sleep(450);
 
       show('vmcp-msg-user');
-      await sleep(1800);
+      await sleep(900);
 
       $('vmcp-row-search').classList.add('vmcp-working');
       show('vmcp-row-search');
-      await sleep(2000);
+      await sleep(1000);
       $('vmcp-row-search').classList.remove('vmcp-working');
 
       show('vmcp-msg-mid');
-      await sleep(2000);
+      await sleep(1000);
 
       $('vmcp-row-brand').classList.add('vmcp-working');
       show('vmcp-row-brand');
-      await sleep(1800);
+      await sleep(900);
       $('vmcp-row-brand').classList.remove('vmcp-working');
 
       if (scenario.extra) {
         $('vmcp-row-extra').classList.add('vmcp-working');
         show('vmcp-row-extra');
-        await sleep(1800);
+        await sleep(900);
         $('vmcp-row-extra').classList.remove('vmcp-working');
 
         show('vmcp-msg-mid2');
-        await sleep(1800);
+        await sleep(900);
       }
 
       show('vmcp-msg-reply');
-      await sleep(1600);
+      await sleep(800);
 
       show('vmcp-msg-file');
-      await sleep(1800);
+      await sleep(900);
 
       if (scenario.showFlag) {
         $('vmcp-row-log').classList.add('vmcp-working');
         show('vmcp-row-log');
-        await sleep(2400);
+        await sleep(1200);
         $('vmcp-row-log').classList.remove('vmcp-working');
         govCheck.classList.add('vmcp-on');
       }
