@@ -2432,7 +2432,7 @@
         </a>
       </div>
       <!-- Quiet secondary path for the still-undecided: ask an AI about Storystak first.
-           Acts on the raw Markdown at /overview.md. The dropdown flips upward when there
+           Acts on the raw Markdown at /overview.txt. The dropdown flips upward when there
            isn't room below so it never spills into the footer. -->
       <div class="ai-final fade-up">
         <p class="ai-final-label">Not ready to talk?</p>
@@ -2454,7 +2454,7 @@
                 <span class="ai-item-sub">Copy page as Markdown for LLMs</span>
               </span>
             </button>
-            <a class="ai-item" role="menuitem" href="https://claude.ai/new?q=Please%20open%20and%20read%20this%20exact%20URL%20using%20your%20browsing%2Ffetch%20tool%2C%20not%20web%20search%3A%20https%3A%2F%2Fstorystak.ai%2Foverview.md%20%E2%80%94%20it%20is%20the%20official%20Storystak%20AI%20overview.%20Use%20only%20the%20content%20at%20that%20URL.%20If%20you%20cannot%20open%20it%2C%20tell%20me%20you%20couldn't%20access%20it%20and%20stop%20rather%20than%20guessing.%20Once%20you've%20read%20it%2C%20follow%20the%20guidance%20on%20the%20page." target="_blank" rel="noopener noreferrer">
+            <a class="ai-item" role="menuitem" href="https://claude.ai/new?q=I%27d%20like%20to%20learn%20about%20Storystak%20AI.%20Please%20fetch%20this%20exact%20URL%20with%20your%20browsing%2Ffetch%20tool%20instead%20of%20web-searching%20the%20name%3A%20https%3A%2F%2Fstorystak.ai%2Foverview.txt%20.%20It%27s%20the%20official%20Storystak%20AI%20overview%2C%20and%20I%20want%20you%20to%20use%20only%20that%20page.%20If%20you%20can%27t%20open%20it%2C%20just%20tell%20me%20and%20stop.%20Once%20you%27ve%20read%20it%2C%20give%20me%20the%20short%20version%20and%20help%20me%20figure%20out%20if%20it%20fits." target="_blank" rel="noopener noreferrer">
               <span class="ai-item-icon"><svg class="icon" aria-hidden="true"><use href="#icon-claude"></use></svg></span>
               <span class="ai-item-text">
                 <span class="ai-item-title">Open in Claude</span>
@@ -2462,7 +2462,7 @@
               </span>
               <svg class="icon ai-item-arrow" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg>
             </a>
-            <a class="ai-item" role="menuitem" href="https://chatgpt.com/?q=Please%20open%20and%20read%20this%20exact%20URL%20using%20your%20browsing%2Ffetch%20tool%2C%20not%20web%20search%3A%20https%3A%2F%2Fstorystak.ai%2Foverview.md%20%E2%80%94%20it%20is%20the%20official%20Storystak%20AI%20overview.%20Use%20only%20the%20content%20at%20that%20URL.%20If%20you%20cannot%20open%20it%2C%20tell%20me%20you%20couldn't%20access%20it%20and%20stop%20rather%20than%20guessing.%20Once%20you've%20read%20it%2C%20follow%20the%20guidance%20on%20the%20page." target="_blank" rel="noopener noreferrer">
+            <a class="ai-item" role="menuitem" href="https://chatgpt.com/?q=I%27d%20like%20to%20learn%20about%20Storystak%20AI.%20Please%20fetch%20this%20exact%20URL%20with%20your%20browsing%2Ffetch%20tool%20instead%20of%20web-searching%20the%20name%3A%20https%3A%2F%2Fstorystak.ai%2Foverview.txt%20.%20It%27s%20the%20official%20Storystak%20AI%20overview%2C%20and%20I%20want%20you%20to%20use%20only%20that%20page.%20If%20you%20can%27t%20open%20it%2C%20just%20tell%20me%20and%20stop.%20Once%20you%27ve%20read%20it%2C%20give%20me%20the%20short%20version%20and%20help%20me%20figure%20out%20if%20it%20fits." target="_blank" rel="noopener noreferrer">
               <span class="ai-item-icon"><svg class="icon" aria-hidden="true"><use href="#vroad-i-openai"></use></svg></span>
               <span class="ai-item-text">
                 <span class="ai-item-title">Open in ChatGPT</span>
@@ -2762,7 +2762,8 @@
   // your browsing/fetch tool, not web search ...") to stop assistants from web-searching
   // the company name and hallucinating an unrelated company. ChatGPT's honoring of this
   // could not be live-verified in this build environment; if it still web-searches, the
-  // backstop is the self-verifying header at the top of overview.md itself.
+  // backstop is the self-verifying header at the top of overview.txt itself. (.txt, not .md:
+  // ChatGPT's fetch tool rejects the text/markdown content type.)
   (function () {
     const menus = document.querySelectorAll('[data-ai-menu]');
     if (!menus.length) return;
@@ -2774,7 +2775,7 @@
     const mainBtn = menu.querySelector('.ai-split-main');
     const copyEls = menu.querySelectorAll('[data-ai-copy]');
     const items = Array.from(dropdown.querySelectorAll('.ai-item'));
-    const OVERVIEW_URL = 'https://storystak.ai/overview.md';
+    const OVERVIEW_URL = 'https://storystak.ai/overview.txt';
 
     const isOpen = () => !dropdown.hidden;
     const setExpanded = (v) => toggles.forEach((t) => t.setAttribute('aria-expanded', v ? 'true' : 'false'));
