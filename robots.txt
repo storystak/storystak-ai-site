@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-
-# Crawl-delay only enforced by some crawlers; mainstream crawlers ignore it. Safe to omit.
-
-Sitemap: https://storystak.ai/sitemap.xml

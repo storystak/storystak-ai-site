@@ -1,0 +1,4 @@
+# storystak.ai is retired. Every path goes to the same path on storystak.com.
+# The ! forces a rule even where a file exists (index.html is kept as a fallback).
+/     https://storystak.com/          301!
+/*    https://storystak.com/:splat    301!
